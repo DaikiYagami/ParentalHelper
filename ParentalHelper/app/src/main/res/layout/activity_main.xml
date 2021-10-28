@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:text="Ahora no estamos conectados"
         android:textAlignment="center"
-        android:textColor="@color/black"
+        android:textColor="#FFC107"
         android:textSize="34sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
