@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 
@@ -17,8 +18,8 @@ class RegistroAdapter(var context: Context): RecyclerView.Adapter<RegistroAdapte
     }
 
     class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
-        var nombre: TextView = itemView.findViewById(R.id.tv_nombre)
-        // var cardView: CardView = itemView.findViewById(R.id.registro_cardView) // para hacer click
+        val nombre: TextView = itemView.findViewById(R.id.tv_nombre)
+        val cardView: CardView = itemView.findViewById(R.id.registro_cardView) // para hacer click
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RegistroAdapter.ViewHolder {
@@ -30,6 +31,10 @@ class RegistroAdapter(var context: Context): RecyclerView.Adapter<RegistroAdapte
         val data = dataList[position]
 
         holder.nombre.text = data.nombre
+
+        holder.cardView.setOnClickListener {
+            Toast.makeText(context, "click", Toast.LENGTH_SHORT).show()
+        }
     }
 
     override fun getItemCount() = dataList.size
