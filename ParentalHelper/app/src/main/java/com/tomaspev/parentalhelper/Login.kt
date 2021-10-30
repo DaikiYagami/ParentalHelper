@@ -12,7 +12,7 @@ class Login : AppCompatActivity() {
         supportActionBar?.hide()
     }
     fun registrarse(view: View){
-        val intent = Intent(this, Registro::class.java)
+        val intent = Intent(this, RegistroUsuario::class.java)
         startActivity(intent)
     }
 }

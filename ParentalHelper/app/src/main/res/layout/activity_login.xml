@@ -40,6 +40,7 @@
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:gravity="center"
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
@@ -98,7 +99,7 @@
             android:id="@+id/signInAppCompatButton"
             android:layout_width="wrap_content"
             android:layout_height="48dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="92dp"
             android:background="@color/purple_500"
             android:paddingLeft="64dp"
             android:paddingRight="64dp"
@@ -134,9 +135,10 @@
             android:layout_marginRight="16dp"
             android:layout_weight="0"
             android:onClick="registrarse"
-            android:text="@string/registrate"
+            android:text="@string/registrarse"
             android:textColor="@color/purple_700"
-            android:textSize="24sp" />
+            android:textSize="24sp"
+            tools:ignore="TouchTargetSizeCheck" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
