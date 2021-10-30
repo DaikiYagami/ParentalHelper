@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "165836093897",
+    "project_id": "parental-helper",
+    "storage_bucket": "parental-helper.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:165836093897:android:ce164597c11fba608ed018",
+        "android_client_info": {
+          "package_name": "com.tomaspev.parentalhelper"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "165836093897-t8d5a94ia2sghbe3mbcqs10s7nd6011q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCzow3LCdah8AuU5QdJAaT9aLQEz5NcFnc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "165836093897-t8d5a94ia2sghbe3mbcqs10s7nd6011q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
