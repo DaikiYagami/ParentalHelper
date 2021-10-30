@@ -6,21 +6,127 @@
     android:layout_height="match_parent"
     tools:context=".Login">
 
-    <Button
-        android:id="@+id/button5"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Button"
+        android:layout_marginTop="64dp"
+        android:gravity="center"
+        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="429dp" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="UseCompoundDrawables">
 
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="204dp"
-        android:layout_height="244dp"
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:srcCompat="@drawable/github"
+            tools:ignore="VectorDrawableCompat" />
+
+        <TextView
+            android:id="@+id/tituloApp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Parental Helper"
+            android:textColor="@color/black"
+            android:textSize="24sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/ic_launcher_foreground"
-        tools:layout_editor_absoluteY="83dp" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
+
+        <EditText
+            android:id="@+id/emailEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24dp"
+            android:layout_marginRight="24dp"
+            android:autofillHints="Email"
+            android:drawablePadding="16dp"
+            android:ems="10"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            android:padding="16dp" />
+
+        <EditText
+            android:id="@+id/passwordEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginRight="24dp"
+            android:autofillHints="Contraseña"
+            android:drawablePadding="16dp"
+            android:ems="10"
+            android:hint="Contraseña"
+            android:inputType="textPassword"
+            android:padding="16dp" />
+
+        <TextView
+            android:id="@+id/recoveryAccountTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginRight="32dp"
+            android:gravity="end"
+            android:text="¿Olvidaste tu contraseña?"
+            android:textSize="16sp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/signInAppCompatButton"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_marginTop="32dp"
+            android:background="@color/purple_500"
+            android:paddingLeft="64dp"
+            android:paddingRight="64dp"
+            android:text="Iniciar Sesión"
+            android:textColor="@color/white" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="28dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:text="No tienes cuenta?"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/registrateTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_weight="0"
+            android:text="Registrate"
+            android:textColor="@color/purple_700"
+            android:textSize="24sp" />
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
