@@ -62,7 +62,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:backgroundTint="@color/teal_700"
+            android:backgroundTint="@color/purple_500"
             android:text="Hola" />
 
         <Space
@@ -88,7 +88,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:backgroundTint="@color/teal_700"
+            android:backgroundTint="@color/purple_500"
             android:text="Botones" />
 
         <Space
