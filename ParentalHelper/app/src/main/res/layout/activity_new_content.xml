@@ -6,25 +6,41 @@
     android:layout_height="match_parent"
     tools:context=".NewContent">
 
-    <ListView
-        android:id="@+id/listaNewContent1"
-        android:layout_width="200dp"
-        android:layout_height="523dp"
-        android:layout_marginStart="6dp"
-        android:layout_marginBottom="1dp"
-        android:orientation="vertical"
-
-
-        app:layout_constraintBottom_toBottomOf="parent"
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
+        android:layout_marginBottom="13dp"
+        android:text="TextView"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display3"
+        app:layout_constraintBottom_toTopOf="@+id/ listaNewContent1"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="DuplicateIds,NotSibling,DuplicateSpeakableTextCheck" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ListView
-        android:id="@+id/listaNewContent2"
-        android:layout_width="204dp"
-        android:layout_height="526dp"
+        android:id="@+id/ listaNewContent1"
+        android:layout_width="167dp"
+        android:layout_height="590dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="13dp"
+        android:layout_marginBottom="1dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/ listaNewContent2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <ListView
+        android:id="@+id/ listaNewContent2"
+        android:layout_width="158dp"
+        android:layout_height="541dp"
+        android:layout_marginTop="21dp"
+        android:layout_marginEnd="36dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/listaNewContent1" />
+        app:layout_constraintStart_toEndOf="@+id/ listaNewContent1"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintVertical_bias="0.666" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

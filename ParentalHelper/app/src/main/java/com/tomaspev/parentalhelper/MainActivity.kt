@@ -11,10 +11,5 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
     }
-    fun startNewContent(view: View){
-        Toast.makeText(this,"Ingresando a Nuevo Contenido", Toast.LENGTH_SHORT).show()
-        val intent = Intent (this,NewContent::class.java)
-        startActivity(intent)
-        finish()
-    }
+
 }

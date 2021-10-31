@@ -16,21 +16,11 @@ class NewContent : AppCompatActivity() {
 
 
 
-        val listaNewContent = listOf(contenido1 , contenido2,contenido3,contenido4)
-        val listaNewContent2 = listOf(contenido1 , contenido2,contenido3,contenido4)
+        val listaNContent = listOf(contenido1 , contenido3)
+        val listaNContent2 = listOf(contenido2 , contenido4)
 
-        val adapter = NewContentAdapter(this, listaNewContent)
-        val adapter2 = NewContentAdapter(this, listaNewContent2)
-
-        listaNewContent1.adapter = adapter
-
-
-
-
-
-
-
-
+        val adapter1 = NewContentAdapter(this, listaNContent)
+        val adapter2 = NewContentAdapter(this, listaNContent2)
 
 
 
