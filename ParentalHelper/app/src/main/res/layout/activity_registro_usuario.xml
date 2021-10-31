@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Login"
+    tools:context=".RegistroUsuario"
     android:background="@color/white">
 
     <LinearLayout
@@ -20,14 +20,14 @@
         tools:ignore="UseCompoundDrawables">
 
         <ImageView
-            android:id="@+id/logo"
+            android:id="@+id/imageView2"
             android:layout_width="125dp"
             android:layout_height="125dp"
             app:srcCompat="@drawable/logotemporal"
             tools:ignore="VectorDrawableCompat" />
 
         <TextView
-            android:id="@+id/tituloApp"
+            android:id="@+id/textView5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -40,10 +40,10 @@
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginBottom="32dp"
         android:gravity="center"
         android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
@@ -53,6 +53,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="24dp"
+            android:layout_marginTop="24dp"
             android:layout_marginRight="24dp"
             android:autofillHints="Email"
             android:backgroundTint="@color/black"
@@ -77,68 +78,38 @@
             android:ems="10"
             android:hint="Contraseña"
             android:inputType="textPassword"
+            android:maxLength="16"
             android:padding="16dp"
             android:textColor="@color/black"
             android:textColorHint="@color/teal_700" />
 
-        <TextView
-            android:id="@+id/recoveryAccountTextView"
+        <EditText
+            android:id="@+id/repeatPasswordEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
             android:layout_marginLeft="24dp"
             android:layout_marginTop="24dp"
-            android:layout_marginEnd="32dp"
-            android:layout_marginRight="32dp"
-            android:gravity="end"
-            android:text="¿Olvidaste tu contraseña?"
+            android:layout_marginRight="24dp"
+            android:autofillHints="Repite la contraseña"
+            android:backgroundTint="@color/black"
+            android:drawablePadding="16dp"
+            android:ems="10"
+            android:hint="Repite la contraseña"
+            android:inputType="textPassword"
+            android:maxLength="16"
+            android:padding="16dp"
             android:textColor="@color/black"
-            android:textSize="16sp" />
+            android:textColorHint="@color/teal_700" />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/signInAppCompatButton"
+            android:id="@+id/signUpButton"
             android:layout_width="wrap_content"
             android:layout_height="48dp"
-            android:layout_marginTop="92dp"
+            android:layout_marginTop="32dp"
             android:background="@color/purple_500"
             android:paddingLeft="64dp"
             android:paddingRight="64dp"
-            android:text="Iniciar Sesión"
+            android:text="Registrarse"
             android:textColor="@color/white" />
     </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/linearLayout2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="28dp"
-        android:gravity="center"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="0"
-            android:text="No tienes cuenta?"
-            android:textColor="@color/black"
-            android:textSize="20sp" />
-
-        <TextView
-            android:id="@+id/registrateTxt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:layout_weight="0"
-            android:onClick="registrarse"
-            android:text="@string/registrarse"
-            android:textColor="@color/purple_700"
-            android:textSize="24sp"
-            tools:ignore="TouchTargetSizeCheck" />
-    </LinearLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>
