@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // Registros
+        // Registros ============================================================================================================
         val recyclerViewR = findViewById<RecyclerView>(R.id.rv_registros)
         recyclerViewR.layoutManager = LinearLayoutManager(applicationContext, LinearLayoutManager.HORIZONTAL, false)
         registroAdapter = RegistroAdapter(applicationContext)
@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity() {
 
         registroAdapter.setDataList(dataListR)
 
-        // Destacados
+        // Destacados ===========================================================================================================
         val recyclerViewD = findViewById<RecyclerView>(R.id.rv_destacados)
         recyclerViewD.layoutManager = LinearLayoutManager(applicationContext, LinearLayoutManager.HORIZONTAL, false)
         destacadoAdapter = DestacadoAdapter(applicationContext)
@@ -49,7 +49,7 @@ class MainActivity : AppCompatActivity() {
         )
         destacadoAdapter.setDataList((dataListD))
 
-        // Contenido Nuevo
+        // Contenido Nuevo ======================================================================================================
         val recyclerViewC = findViewById<RecyclerView>(R.id.rv_nuevos_contenidos)
         recyclerViewC.layoutManager = LinearLayoutManager(applicationContext, LinearLayoutManager.HORIZONTAL, false)
         contenidoNuevoAdapter = ContenidoNuevoAdapter(applicationContext)
