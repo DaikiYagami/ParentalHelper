@@ -52,7 +52,7 @@
 
         <EditText
             android:id="@+id/emailEditText"
-            android:layout_width="match_parent"
+            android:layout_width="325dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="24dp"
             android:layout_marginRight="24dp"
@@ -68,7 +68,7 @@
 
         <EditText
             android:id="@+id/passwordEditText"
-            android:layout_width="match_parent"
+            android:layout_width="325dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="24dp"
             android:layout_marginTop="24dp"
@@ -99,7 +99,7 @@
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/LogInButton"
-            android:layout_width="355dp"
+            android:layout_width="325dp"
             android:layout_height="48dp"
             android:layout_marginTop="32dp"
             android:background="@color/purple_500"
@@ -162,12 +162,12 @@
         app:layout_constraintTop_toBottomOf="@+id/authLayout">
 
         <Space
-            android:layout_width="25dp"
+            android:layout_width="40dp"
             android:layout_height="wrap_content"
             android:layout_weight="0" />
 
         <ImageButton
-            android:id="@+id/imageButton"
+            android:id="@+id/googleButton"
             android:layout_width="35dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -181,7 +181,7 @@
             android:layout_weight="0" />
 
         <ImageButton
-            android:id="@+id/imageButton2"
+            android:id="@+id/facebookButton"
             android:layout_width="35dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -190,7 +190,7 @@
             tools:ignore="SpeakableTextPresentCheck" />
 
         <Space
-            android:layout_width="25dp"
+            android:layout_width="40dp"
             android:layout_height="wrap_content"
             android:layout_weight="0" />
 
