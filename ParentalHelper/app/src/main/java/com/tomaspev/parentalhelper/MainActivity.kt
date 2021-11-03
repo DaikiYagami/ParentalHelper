@@ -7,26 +7,60 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 class MainActivity : AppCompatActivity() {
+    // Registros
     private lateinit var registroAdapter: RegistroAdapter
-    private lateinit var dataList: List<Registro>
-
+    private lateinit var dataListR: List<Registro>
+    // Destacados
+    private lateinit var destacadoAdapter: DestacadoAdapter
+    private lateinit var dataListD: List<Destacado>
+    // Nuevos Contenidos
+    private lateinit var contenidoNuevoAdapter: ContenidoNuevoAdapter
+    private lateinit var dataListC: List<ContenidoNuevo>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val recyclerView = findViewById<RecyclerView>(R.id.rv_registros)
-        recyclerView.layoutManager = LinearLayoutManager(applicationContext, LinearLayoutManager.HORIZONTAL, false)
+        // Registros
+        val recyclerViewR = findViewById<RecyclerView>(R.id.rv_registros)
+        recyclerViewR.layoutManager = LinearLayoutManager(applicationContext, LinearLayoutManager.HORIZONTAL, false)
         registroAdapter = RegistroAdapter(applicationContext)
-        recyclerView.adapter = registroAdapter
+        recyclerViewR.adapter = registroAdapter
 
-        dataList = listOf(
-            Registro("Nombre 1"),
-            Registro("Nombre 2"),
-            Registro("Nombre 3")
+        dataListR = listOf(
+            Registro("Manuel", "12/04/2019", "H", false),
+            Registro("Jose", "15/07/2018", "H", true),
+            Registro("Martina", "23/09/2017", "M", false)
         )
 
-        registroAdapter.setDataList(dataList)
+        registroAdapter.setDataList(dataListR)
 
+        // Destacados
+        val recyclerViewD = findViewById<RecyclerView>(R.id.rv_destacados)
+        recyclerViewD.layoutManager = LinearLayoutManager(applicationContext, LinearLayoutManager.HORIZONTAL, false)
+        destacadoAdapter = DestacadoAdapter(applicationContext)
+        recyclerViewD.adapter = destacadoAdapter
+
+        dataListD = listOf(
+            Destacado("Destacado 1"),
+            Destacado("Destacado 2"),
+            Destacado("Destacado 3"),
+            Destacado("Destacado 4")
+        )
+        destacadoAdapter.setDataList((dataListD))
+
+        // Contenido Nuevo
+        val recyclerViewC = findViewById<RecyclerView>(R.id.rv_nuevos_contenidos)
+        recyclerViewC.layoutManager = LinearLayoutManager(applicationContext, LinearLayoutManager.HORIZONTAL, false)
+        contenidoNuevoAdapter = ContenidoNuevoAdapter(applicationContext)
+        recyclerViewC.adapter = contenidoNuevoAdapter
+
+        dataListC = listOf(
+            ContenidoNuevo("Contenido 1"),
+            ContenidoNuevo("Contenido 2"),
+            ContenidoNuevo("Contenido 3"),
+            ContenidoNuevo("Contenido 4")
+        )
+        contenidoNuevoAdapter.setDataList((dataListC))
     }
 }
