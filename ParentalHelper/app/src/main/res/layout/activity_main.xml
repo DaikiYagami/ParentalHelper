@@ -57,39 +57,24 @@
             android:layout_height="wrap_content"
             android:layout_weight="0" />
 
-        <Button
-            android:id="@+id/button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:backgroundTint="@color/purple_500"
-            android:text="Hola" />
-
         <Space
             android:layout_width="8dp"
             android:layout_height="wrap_content"
             android:layout_weight="0" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/LogOutButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:backgroundTint="@color/purple_700"
-            android:text="Somos" />
+            android:text="cerrar sesión"
+            android:textSize="20sp" />
 
         <Space
             android:layout_width="8dp"
             android:layout_height="wrap_content"
             android:layout_weight="0" />
-
-        <Button
-            android:id="@+id/button3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:backgroundTint="@color/purple_500"
-            android:text="Botones" />
 
         <Space
             android:layout_width="8dp"

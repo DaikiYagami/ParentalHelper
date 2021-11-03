@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Parental Helper</string>
     <string name="registrarse"><u>Regístrate</u></string>
+    <string name="prefs_file">com.tomaspev.parentalhelper.PREFERENCE_FILE_KEY</string>
 </resources>

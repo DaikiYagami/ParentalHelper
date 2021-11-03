@@ -37,7 +37,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/linearLayout"
+        android:id="@+id/authLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -45,8 +45,10 @@
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
+        app:layout_constraintVertical_bias="0.0">
 
         <EditText
             android:id="@+id/emailEditText"
@@ -92,31 +94,36 @@
             android:layout_marginRight="32dp"
             android:gravity="end"
             android:text="¿Olvidaste tu contraseña?"
-            android:textColor="@color/black"
+            android:textColor="@color/purple_700"
             android:textSize="16sp" />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/signInAppCompatButton"
-            android:layout_width="wrap_content"
+            android:id="@+id/LogInButton"
+            android:layout_width="355dp"
             android:layout_height="48dp"
-            android:layout_marginTop="92dp"
+            android:layout_marginTop="32dp"
             android:background="@color/purple_500"
             android:paddingLeft="64dp"
             android:paddingRight="64dp"
             android:text="Iniciar Sesión"
-            android:textColor="@color/white" />
+            android:textColor="@color/white"
+            android:textSize="20sp" />
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="28dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="24dp"
         android:gravity="center"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout4"
+        app:layout_constraintVertical_bias="1.0">
 
         <TextView
             android:id="@+id/textView3"
@@ -134,11 +141,59 @@
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             android:layout_weight="0"
+            android:clickable="true"
             android:onClick="registrarse"
             android:text="@string/registrarse"
             android:textColor="@color/purple_700"
             android:textSize="24sp"
             tools:ignore="TouchTargetSizeCheck" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout4"
+        android:layout_width="409dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/authLayout">
+
+        <Space
+            android:layout_width="25dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0" />
+
+        <ImageButton
+            android:id="@+id/imageButton"
+            android:layout_width="35dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:scaleType="centerInside"
+            app:srcCompat="@drawable/google"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <Space
+            android:layout_width="8dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0" />
+
+        <ImageButton
+            android:id="@+id/imageButton2"
+            android:layout_width="35dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:scaleType="centerInside"
+            app:srcCompat="@drawable/facebook"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <Space
+            android:layout_width="25dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0" />
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
