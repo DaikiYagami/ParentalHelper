@@ -25,7 +25,7 @@ class RegistroAdapter(var context: Context): RecyclerView.Adapter<RegistroAdapte
     class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         val nombre: TextView = itemView.findViewById(R.id.tv_nombre)
         val edad: TextView = itemView.findViewById(R.id.tv_edad)
-        val cumple: TextView = itemView.findViewById(R.id.tv_cumple)
+        //val cumple: TextView = itemView.findViewById(R.id.tv_cumple)
         val capacidad: ImageButton = itemView.findViewById(R.id.btn_capacidad)
 
         val cardView: CardView = itemView.findViewById(R.id.registro_cardView) // para hacer click
@@ -41,7 +41,7 @@ class RegistroAdapter(var context: Context): RecyclerView.Adapter<RegistroAdapte
 
         holder.nombre.text = data.nombre
         holder.edad.text = daysBetween(data.cumple, todaysDate()).toString()
-        holder.cumple.text = formatoFecha(data.cumple, "dd/MM")
+        //holder.cumple.text = formatoFecha(data.cumple, "dd/MM")
         //holder.capacidad.setImageResource()
 
         holder.cardView.setOnClickListener {
