@@ -1,6 +1,7 @@
 package com.tomaspev.parentalhelper
 
 import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.google.firebase.auth.FirebaseAuth
@@ -40,7 +41,8 @@ class MainActivity : AppCompatActivity() {
             prefs.apply()
 
             FirebaseAuth.getInstance().signOut()
-            onBackPressed()
+            val home = Intent(this, Login::class.java)
+            startActivity(home)
         }
     }
 }
