@@ -4,22 +4,19 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import androidx.appcompat.app.AlertDialog
 import com.google.android.gms.auth.api.signin.GoogleSignIn
-import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import kotlinx.android.synthetic.main.activity_login.*
-import kotlinx.android.synthetic.main.activity_registro_usuario.*
 import kotlinx.android.synthetic.main.activity_registro_usuario.emailEditText
 import kotlinx.android.synthetic.main.activity_registro_usuario.passwordEditText
 
 class Login : AppCompatActivity() {
 
-    private val GOOGLE_SIGN_IN = 1
+    private val GOOGLE = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,7 +37,7 @@ class Login : AppCompatActivity() {
         }
     }
 
-    fun registrarse(view: View){
+    fun registrarse(){
         val intent = Intent(this, RegistroUsuario::class.java)
         startActivity(intent)
     }
@@ -69,8 +66,9 @@ class Login : AppCompatActivity() {
             val googleClient = GoogleSignIn.getClient(this, googleConf)
             googleClient.signOut()
 
-            startActivityForResult(googleClient.signInIntent, GOOGLE_SIGN_IN)
+            startActivityForResult(googleClient.signInIntent, GOOGLE)
         }
+
     }
 
     private fun showAlert() {
@@ -94,7 +92,7 @@ class Login : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
-        if(requestCode == GOOGLE_SIGN_IN) {
+        if(requestCode == GOOGLE) {
 
             val task = GoogleSignIn.getSignedInAccountFromIntent(data)
 
