@@ -68,7 +68,7 @@ class MainActivity : AppCompatActivity() {
         // Resto del código =====================================================================================================
 
         tv_todos_registros.setOnClickListener {
-            val intent = Intent(this, ListadoRegistros::class.java)
+            val intent = Intent(this, DetalleRegistro::class.java)
             startActivity(intent)
         }
     }
