@@ -41,13 +41,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp"
         android:gravity="center"
         android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+        app:layout_constraintBottom_toTopOf="@id/linearLayout4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
+        app:layout_constraintTop_toBottomOf="@id/linearLayout3"
         app:layout_constraintVertical_bias="0.0">
 
         <EditText
@@ -84,8 +85,8 @@
             android:textColorHint="@color/teal_700" />
 
         <TextView
-            android:id="@+id/recoveryAccountTextView"
-            android:layout_width="match_parent"
+            android:id="@+id/contraseñaOlvidadaTxT"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
             android:layout_marginLeft="24dp"
@@ -93,9 +94,11 @@
             android:layout_marginEnd="32dp"
             android:layout_marginRight="32dp"
             android:gravity="end"
+            android:minHeight="48dp"
+            android:onClick="recuperar"
             android:text="¿Olvidaste tu contraseña?"
             android:textColor="@color/purple_700"
-            android:textSize="16sp" />
+            android:textSize="20sp" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/LogInButton"
@@ -103,8 +106,6 @@
             android:layout_height="48dp"
             android:layout_marginTop="32dp"
             android:background="@color/purple_500"
-            android:paddingLeft="64dp"
-            android:paddingRight="64dp"
             android:text="Iniciar Sesión"
             android:textColor="@color/white"
             android:textSize="20sp" />
@@ -152,49 +153,27 @@
     <LinearLayout
         android:id="@+id/linearLayout4"
         android:layout_width="409dp"
-        android:layout_height="70dp"
-        android:layout_marginTop="16dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
+        android:gravity="center"
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/authLayout">
 
-        <Space
-            android:layout_width="40dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="0" />
-
         <ImageButton
             android:id="@+id/googleButton"
-            android:layout_width="35dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:background="@drawable/boton"
             android:backgroundTint="@color/purple_700"
-            android:scaleType="centerInside"
+            android:padding="12dp"
+            android:scaleType="fitCenter"
             app:srcCompat="@drawable/google"
             tools:ignore="SpeakableTextPresentCheck" />
-
-        <Space
-            android:layout_width="8dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="0" />
-
-        <ImageButton
-            android:id="@+id/facebookButton"
-            android:layout_width="35dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:backgroundTint="@color/purple_700"
-            android:scaleType="centerInside"
-            app:srcCompat="@drawable/facebook"
-            tools:ignore="SpeakableTextPresentCheck" />
-
-        <Space
-            android:layout_width="40dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="0" />
 
     </LinearLayout>
 

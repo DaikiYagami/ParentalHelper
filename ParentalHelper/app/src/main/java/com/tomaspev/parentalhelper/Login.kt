@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AlertDialog
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
@@ -37,10 +38,16 @@ class Login : AppCompatActivity() {
         }
     }
 
-    fun registrarse(){
+    fun registrarse(view: View){
         val intent = Intent(this, RegistroUsuario::class.java)
         startActivity(intent)
     }
+
+    fun recuperar(view: View){
+        val intent = Intent(this, RecuperarPass::class.java)
+        startActivity(intent)
+    }
+
     private fun setup(){
         LogInButton.setOnClickListener  {
             if (emailEditText.text.isNotEmpty() && passwordEditText.text.isNotEmpty()){
@@ -68,7 +75,6 @@ class Login : AppCompatActivity() {
 
             startActivityForResult(googleClient.signInIntent, GOOGLE)
         }
-
     }
 
     private fun showAlert() {
