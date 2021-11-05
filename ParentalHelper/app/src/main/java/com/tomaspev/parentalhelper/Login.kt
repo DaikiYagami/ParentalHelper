@@ -42,6 +42,10 @@ class Login : AppCompatActivity() {
         val intent = Intent(this, RegistroUsuario::class.java)
         startActivity(intent)
     }
+    fun david(view: View){
+        val intent = Intent(this, NewContent::class.java)
+        startActivity(intent)
+    }
 
     fun recuperar(view: View){
         val intent = Intent(this, RecuperarPass::class.java)
