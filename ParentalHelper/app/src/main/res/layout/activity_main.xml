@@ -7,6 +7,26 @@
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/tv_todos_nuevos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:text="VER TODOS"
+        app:layout_constraintBottom_toBottomOf="@+id/titulo_nuevos_contenidos"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/titulo_nuevos_contenidos" />
+
+    <TextView
+        android:id="@+id/tv_todos_destacados"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:text="VER TODOS"
+        app:layout_constraintBottom_toBottomOf="@+id/titulo_destacados"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/titulo_destacados" />
+
+    <TextView
         android:id="@+id/titulo_registros"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -74,5 +94,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titulo_nuevos_contenidos" />
+
+    <TextView
+        android:id="@+id/tv_todos_registros"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:text="VER TODOS"
+        app:layout_constraintBottom_toBottomOf="@+id/titulo_registros"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/titulo_registros" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

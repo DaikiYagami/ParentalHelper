@@ -1,10 +1,12 @@
 package com.tomaspev.parentalhelper
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
     // Registros
@@ -28,9 +30,9 @@ class MainActivity : AppCompatActivity() {
         recyclerViewR.adapter = registroAdapter
 
         dataListR = listOf(
-            Registro("Manuel", "12/04/2019", "H", false),
-            Registro("Jose", "15/07/2018", "H", true),
-            Registro("Martina", "23/09/2017", "M", false)
+            Registro("Manuel", "12/04/2019", "H", false, 20),
+            Registro("Jose", "15/07/2018", "H", true, 40),
+            Registro("Martina", "23/09/2017", "M", false, 80)
         )
 
         registroAdapter.setDataList(dataListR)
@@ -62,5 +64,12 @@ class MainActivity : AppCompatActivity() {
             ContenidoNuevo("Contenido 4")
         )
         contenidoNuevoAdapter.setDataList((dataListC))
+
+        // Resto del código =====================================================================================================
+
+        tv_todos_registros.setOnClickListener {
+            val intent = Intent(this, ListadoRegistros::class.java)
+            startActivity(intent)
+        }
     }
 }
