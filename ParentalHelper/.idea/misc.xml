@@ -3,12 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/golia/OneDrive - BiblioRedes CL/Documentos/GitHub/ParentalHelper/ParentalHelper/app/src/main/res/layout/activity_fag.xml" value="0.22192028985507245" />
-        <entry key="..\:/Users/golia/OneDrive - BiblioRedes CL/Documentos/GitHub/ParentalHelper/ParentalHelper/app/src/main/res/layout/activity_login.xml" value="0.20520833333333333" />
-        <entry key="..\:/Users/golia/OneDrive - BiblioRedes CL/Documentos/GitHub/ParentalHelper/ParentalHelper/app/src/main/res/layout/activity_main.xml" value="0.2957427536231884" />
-        <entry key="..\:/Users/golia/OneDrive - BiblioRedes CL/Documentos/GitHub/ParentalHelper/ParentalHelper/app/src/main/res/layout/activity_new_content.xml" value="0.25" />
-        <entry key="..\:/Users/golia/OneDrive - BiblioRedes CL/Documentos/GitHub/ParentalHelper/ParentalHelper/app/src/main/res/layout/activity_registro_usuario.xml" value="0.2015625" />
-        <entry key="..\:/Users/golia/OneDrive - BiblioRedes CL/Documentos/GitHub/ParentalHelper/ParentalHelper/app/src/main/res/layout/elemento_newcontent.xml" value="0.25697211155378485" />
+        <entry key="..\:/Users/regin/Documents/GitHub/ParentalHelper/ParentalHelper/app/src/main/res/drawable/boton.xml" value="0.20572916666666666" />
+        <entry key="..\:/Users/regin/Documents/GitHub/ParentalHelper/ParentalHelper/app/src/main/res/drawable/botongoogle.xml" value="0.20572916666666666" />
+        <entry key="..\:/Users/regin/Documents/GitHub/ParentalHelper/ParentalHelper/app/src/main/res/layout/activity_fag.xml" value="0.13697916666666668" />
+        <entry key="..\:/Users/regin/Documents/GitHub/ParentalHelper/ParentalHelper/app/src/main/res/layout/activity_login.xml" value="0.25" />
+        <entry key="..\:/Users/regin/Documents/GitHub/ParentalHelper/ParentalHelper/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/Users/regin/Documents/GitHub/ParentalHelper/ParentalHelper/app/src/main/res/layout/activity_recuperar_pass.xml" value="0.33" />
+        <entry key="..\:/Users/regin/Documents/GitHub/ParentalHelper/ParentalHelper/app/src/main/res/layout/activity_registro.xml" value="0.25" />
+        <entry key="..\:/Users/regin/Documents/GitHub/ParentalHelper/ParentalHelper/app/src/main/res/layout/activity_registro_usuario.xml" value="0.25" />
+        <entry key="..\:/Users/regin/Documents/GitHub/ParentalHelper/ParentalHelper/app/src/main/res/layout/activity_splashscreen.xml" value="0.2" />
       </map>
     </option>
   </component>
