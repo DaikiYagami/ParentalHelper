@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Patterns
 import android.view.View
 import androidx.appcompat.app.AlertDialog
 import com.google.android.gms.auth.api.signin.GoogleSignIn
@@ -23,6 +24,7 @@ class Login : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
         supportActionBar?.hide()
+
 
         setup()
         session()
@@ -50,7 +52,7 @@ class Login : AppCompatActivity() {
 
     private fun setup(){
         LogInButton.setOnClickListener  {
-            if (emailEditText.text.isNotEmpty() && passwordEditText.text.isNotEmpty()){
+            if (emailEditText.text.isNotEmpty() && Patterns.EMAIL_ADDRESS.matcher(emailEditText.text).matches() && passwordEditText.text.isNotEmpty()){
 
                 FirebaseAuth.getInstance().signInWithEmailAndPassword(emailEditText.text.toString(),
                     passwordEditText.text.toString()).addOnCompleteListener {
@@ -80,8 +82,8 @@ class Login : AppCompatActivity() {
     private fun showAlert() {
         val builder = AlertDialog.Builder(this)
         builder.setTitle("Error")
-        builder.setMessage("Se ha producido un error.")
-        builder.setPositiveButton("Aceptar",null)
+        builder.setMessage("Se ha producido un error. El usuario no esta registrado o las credenciales son incorrectas.")
+        builder.setPositiveButton("Ok",null)
         val dialog: AlertDialog = builder.create()
         dialog.show()
     }
