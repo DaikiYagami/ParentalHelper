@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ParentalHelper">
         <activity
+            android:name=".DetalleContenido"
+            android:exported="true" />
+        <activity
             android:name=".RegistroUsuario"
             android:exported="true" />
         <activity
