@@ -82,7 +82,7 @@
             android:layout_width="10dp"
             android:layout_height="10dp"
             android:layout_marginStart="12dp"
-            android:background="@drawable/custom_state_button_red"
+            android:background="@drawable/custom_state_button_green"
             app:layout_constraintBottom_toBottomOf="@+id/textView5"
             app:layout_constraintStart_toEndOf="@+id/textView5"
             app:layout_constraintTop_toTopOf="@+id/textView5" />

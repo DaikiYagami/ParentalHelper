@@ -90,7 +90,7 @@
                 android:layout_width="10dp"
                 android:layout_height="10dp"
                 android:layout_marginStart="12dp"
-                android:background="@drawable/custom_state_button_red"
+                android:background="@drawable/custom_state_button_green"
                 app:layout_constraintBottom_toBottomOf="@+id/textView5"
                 app:layout_constraintStart_toEndOf="@+id/textView5"
                 app:layout_constraintTop_toTopOf="@+id/textView5" />
@@ -116,14 +116,18 @@
                 app:layout_constraintStart_toEndOf="@+id/textView"
                 app:layout_constraintTop_toTopOf="@+id/textView" />
 
-            <ProgressBar
+            <com.google.android.material.progressindicator.CircularProgressIndicator
                 android:id="@+id/pb_listado_registros_progreso"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:indeterminateOnly="false"
-                android:progressDrawable="@drawable/round_progress_bar"
                 tools:progress="60"
                 android:layout_marginTop="24dp"
+                app:trackThickness="8dp"
+                app:trackCornerRadius="8dp"
+                app:indicatorColor="#196698"
+                app:trackColor="#DDD"
+                app:indicatorSize="60dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/imageView2"
