@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="nuevo_contenido">Nuevo contenido</string>
+    <string name="textview">TextView</string>
+    <string name="todo">TODO</string>
 </resources>
