@@ -5,24 +5,26 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Login"
-    android:background="@color/white">
+    android:background="@color/bg">
 
     <LinearLayout
         android:id="@+id/linearLayout3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="32dp"
         android:gravity="center"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="UseCompoundDrawables">
 
         <ImageView
             android:id="@+id/logo"
-            android:layout_width="125dp"
-            android:layout_height="125dp"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:contentDescription="Logo"
             app:srcCompat="@drawable/logotemporal"
             tools:ignore="VectorDrawableCompat" />
 
@@ -33,14 +35,15 @@
             android:gravity="center"
             android:text="Parental Helper"
             android:textColor="@color/black"
-            android:textSize="24sp" />
+            android:textSize="34sp"
+            android:textStyle="bold" />
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/authLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="24dp"
         android:layout_marginBottom="8dp"
         android:gravity="center"
         android:orientation="vertical"
@@ -58,14 +61,14 @@
             android:layout_marginLeft="24dp"
             android:layout_marginRight="24dp"
             android:autofillHints="Email"
-            android:backgroundTint="@color/black"
+            android:backgroundTint="@color/secondary"
             android:drawablePadding="16dp"
             android:ems="10"
             android:hint="Email"
             android:inputType="textEmailAddress"
             android:padding="16dp"
             android:textColor="@color/black"
-            android:textColorHint="@color/teal_700" />
+            android:textColorHint="@color/black" />
 
         <EditText
             android:id="@+id/passwordEditText"
@@ -75,36 +78,34 @@
             android:layout_marginTop="24dp"
             android:layout_marginRight="24dp"
             android:autofillHints="Contraseña"
-            android:backgroundTint="@color/black"
+            android:backgroundTint="@color/secondary"
             android:drawablePadding="16dp"
             android:ems="10"
             android:hint="Contraseña"
             android:inputType="textPassword"
             android:padding="16dp"
             android:textColor="@color/black"
-            android:textColorHint="@color/teal_700" />
+            android:textColorHint="@color/black" />
 
         <TextView
             android:id="@+id/contraseñaOlvidadaTxT"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
-            android:layout_marginLeft="24dp"
             android:layout_marginTop="24dp"
             android:layout_marginEnd="32dp"
-            android:layout_marginRight="32dp"
             android:gravity="end"
             android:minHeight="48dp"
             android:onClick="recuperar"
             android:text="¿Olvidaste tu contraseña?"
-            android:textColor="@color/purple_700"
+            android:textColor="@color/secondary"
             android:textSize="20sp" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/LogInButton"
             android:layout_width="325dp"
             android:layout_height="48dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="20dp"
             android:background="@drawable/rnd_boton"
             android:text="Iniciar Sesión"
             android:textColor="@color/white"
@@ -115,8 +116,8 @@
         android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="24dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="32dp"
         android:gravity="center"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -142,10 +143,9 @@
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             android:layout_weight="0"
-            android:clickable="true"
             android:onClick="registrarse"
             android:text="@string/registrarse"
-            android:textColor="@color/purple_700"
+            android:textColor="@color/secondary"
             android:textSize="24sp"
             tools:ignore="TouchTargetSizeCheck" />
     </LinearLayout>
@@ -155,7 +155,6 @@
         android:layout_width="409dp"
         android:layout_height="80dp"
         android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
         android:gravity="center"
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
@@ -169,7 +168,8 @@
             android:layout_width="65dp"
             android:layout_height="65dp"
             android:background="@drawable/boton"
-            android:backgroundTint="@color/purple_700"
+            android:backgroundTint="@color/secondary"
+            android:contentDescription="Google Sign In"
             android:padding="12dp"
             android:scaleType="fitCenter"
             app:srcCompat="@drawable/google"
