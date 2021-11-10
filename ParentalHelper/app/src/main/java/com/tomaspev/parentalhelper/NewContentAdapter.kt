@@ -28,19 +28,15 @@ class NewContentAdapter(private val mContext: Context, private val detalle: List
         var condition = contenido.clase
 
         if (condition == "1") {
-
             layout.img_newcontent.setImageResource(R.drawable.p1)
-
             return layout
         } else {
             if (condition == "2") {
                 layout.img_newcontent.setImageResource(R.drawable.p2)
                 return layout
             } else {
-
                     layout.img_newcontent.setImageResource(R.drawable.p3)
                     return layout
-
             }
 
         }
