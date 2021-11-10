@@ -11,9 +11,9 @@ import androidx.recyclerview.widget.RecyclerView
 
 class DestacadoAdapter(var context: Context): RecyclerView.Adapter<DestacadoAdapter.ViewHolder>() {
 
-    private var dataList = emptyList<Destacado>()
+    private var dataList = emptyList<Contenido>()
 
-    internal fun setDataList(dataList: List<Destacado>) {
+    internal fun setDataList(dataList: List<Contenido>) {
         this.dataList = dataList
     }
 

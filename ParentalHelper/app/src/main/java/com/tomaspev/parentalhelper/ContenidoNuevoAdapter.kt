@@ -11,9 +11,9 @@ import androidx.recyclerview.widget.RecyclerView
 
 class ContenidoNuevoAdapter(var context: Context): RecyclerView.Adapter<ContenidoNuevoAdapter.ViewHolder>() {
 
-    private var dataList = emptyList<ContenidoNuevo>()
+    private var dataList = emptyList<Contenido>()
 
-    internal fun setDataList(dataList: List<ContenidoNuevo>) {
+    internal fun setDataList(dataList: List<Contenido>) {
         this.dataList = dataList
     }
 

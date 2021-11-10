@@ -2,48 +2,34 @@ package com.tomaspev.parentalhelper
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.Toast
-import com.google.android.youtube.player.YouTubeBaseActivity
-import com.google.android.youtube.player.YouTubeInitializationResult
-import com.google.android.youtube.player.YouTubePlayer
-import com.google.android.youtube.player.YouTubePlayerView
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 
-class DetalleRegistro : YouTubeBaseActivity() {
-
-    val video_id = "uTns3HT9Luo"
-    val youtube_api_key = "AIzaSyAe6EYTOQxMjflvEdNOCTHBlYVXvfOobAI"
-
-    private lateinit var youtubePlayer: YouTubePlayerView
-    private lateinit var btnPlay: Button
-
-    lateinit var youtubePlayerInit: YouTubePlayer.OnInitializedListener
+class DetalleRegistro : AppCompatActivity() {
+    private lateinit var progresoContenidoAdapter: ProgresoContenidoAdapter
+    private lateinit var dataList: List<ProgresoContenido>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detalle_registro)
 
-        youtubePlayer = findViewById(R.id.ytplayer)
-        btnPlay = findViewById(R.id.btn_play)
+        val recyclerView = findViewById<RecyclerView>(R.id.rv_detalle_registro_contenidos)
+        recyclerView.layoutManager = GridLayoutManager(applicationContext, 2, GridLayoutManager.HORIZONTAL, false)
+        progresoContenidoAdapter = ProgresoContenidoAdapter(applicationContext)
+        recyclerView.adapter = progresoContenidoAdapter
 
-        youtubePlayerInit = object : YouTubePlayer.OnInitializedListener{
-            override fun onInitializationSuccess(
-                p0: YouTubePlayer.Provider?,
-                p1: YouTubePlayer?,
-                p2: Boolean
-            ) {
-                p1?.loadVideo(video_id)
-            }
-            override fun onInitializationFailure(
-                p0: YouTubePlayer.Provider?,
-                p1: YouTubeInitializationResult?
-            ) {
-                Toast.makeText(applicationContext, "Error", Toast.LENGTH_SHORT).show()
-            }
-        }
+        dataList = listOf(
+            ProgresoContenido(Contenido("Contenido 1", "Destacado"), 60),
+            ProgresoContenido(Contenido("Contenido 2", "Nuevo"), 20),
+            ProgresoContenido(Contenido("Contenido 3", "Destacado"), 40),
+            ProgresoContenido(Contenido("Contenido 4", "Nuevo"), 60),
+            ProgresoContenido(Contenido("Contenido 5", "Destacado"), 80),
+            ProgresoContenido(Contenido("Contenido 6", "Nuevo"), 10),
+            ProgresoContenido(Contenido("Contenido 7", "Destacado"), 90),
+            ProgresoContenido(Contenido("Contenido 8", "Nuevo"), 50)
+        )
 
-        btnPlay.setOnClickListener {
-            youtubePlayer.initialize(youtube_api_key, youtubePlayerInit)
-        }
+        progresoContenidoAdapter.setDataList(dataList)
     }
 }
