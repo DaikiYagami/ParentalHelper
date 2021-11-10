@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Login"
-    android:background="@color/bg">
+    android:background="@color/bg"
+    tools:context=".Login">
 
     <LinearLayout
         android:id="@+id/linearLayout3"
@@ -159,9 +159,14 @@
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/authLayout">
+        app:layout_constraintTop_toBottomOf="@+id/authLayout"
+        app:layout_constraintVertical_bias="0">
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
         <ImageButton
             android:id="@+id/googleButton"
@@ -169,11 +174,14 @@
             android:layout_height="65dp"
             android:background="@drawable/boton"
             android:backgroundTint="@color/secondary"
-            android:contentDescription="Google Sign In"
             android:padding="12dp"
             android:scaleType="fitCenter"
             app:srcCompat="@drawable/google"
             tools:ignore="SpeakableTextPresentCheck" />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
     </LinearLayout>
 

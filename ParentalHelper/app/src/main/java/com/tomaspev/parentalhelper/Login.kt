@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Patterns
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
@@ -13,6 +14,7 @@ import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import kotlinx.android.synthetic.main.activity_login.*
+import kotlinx.android.synthetic.main.activity_registro_usuario.*
 import kotlinx.android.synthetic.main.activity_registro_usuario.emailEditText
 import kotlinx.android.synthetic.main.activity_registro_usuario.passwordEditText
 
@@ -51,9 +53,17 @@ class Login : AppCompatActivity() {
     }
 
     private fun setup(){
-        LogInButton.setOnClickListener  {
-            if (emailEditText.text.isNotEmpty() && Patterns.EMAIL_ADDRESS.matcher(emailEditText.text).matches() && passwordEditText.text.isNotEmpty()){
-
+        LogInButton.setOnClickListener {
+            if (emailEditText.text.isEmpty()) {
+                Toast.makeText(this, "E-Mail no puede estar vacio", Toast.LENGTH_SHORT).show()
+            } else if (!Patterns.EMAIL_ADDRESS.matcher(emailEditText.text).matches()){
+                Toast.makeText(this, "Introduzca un E-mail valido", Toast.LENGTH_SHORT).show()
+            } else if (passwordEditText.text.isEmpty()) {
+                Toast.makeText(this, "La Contraseña no puede estar vacia", Toast.LENGTH_SHORT).show()
+            } else if (passwordEditText.text.length <6) {
+                Toast.makeText(this, "La contraseña debe poseer más de 6 caracteres", Toast.LENGTH_SHORT).show()
+            } else if (emailEditText.text.isNotEmpty() && Patterns.EMAIL_ADDRESS.matcher(emailEditText.text).matches() &&
+                passwordEditText.text.isNotEmpty()){
                 FirebaseAuth.getInstance().signInWithEmailAndPassword(emailEditText.text.toString(),
                     passwordEditText.text.toString()).addOnCompleteListener {
                     if (it.isSuccessful) {
@@ -64,6 +74,7 @@ class Login : AppCompatActivity() {
                 }
             }
         }
+
         googleButton.setOnClickListener {
 
             val googleConf =
