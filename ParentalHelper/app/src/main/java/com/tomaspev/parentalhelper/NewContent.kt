@@ -1,5 +1,6 @@
 package com.tomaspev.parentalhelper
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_new_content.*
@@ -10,6 +11,8 @@ class NewContent : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_new_content)
 
+
+        //valores lista
         val contenido1 = Contenido(
             "Números del 2 al 10",
             "Nucleo Logico Matematico",
@@ -26,8 +29,6 @@ class NewContent : AppCompatActivity() {
 
 
 
-
-
         val listaNContent = listOf(contenido1 , contenido3,contenido5,contenido7)
         val listaNContent2 = listOf(contenido2 , contenido4,contenido6,contenido8)
 
@@ -38,7 +39,17 @@ class NewContent : AppCompatActivity() {
         listado2.adapter = adapter2
 
 
-
+        //HACER CLIKEABLE LOS ITEM DE LA LISTA
+        listado1.setOnItemClickListener{ parent, view, position, id->
+            val intent = Intent(this, DetalleContenido::class.java)
+            intent.putExtra("id", listaNContent[position].idContenido)
+            startActivity(intent)
+        }
+        listado2.setOnItemClickListener{ parent, view, position, id->
+            val intent = Intent(this, DetalleContenido::class.java)
+            intent.putExtra("id", listaNContent2[position].idContenido)
+            startActivity(intent)
+        }
 
 
     }

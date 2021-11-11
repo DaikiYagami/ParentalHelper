@@ -8,6 +8,8 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.LiveData
+import kotlinx.android.synthetic.main.activity_detalle_contenido.*
+import kotlinx.android.synthetic.main.activity_new_content.*
 
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -15,26 +17,30 @@ import kotlinx.coroutines.launch
 
 class DetalleContenido : AppCompatActivity() {
 
-    private lateinit var database : AppDatabase
-    private lateinit var contenido : Contenido
-    private lateinit var contenidoLiveData :LiveData<Contenido>
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detalle_contenido)
 
-        database = AppDatabase.getDatabase(this)
-        val idcontenido = intent.getIntExtra("id", 0)
+        //crear listado de item seleccionado con solo un elemento
 
-        contenidoLiveData = database.contenido().get(idcontenido)
-        contenidoLiveData.observe(this, {contenido = it
 
-            nombre_cafe_d.text = contenido.nombre
-        })
+        val listaContent = listOf(contenido)
+
+        val adapter = ContentAdapter(this, listaContent)
+
+        lcontenido.adapter = adapter
 
 
     }
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+
+
+
+
+
+    /*override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
         when(item.itemId){
             R.id.editar -> {
@@ -51,14 +57,13 @@ class DetalleContenido : AppCompatActivity() {
             }
         }
 
-
         return super.onOptionsItemSelected(item)
-    }
-
+    }*/
+/*
     fun volverListado(view: View){
         Toast.makeText(this, "Volviendo a Main", Toast.LENGTH_SHORT).show()
         val intent = Intent(this, ListadoCafes::class.java)
         startActivity(intent)
         finish()
-    }
+    }*/
 }
