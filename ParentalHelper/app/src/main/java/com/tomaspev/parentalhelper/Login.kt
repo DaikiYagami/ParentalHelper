@@ -4,9 +4,10 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.util.Patterns
 import android.view.View
-import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
@@ -15,8 +16,6 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_registro_usuario.*
-import kotlinx.android.synthetic.main.activity_registro_usuario.emailEditText
-import kotlinx.android.synthetic.main.activity_registro_usuario.passwordEditText
 
 class Login : AppCompatActivity() {
 
@@ -42,7 +41,7 @@ class Login : AppCompatActivity() {
         }
     }
 
-    fun registrarse(view: View){
+    fun registrarse(){
         val intent = Intent(this, RegistroUsuario::class.java)
         startActivity(intent)
     }
@@ -53,7 +52,43 @@ class Login : AppCompatActivity() {
     }
 
     private fun setup(){
+
         LogInButton.setOnClickListener {
+            if (EmailTxT.editText?.text?.isEmpty() == true) {
+                EmailTxT.helperText="E-mail no puede estar vació"
+                Handler(Looper.getMainLooper()).postDelayed({
+                   EmailTxT.helperText=" "
+                }, 5000)
+            } else if (!Patterns.EMAIL_ADDRESS.matcher(EmailTxT.editText!!.text).matches()){
+                EmailTxT.helperText="Introduzca un e-mail valido"
+                Handler(Looper.getMainLooper()).postDelayed({
+                    EmailTxT.helperText=" "
+                }, 5000)
+            } else if (PasswordTxT.editText?.text?.isEmpty() == true) {
+                PasswordTxT.helperText="La contraseña no puede estar vacia"
+                Handler(Looper.getMainLooper()).postDelayed({
+                    PasswordTxT.helperText=" "
+                }, 5000)
+            } else if (PasswordTxT.editText?.text?.length!! <8) {
+                PasswordTxT.helperText="La contraseña debe poseer al menos 8 caracteres"
+                Handler(Looper.getMainLooper()).postDelayed({
+                    PasswordTxT.helperText=" "
+                }, 5000)
+            } else if (EmailTxT.editText?.text?.isNotEmpty() == true && Patterns.EMAIL_ADDRESS.matcher(EmailTxT.editText!!.text).matches() &&
+                PasswordTxT.editText?.text?.isNotEmpty() == true){
+                FirebaseAuth.getInstance().signInWithEmailAndPassword(
+                    EmailTxT.editText!!.text.toString(),
+                    PasswordTxT.editText!!.text.toString()).addOnCompleteListener {
+                    if (it.isSuccessful) {
+                        showHome(it.result?.user?.email ?: "", ProviderType.BASIC)
+                    } else {
+                        PasswordTxT.helperText="E-mail o contraseña incorrecta."
+                    }
+                }
+            }
+        }
+
+        /*LogInButton.setOnClickListener {
             if (emailEditText.text.isEmpty()) {
                 Toast.makeText(this, "E-Mail no puede estar vacio", Toast.LENGTH_SHORT).show()
             } else if (!Patterns.EMAIL_ADDRESS.matcher(emailEditText.text).matches()){
@@ -73,7 +108,7 @@ class Login : AppCompatActivity() {
                     }
                 }
             }
-        }
+        }*/
 
         googleButton.setOnClickListener {
 

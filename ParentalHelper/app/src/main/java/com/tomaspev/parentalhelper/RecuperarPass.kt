@@ -2,9 +2,13 @@ package com.tomaspev.parentalhelper
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
+import android.util.Patterns
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_recuperar_pass.*
+import kotlinx.android.synthetic.main.activity_registro_usuario.*
 
 class RecuperarPass : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -13,20 +17,21 @@ class RecuperarPass : AppCompatActivity() {
 
         supportActionBar?.hide()
         submitBtn.setOnClickListener {
-            val email: String = emailResetTxT.text.toString().trim { it <= ' ' }
+            val email: String = EmailResetTxT.editText?.text?.toString()!!.trim { it <= ' ' }
             if (email.isEmpty()) {
-                Toast.makeText(
-                    this,
-                    "Por favor, introduzca un correo electronico.",
-                    Toast.LENGTH_SHORT
-                ).show()
-            }else{
+                EmailResetTxT.helperText="Introduzca un email"
+            } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+                EmailResetTxT.helperText="Introduzca un e-mail valido"
+                Handler(Looper.getMainLooper()).postDelayed({
+                    EmailResetTxT.helperText=" "
+                }, 5000)
+            } else if (email.isNotEmpty() && Patterns.EMAIL_ADDRESS.matcher(email).matches()){
                 FirebaseAuth.getInstance().sendPasswordResetEmail(email)
                     .addOnCompleteListener {task ->
                         if (task.isSuccessful){
                             Toast.makeText(
                                 this,
-                                "Correo de recuperación enviado.",
+                                "Correo de recuperación enviado",
                                 Toast.LENGTH_SHORT
                             ).show()
 
