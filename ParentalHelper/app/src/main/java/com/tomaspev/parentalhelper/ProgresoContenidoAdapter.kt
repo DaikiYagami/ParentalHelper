@@ -18,6 +18,7 @@ class ProgresoContenidoAdapter(var context: Context): RecyclerView.Adapter<Progr
 
     class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         val contenido: TextView = itemView.findViewById(R.id.tv_detalle_registro_contenido)
+        val titulo: TextView = itemView.findViewById(R.id.tv_detalle_registro_contenido_titulo)
         val progresoTV: TextView = itemView.findViewById(R.id.tv_detalle_registro_progreso)
         val progresoPB: ProgressBar = itemView.findViewById(R.id.pb_detalle_registro_progreso)
     }
@@ -31,7 +32,8 @@ class ProgresoContenidoAdapter(var context: Context): RecyclerView.Adapter<Progr
         val data = dataList[position]
 
         holder.contenido.text = data.contenido.titulo
-        holder.progresoTV.text = data.progreso.toString()
+        holder.titulo.text = data.contenido.titulo
+        holder.progresoTV.text = data.progreso.toString() + "%"
         holder.progresoPB.progress = data.progreso
     }
 

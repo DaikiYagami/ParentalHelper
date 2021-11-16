@@ -1,6 +1,6 @@
 package com.tomaspev.parentalhelper
 
-class Contenido(
+data class Contenido(
     val titulo: String,
     val tipo: String
 )

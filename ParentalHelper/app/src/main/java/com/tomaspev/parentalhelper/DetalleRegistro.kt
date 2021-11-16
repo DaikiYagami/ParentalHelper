@@ -15,7 +15,7 @@ class DetalleRegistro : AppCompatActivity() {
         setContentView(R.layout.activity_detalle_registro)
 
         val recyclerView = findViewById<RecyclerView>(R.id.rv_detalle_registro_contenidos)
-        recyclerView.layoutManager = GridLayoutManager(applicationContext, 2, GridLayoutManager.HORIZONTAL, false)
+        recyclerView.layoutManager = GridLayoutManager(applicationContext, 1, GridLayoutManager.VERTICAL, false)
         progresoContenidoAdapter = ProgresoContenidoAdapter(applicationContext)
         recyclerView.adapter = progresoContenidoAdapter
 

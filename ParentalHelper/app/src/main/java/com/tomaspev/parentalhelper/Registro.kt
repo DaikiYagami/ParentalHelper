@@ -1,6 +1,6 @@
 package com.tomaspev.parentalhelper
 
-class Registro (
+data class Registro (
     val nombre: String,
     val cumple: String,
     val genero: String,
