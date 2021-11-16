@@ -57,13 +57,13 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="320dp"
             android:layout_height="90dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="8dp"
             android:textColorHint="@color/black"
             app:boxStrokeColor="@color/accent"
             app:boxStrokeWidth="2sp"
+            app:errorEnabled="true"
             app:helperTextEnabled="true"
-            app:helperTextTextColor="@color/gray"
-            app:passwordToggleTint="@color/secondary"
+            app:helperTextTextColor="@color/error"
             app:placeholderText="ejemplo@gmail.com"
             app:placeholderTextColor="@color/gray"
             app:startIconDrawable="@drawable/user"
@@ -73,6 +73,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Correo electrónico"
+                android:inputType="textEmailAddress"
                 android:textColor="@color/black" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -85,10 +86,11 @@
             android:textColorHint="@color/black"
             app:boxStrokeColor="@color/accent"
             app:boxStrokeWidth="2sp"
+            app:errorEnabled="true"
             app:endIconMode="password_toggle"
             app:endIconTint="@color/secondary"
             app:helperTextEnabled="true"
-            app:helperTextTextColor="@color/gray"
+            app:helperTextTextColor="@color/error"
             app:startIconDrawable="@drawable/padlock"
             app:startIconTint="@color/secondary">
 
@@ -103,7 +105,7 @@
         <TextView
             android:id="@+id/textView4"
             android:layout_width="325dp"
-            android:layout_height="135dp"
+            android:layout_height="145dp"
             android:layout_marginTop="0dp"
             android:background="@drawable/sombra"
             android:elevation="10dp"
@@ -115,7 +117,7 @@
             android:id="@+id/signUpButton"
             android:layout_width="325dp"
             android:layout_height="48dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="24dp"
             android:background="@drawable/rnd_boton"
             android:paddingLeft="64dp"
             android:paddingRight="64dp"

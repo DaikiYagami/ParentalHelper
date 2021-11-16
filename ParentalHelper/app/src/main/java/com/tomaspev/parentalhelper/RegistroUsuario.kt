@@ -3,9 +3,6 @@ package com.tomaspev.parentalhelper
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
-import android.text.Editable
 import android.util.Patterns
 import androidx.appcompat.app.AlertDialog
 import com.google.firebase.auth.FirebaseAuth
@@ -13,44 +10,34 @@ import kotlinx.android.synthetic.main.activity_registro_usuario.*
 import java.util.regex.Pattern
 
 class RegistroUsuario : AppCompatActivity() {
+
+    // CREA Y COMPILA UN PATRÓN PARA VALIDAR CONTRASEÑA
+    val PASSWORD_PATTERN = Pattern.compile("^" +
+            "(?=.*[a-zA-Z])" +  //any letter
+            "(?=.*[!#()*+,-./:;=?@^_`{|}~])" +  //at least 1 special character
+            "(?=\\S+$)" +  //no white spaces
+            ".{8,20}" + //at least 8 characters
+            "$"
+    )
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registro_usuario)
 
-        supportActionBar?.hide()
-        setup()
+        supportActionBar?.hide()    // Oculta la barra superior de la aplicación
+        setup()                     // Carga la función al iniciar la activity
     }
 
-    val PASSWORD_PATTERN = Pattern.compile("^" +
-                "(?=.*[a-zA-Z])" +  //any letter
-                "(?=.*[!#()*+,-./:;=?@^_`{|}~])" +  //at least 1 special character
-                "(?=\\S+$)" +  //no white spaces
-                ".{8,}" + //at least 4 characters
-                "$"
-    )
-
+    // BOTON REGISTRAR Y VALIDACIONES //
     private fun setup() {
         signUpButton.setOnClickListener {
             if (emailEditText.editText?.text?.isEmpty() == true) {
                 emailEditText.helperText="E-mail no puede estar vació"
-                Handler(Looper.getMainLooper()).postDelayed({
-                    emailEditText.helperText=" "
-                }, 5000)
             } else if (!Patterns.EMAIL_ADDRESS.matcher(emailEditText.editText!!.text).matches()){
                 emailEditText.helperText="Introduzca un e-mail valido"
-                Handler(Looper.getMainLooper()).postDelayed({
-                    emailEditText.helperText=" "
-                }, 5000)
             } else if (passwordEditText.editText?.text?.isEmpty() == true) {
-                passwordEditText.helperText="La contraseña no puede estar vacia"
-                Handler(Looper.getMainLooper()).postDelayed({
-                    passwordEditText.helperText=" "
-                }, 5000)
+                passwordEditText.helperText="Este campo es obligatorio"
             } else if (!PASSWORD_PATTERN.matcher(passwordEditText.editText!!.text).matches()) {
-                passwordEditText.helperText="Verifique que su contraseña cumpla los requisitos"
-                Handler(Looper.getMainLooper()).postDelayed({
-                    passwordEditText.helperText=" "
-                }, 5000)
+                passwordEditText.helperText="Contraseña débil"
             } else if (emailEditText.editText?.text?.isNotEmpty() == true && Patterns.EMAIL_ADDRESS.matcher(emailEditText.editText!!.text).matches() &&
                 passwordEditText.editText?.text?.isNotEmpty() == true){
                     FirebaseAuth.getInstance().createUserWithEmailAndPassword(emailEditText.editText?.text.toString(),
@@ -65,6 +52,7 @@ class RegistroUsuario : AppCompatActivity() {
         }
     }
 
+    // CREAR Y MOSTRAR ALERTA //
     private fun showAlert() {
         val builder = AlertDialog.Builder(this)
         builder.setTitle("Error")
@@ -74,8 +62,8 @@ class RegistroUsuario : AppCompatActivity() {
         dialog.show()
     }
 
+    // CAMBIAR DE ACTIVITY Y PASAR DATOS "email" Y "provider" A MAIN
     private fun showHome(email: String, provider: ProviderType) {
-
         val home = Intent(this, MainActivity::class.java).apply {
             putExtra("email", email)
             putExtra("provider", provider.name)

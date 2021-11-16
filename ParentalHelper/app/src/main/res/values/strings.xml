@@ -7,7 +7,8 @@
         <ul></ul>\n
         <ul></ul>\n
         <li>No puede contener espacios.</li>\n
-        <li>Debe poseer al menos 8 caracteres.</li>\n
-        <li>Debe poseer al menos un caracter especial. (!#*@=?)</li>\n
-</string>
+        <li>Debe poseer al menos 8 carácteres.</li>\n
+        <li>Puede tener un máximo de 20 carácteres</li>\n
+        <li>Debe poseer al menos un cáracter especial. (!#*@=?)</li>\n
+    </string>
 </resources>

@@ -4,8 +4,6 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import android.util.Patterns
 import android.view.View
 import androidx.appcompat.app.AlertDialog
@@ -15,22 +13,20 @@ import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import kotlinx.android.synthetic.main.activity_login.*
-import kotlinx.android.synthetic.main.activity_registro_usuario.*
 
 class Login : AppCompatActivity() {
 
     private val GOOGLE = 1
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-        supportActionBar?.hide()
 
-
-        setup()
-        session()
+        supportActionBar?.hide()    // Oculta la barra superior de la aplicación
+        setup()                     // Carga la función setup al iniciar la activity
+        session()                   // Carga la función session al iniciar la activity
     }
 
+    // FUNCION QUE PERMITE MANTENER LA SESION INICIADA
     private fun session(){
         val prefs = getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE)
         val email = prefs.getString("email", null)
@@ -41,39 +37,29 @@ class Login : AppCompatActivity() {
         }
     }
 
-    fun registrarse(){
+    // FUNCION ONCLICK QUE CAMBIA DE ACTIVITY
+    fun registrarse(view: View) {
         val intent = Intent(this, RegistroUsuario::class.java)
         startActivity(intent)
     }
 
-    fun recuperar(view: View){
+    // FUNCION ONCLICK QUE CAMBIA DE ACTIVITY
+    fun recuperar(view: View) {
         val intent = Intent(this, RecuperarPass::class.java)
         startActivity(intent)
     }
 
+    // LOGICA DEL BOTON LOGIN PARA INICIAR SESION Y VALIDACIONES DE SUS CAMPOS
     private fun setup(){
-
         LogInButton.setOnClickListener {
             if (EmailTxT.editText?.text?.isEmpty() == true) {
-                EmailTxT.helperText="E-mail no puede estar vació"
-                Handler(Looper.getMainLooper()).postDelayed({
-                   EmailTxT.helperText=" "
-                }, 5000)
+                EmailTxT.helperText="Este campo es obligatorio"
             } else if (!Patterns.EMAIL_ADDRESS.matcher(EmailTxT.editText!!.text).matches()){
                 EmailTxT.helperText="Introduzca un e-mail valido"
-                Handler(Looper.getMainLooper()).postDelayed({
-                    EmailTxT.helperText=" "
-                }, 5000)
             } else if (PasswordTxT.editText?.text?.isEmpty() == true) {
-                PasswordTxT.helperText="La contraseña no puede estar vacia"
-                Handler(Looper.getMainLooper()).postDelayed({
-                    PasswordTxT.helperText=" "
-                }, 5000)
+                PasswordTxT.helperText="Este campo es obligatorio"
             } else if (PasswordTxT.editText?.text?.length!! <8) {
                 PasswordTxT.helperText="La contraseña debe poseer al menos 8 caracteres"
-                Handler(Looper.getMainLooper()).postDelayed({
-                    PasswordTxT.helperText=" "
-                }, 5000)
             } else if (EmailTxT.editText?.text?.isNotEmpty() == true && Patterns.EMAIL_ADDRESS.matcher(EmailTxT.editText!!.text).matches() &&
                 PasswordTxT.editText?.text?.isNotEmpty() == true){
                 FirebaseAuth.getInstance().signInWithEmailAndPassword(
@@ -88,28 +74,7 @@ class Login : AppCompatActivity() {
             }
         }
 
-        /*LogInButton.setOnClickListener {
-            if (emailEditText.text.isEmpty()) {
-                Toast.makeText(this, "E-Mail no puede estar vacio", Toast.LENGTH_SHORT).show()
-            } else if (!Patterns.EMAIL_ADDRESS.matcher(emailEditText.text).matches()){
-                Toast.makeText(this, "Introduzca un E-mail valido", Toast.LENGTH_SHORT).show()
-            } else if (passwordEditText.text.isEmpty()) {
-                Toast.makeText(this, "La Contraseña no puede estar vacia", Toast.LENGTH_SHORT).show()
-            } else if (passwordEditText.text.length <6) {
-                Toast.makeText(this, "La contraseña debe poseer más de 6 caracteres", Toast.LENGTH_SHORT).show()
-            } else if (emailEditText.text.isNotEmpty() && Patterns.EMAIL_ADDRESS.matcher(emailEditText.text).matches() &&
-                passwordEditText.text.isNotEmpty()){
-                FirebaseAuth.getInstance().signInWithEmailAndPassword(emailEditText.text.toString(),
-                    passwordEditText.text.toString()).addOnCompleteListener {
-                    if (it.isSuccessful) {
-                        showHome(it.result?.user?.email ?: "", ProviderType.BASIC)
-                    } else {
-                        showAlert()
-                    }
-                }
-            }
-        }*/
-
+        // ========== SECCION LOGIN CON GOOGLE ========== //
         googleButton.setOnClickListener {
 
             val googleConf =
@@ -125,15 +90,17 @@ class Login : AppCompatActivity() {
         }
     }
 
+    // CREAR Y MOSTRAR ALERTA //
     private fun showAlert() {
         val builder = AlertDialog.Builder(this)
-        builder.setTitle("Error")
-        builder.setMessage("Se ha producido un error. El usuario no esta registrado o las credenciales son incorrectas.")
+        builder.setTitle("ERROR")
+        builder.setMessage("El usuario no esta registrado o las credenciales son incorrectas.")
         builder.setPositiveButton("Ok",null)
         val dialog: AlertDialog = builder.create()
         dialog.show()
     }
 
+    // CAMBIAR DE ACTIVITY Y PASAR DATOS "email" Y "provider" A MAIN
     private fun showHome(email: String, provider: ProviderType) {
 
         val home = Intent(this, MainActivity::class.java).apply {
@@ -143,20 +110,15 @@ class Login : AppCompatActivity() {
         startActivity(home)
     }
 
+    // INICIO DE SESION CON GOOGLE REQUIERE DE ESTA FUNCION OVERRIDE PARA VALIDAR LA CUENTA DE GOOGLE
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-
         if(requestCode == GOOGLE) {
-
             val task = GoogleSignIn.getSignedInAccountFromIntent(data)
-
             try {
                 val account = task.getResult(ApiException::class.java)
-
                 if (account != null) {
-
                     val credential = GoogleAuthProvider.getCredential(account.idToken, null)
-
                     FirebaseAuth.getInstance()
                         .signInWithCredential(credential).addOnCompleteListener {
                         if (it.isSuccessful) {
