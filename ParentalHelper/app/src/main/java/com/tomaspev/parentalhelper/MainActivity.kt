@@ -4,6 +4,12 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
+import com.google.android.youtube.player.YouTubeBaseActivity
+import com.google.android.youtube.player.YouTubeInitializationResult
+import com.google.android.youtube.player.YouTubePlayer
+import com.google.android.youtube.player.YouTubePlayerView
+import com.google.android.youtube.player.internal.t
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -13,10 +19,21 @@ enum class  ProviderType {
     GOOGLE,
 }
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : YouTubeBaseActivity(), YouTubePlayer.OnInitializedListener {
+    override fun onInitializationSuccess(provider: YouTubePlayer.Provider?, player: YouTubePlayer?, wasRestored: Boolean) {
+        Toast.makeText(this, "Youtube Api Initialization Success", Toast.LENGTH_SHORT).show()
+        if (!wasRestored) {
+            player?.cueVideo("BmTjPbdNsZs");
+        }
+    }
+    override fun onInitializationFailure(p0: YouTubePlayer.Provider?, p1: YouTubeInitializationResult?) {
+        Toast.makeText(this, "Youtube Api Initialization Failed", Toast.LENGTH_SHORT).show()
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        yt_pv.initialize("AIzaSyAe6EYTOQxMjflvEdNOCTHBlYVXvfOobAI", this)
 
         val bundle = intent.extras                               // Variable que rescata los extras que trae el Intent
         val email = bundle?.getString("email")              // Variable que rescata el correo
