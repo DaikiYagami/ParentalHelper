@@ -7,16 +7,28 @@ import android.os.Bundle
 import android.util.Patterns
 import android.view.View
 import androidx.appcompat.app.AlertDialog
+import com.facebook.CallbackManager
+import com.facebook.FacebookCallback
+import com.facebook.FacebookException
+import com.facebook.login.LoginManager
+import com.facebook.login.LoginResult
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
+import com.google.firebase.auth.AuthCredential
+import com.google.firebase.auth.FacebookAuthProvider
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import kotlinx.android.synthetic.main.activity_login.*
 
+
+
 class Login : AppCompatActivity() {
 
-    private val GOOGLE = 1
+    private val GOOGLE_SIGN_IN = 100
+
+    private val callBackManager = CallbackManager.Factory.create()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
@@ -73,10 +85,8 @@ class Login : AppCompatActivity() {
                 }
             }
         }
-
         // ========== SECCION LOGIN CON GOOGLE ========== //
         googleButton.setOnClickListener {
-
             val googleConf =
                 GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                     .requestIdToken("165836093897-t8d5a94ia2sghbe3mbcqs10s7nd6011q.apps.googleusercontent.com")
@@ -84,17 +94,51 @@ class Login : AppCompatActivity() {
                     .build()
 
             val googleClient = GoogleSignIn.getClient(this, googleConf)
-            googleClient.signOut()
-
-            startActivityForResult(googleClient.signInIntent, GOOGLE)
+            startActivityForResult(googleClient.signInIntent, GOOGLE_SIGN_IN)
         }
+        // ========== SECCION LOGIN CON FACEBOOK ========== //
+        facebookButton.setOnClickListener {
+
+            LoginManager.getInstance().logInWithReadPermissions(this, listOf("email"))
+
+            LoginManager.getInstance().registerCallback(callBackManager,
+                object : FacebookCallback<LoginResult> {
+
+                    override fun onSuccess(result: LoginResult?) {
+
+                        result?.let {
+
+                            val token = it.accessToken
+
+                            val credential :AuthCredential = FacebookAuthProvider.getCredential(token.token)
+                            FirebaseAuth.getInstance()
+                                .signInWithCredential(credential).addOnCompleteListener {
+                                    if (it.isSuccessful) {
+                                        showHome(it.result?.user?.email ?: "", ProviderType.FACEBOOK)
+                                    } else {
+                                        showAlert()
+                                    }
+                                }
+                        }
+                    }
+
+                    override fun onCancel() {
+
+                    }
+
+                    override fun onError(error: FacebookException?) {
+                        showAlert()
+                    }
+                })
+        }
+
     }
 
     // CREAR Y MOSTRAR ALERTA //
     private fun showAlert() {
         val builder = AlertDialog.Builder(this)
         builder.setTitle("ERROR")
-        builder.setMessage("El usuario no esta registrado o las credenciales son incorrectas.")
+        builder.setMessage("Lo sentimos, ha ocurrido un error.")
         builder.setPositiveButton("Ok",null)
         val dialog: AlertDialog = builder.create()
         dialog.show()
@@ -112,13 +156,16 @@ class Login : AppCompatActivity() {
 
     // INICIO DE SESION CON GOOGLE REQUIERE DE ESTA FUNCION OVERRIDE PARA VALIDAR LA CUENTA DE GOOGLE
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+
+        callBackManager.onActivityResult(requestCode, resultCode, data)
+
         super.onActivityResult(requestCode, resultCode, data)
-        if(requestCode == GOOGLE) {
+        if(requestCode == GOOGLE_SIGN_IN) {
             val task = GoogleSignIn.getSignedInAccountFromIntent(data)
             try {
                 val account = task.getResult(ApiException::class.java)
                 if (account != null) {
-                    val credential = GoogleAuthProvider.getCredential(account.idToken, null)
+                    val credential :AuthCredential = GoogleAuthProvider.getCredential(account.idToken, null)
                     FirebaseAuth.getInstance()
                         .signInWithCredential(credential).addOnCompleteListener {
                         if (it.isSuccessful) {

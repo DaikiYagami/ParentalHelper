@@ -2,6 +2,8 @@
     <string name="app_name">Parental Helper</string>
     <string name="registrarse"><u>Regístrate</u></string>
     <string name="prefs_file">com.tomaspev.parentalhelper.PREFERENCE_FILE_KEY</string>
+    <string name="facebook_app_id">639929456999755</string>
+    <string name="fb_login_protocol_scheme">fb639929456999755</string>
     <string name="requisitos">
         <h1><u>CONTRASEÑA:</u></h1>
         <ul></ul>\n

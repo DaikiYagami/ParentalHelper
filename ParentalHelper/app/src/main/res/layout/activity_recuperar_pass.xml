@@ -67,14 +67,14 @@
             android:layout_width="320dp"
             android:layout_height="90dp"
             android:layout_marginTop="8dp"
-            android:textColorHint="@color/black"
+            android:textColorHint="@color/text"
             app:boxStrokeColor="@color/accent"
             app:boxStrokeWidth="2sp"
             app:helperTextEnabled="true"
-            app:helperTextTextColor="@color/gray"
+            app:helperTextTextColor="@color/error"
             app:passwordToggleTint="@color/secondary"
             app:placeholderText="ejemplo@gmail.com"
-            app:placeholderTextColor="@color/gray"
+            app:placeholderTextColor="@color/text"
             app:startIconDrawable="@drawable/user"
             app:startIconTint="@color/secondary">
 
