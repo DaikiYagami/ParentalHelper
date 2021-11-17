@@ -154,7 +154,7 @@ class Login : AppCompatActivity() {
         startActivity(home)
     }
 
-    // INICIO DE SESION CON GOOGLE REQUIERE DE ESTA FUNCION OVERRIDE PARA VALIDAR LA CUENTA DE GOOGLE
+    // INICIO DE SESION CON GOOGLE Y FACEBOOK REQUIERE DE ESTA FUNCION OVERRIDE PARA VALIDAR LA CUENTA DE GOOGLE
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
 
         callBackManager.onActivityResult(requestCode, resultCode, data)
