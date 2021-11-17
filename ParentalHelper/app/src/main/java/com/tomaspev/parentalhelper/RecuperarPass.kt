@@ -8,7 +8,6 @@ import android.util.Patterns
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_recuperar_pass.*
-import kotlinx.android.synthetic.main.activity_registro_usuario.*
 
 class RecuperarPass : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
