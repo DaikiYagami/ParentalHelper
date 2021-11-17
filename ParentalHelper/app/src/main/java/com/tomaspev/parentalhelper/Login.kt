@@ -85,6 +85,7 @@ class Login : AppCompatActivity() {
                 }
             }
         }
+
         // ========== SECCION LOGIN CON GOOGLE ========== //
         googleButton.setOnClickListener {
             val googleConf =
@@ -96,6 +97,7 @@ class Login : AppCompatActivity() {
             val googleClient = GoogleSignIn.getClient(this, googleConf)
             startActivityForResult(googleClient.signInIntent, GOOGLE_SIGN_IN)
         }
+
         // ========== SECCION LOGIN CON FACEBOOK ========== //
         facebookButton.setOnClickListener {
 
