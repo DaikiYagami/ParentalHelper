@@ -11,6 +11,8 @@ import com.google.android.youtube.player.YouTubePlayer
 import com.google.android.youtube.player.YouTubePlayerView
 import com.google.android.youtube.player.internal.t
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_main.*
 
 // Clase que permite la diferenciacion de los tipos de proveedor para iniciar sesión
@@ -20,6 +22,8 @@ enum class  ProviderType {
 }
 
 class MainActivity : YouTubeBaseActivity(), YouTubePlayer.OnInitializedListener {
+    private lateinit var database: DatabaseReference
+
     override fun onInitializationSuccess(provider: YouTubePlayer.Provider?, player: YouTubePlayer?, wasRestored: Boolean) {
         Toast.makeText(this, "Youtube Api Initialization Success", Toast.LENGTH_SHORT).show()
         if (!wasRestored) {
@@ -47,6 +51,28 @@ class MainActivity : YouTubeBaseActivity(), YouTubePlayer.OnInitializedListener 
         prefs.putString("email", email)
         prefs.putString("provider", provider)
         prefs.apply()
+
+        // Seba ==============================
+        val user = FirebaseAuth.getInstance().currentUser
+        var uid = ""
+        user?.let {
+            uid = user.uid
+        }
+        readData(uid)
+    }
+
+    private fun readData(uid: String) {
+        database = FirebaseDatabase.getInstance().getReference("Usuario")
+        database.child(uid).get().addOnSuccessListener {
+            if (it.exists()) {
+                val correo = it.child("email").value
+                val contra = it.child("password").value
+                tv_uid.text = contra.toString()
+            }
+            else {
+                Toast.makeText(this, "User doesn't exists", Toast.LENGTH_SHORT).show()
+            }
+        }
     }
 
     // FUNCION QUE PERMITE CERRAR LA SESION EN FIREBASE Y VACIAR PREFS
