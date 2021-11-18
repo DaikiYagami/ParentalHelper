@@ -1,0 +1,8 @@
+*.apk
+*.ap_
+*.dex
+*.iml
+/local.properties
+.DS_Store
+/build
+local.properties
