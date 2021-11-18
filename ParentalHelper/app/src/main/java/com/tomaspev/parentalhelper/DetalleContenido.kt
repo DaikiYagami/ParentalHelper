@@ -4,6 +4,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_detalle_contenido.*
+import android.content.Intent
+
+
+
 
 
 class DetalleContenido : AppCompatActivity() {
@@ -31,12 +35,17 @@ class DetalleContenido : AppCompatActivity() {
         val contenido8 = Contenido("Números del 1 al 10", "1","www.patito.cl","Aca esta la descripcion corta","Aca esta la descripcion larga jaksdjaksjdkajskdajskdjaksdjaksjdkajsdkajsdkaskdjaksdaksdkasjdkajskdjaksdjaksjdkajsdkajsdkjaskdjaksd")
 
         val listaContent = listOf(contenido1 , contenido3,contenido5,contenido7, contenido2,contenido4,contenido6,contenido8)
-        //Prueba de filtro
-        val bundle = intent.extras
-        val idSeleccionado = bundle?.getString("num")
-        Toast.makeText(this, idSeleccionado, Toast.LENGTH_SHORT).show()
 
-        var listaContent2 = listaContent.filter{ it.idContenido.equals(idSeleccionado) }
+        //Prueba de filtro
+
+        val objetoIntent: Intent= intent
+        var Numero = objetoIntent.getVExtra("num",Numero)
+
+        //----------------
+
+        Toast.makeText(this, Numero, Toast.LENGTH_SHORT).show()
+
+        var listaContent2 = listaContent.filter{ number -> number.idContenido == 2  }
 
         //-------------------------------------------------------
         val adapter = ContentAdapter(this, listaContent2)
@@ -74,3 +83,5 @@ class DetalleContenido : AppCompatActivity() {
         finish()
     }*/
 }
+
+
