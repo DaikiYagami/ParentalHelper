@@ -45,14 +45,22 @@ class NewContent : AppCompatActivity() {
 
         //HACER CLIKEABLE LOS ITEM DE LA LISTA
         listado1.setOnItemClickListener{ parent, view, position, id->
-            var Numero:Int = 2
+
+
+
             val intent = Intent(this, DetalleContenido::class.java)
 
+            var numero = listaNContent[position].idContenido.toString()
+            /*intent.putExtra("num",numero)*/
 
-            intent.putExtra("num",Numero)
+            var dato :String = numero.toString()
+            val b : Bundle = Bundle()
+            b.putString("dt",dato)
+            intent.putExtras(b)
+
+
+            //------------------------------
             intent.putExtra("id", listaNContent[position].idContenido)
-            //filtro
-
 
             //----------------------------
 

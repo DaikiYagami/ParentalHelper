@@ -5,9 +5,7 @@ import android.os.Bundle
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_detalle_contenido.*
 import android.content.Intent
-
-
-
+import kotlinx.android.synthetic.main.activity_main.*
 
 
 class DetalleContenido : AppCompatActivity() {
@@ -21,12 +19,12 @@ class DetalleContenido : AppCompatActivity() {
         //crear listado de item seleccionado con solo un elemento
 
         val contenido1 = Contenido(
-            "Números del 2 al 10",
+            "Contenido de evaluacion 1",
             "Nucleo Logico Matematico",
             "www.patito.cl",
             "Aca esta la descripcion corta",
             "Aca esta la descripcion larga jaksdjaksjdkajskdajskdjaksdjaksjdkajsdkajsdkaskdjaksdaksdkasjdkajskdjaksdjaksjdkajsdkajsdkjaskdjaksd")
-        val contenido2 = Contenido("Números del 1 al 10", "1","www.patito.cl","Aca esta la descripcion corta","Aca esta la descripcion larga jaksdjaksjdkajskdajskdjaksdjaksjdkajsdkajsdkaskdjaksdaksdkasjdkajskdjaksdjaksjdkajsdkajsdkjaskdjaksd")
+        val contenido2 = Contenido("Contenido de evaluacion 2", "1","www.patito.cl","Aca esta la descripcion corta","Aca esta la descripcion larga jaksdjaksjdkajskdajskdjaksdjaksjdkajsdkajsdkaskdjaksdaksdkasjdkajskdjaksdjaksjdkajsdkajsdkjaskdjaksd")
         val contenido3 = Contenido("Números del 2 al 10", "2","www.patito.cl","Aca esta la descripcion corta","Aca esta la descripcion larga jaksdjaksjdkajskdajskdjaksdjaksjdkajsdkajsdkaskdjaksdaksdkasjdkajskdjaksdjaksjdkajsdkajsdkjaskdjaksd")
         val contenido4 = Contenido("Números del 1 al 10", "3","www.patito.cl","Aca esta la descripcion corta","Aca esta la descripcion larga jaksdjaksjdkajskdajskdjaksdjaksjdkajsdkajsdkaskdjaksdaksdkasjdkajskdjaksdjaksjdkajsdkajsdkjaskdjaksd")
         val contenido5 = Contenido("Números del 2 al 10", "1","www.patito.cl","Aca esta la descripcion corta","Aca esta la descripcion larga jaksdjaksjdkajskdajskdjaksdjaksjdkajsdkajsdkaskdjaksdaksdkasjdkajskdjaksdjaksjdkajsdkajsdkjaskdjaksd")
@@ -38,14 +36,17 @@ class DetalleContenido : AppCompatActivity() {
 
         //Prueba de filtro
 
-        val objetoIntent: Intent= intent
-        var Numero = objetoIntent.getVExtra("num",Numero)
+        /*val objetoIntent: Intent= intent
+        var numero = objetoIntent.getStringExtra("num")
+        var con = "contenido"*/
 
         //----------------
+        var bundle = intent.extras
+        textView.text=bundle.getString("dt")
 
-        Toast.makeText(this, Numero, Toast.LENGTH_SHORT).show()
 
-        var listaContent2 = listaContent.filter{ number -> number.idContenido == 2  }
+        //-----------------------
+        var listaContent2 = listaContent.filter{ it ==contenido2}//aparece solo el que acompaña al it   it == contenido2
 
         //-------------------------------------------------------
         val adapter = ContentAdapter(this, listaContent2)
