@@ -5,8 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
-import android.widget.ImageView
-import androidx.appcompat.widget.AppCompatImageView
 import androidx.core.content.ContextCompat
 import kotlinx.android.synthetic.main.elemento_newcontent.*
 import kotlinx.android.synthetic.main.elemento_newcontent.view.*
@@ -22,12 +20,10 @@ class ContentAdapter(private val mContext: Context, private val detalle: List<Co
         val layout = LayoutInflater.from(mContext).inflate(R.layout.elemento_contenido, parent, false)
         val contenido = detalle[position]
 
+
+
         layout.titlecontent.text = contenido.titulo
         layout.descriptioncontent.text = contenido.descripcionShort
-
-
-
-
 
 
         var condition = contenido.clase

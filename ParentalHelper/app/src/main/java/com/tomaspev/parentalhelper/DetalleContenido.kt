@@ -1,19 +1,10 @@
 package com.tomaspev.parentalhelper
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
-import android.view.View
 import android.widget.Toast
-import androidx.lifecycle.LiveData
 import kotlinx.android.synthetic.main.activity_detalle_contenido.*
-import kotlinx.android.synthetic.main.activity_new_content.*
 
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 
 class DetalleContenido : AppCompatActivity() {
 
@@ -25,19 +16,35 @@ class DetalleContenido : AppCompatActivity() {
 
         //crear listado de item seleccionado con solo un elemento
 
+        val contenido1 = Contenido(
+            "Números del 2 al 10",
+            "Nucleo Logico Matematico",
+            "www.patito.cl",
+            "Aca esta la descripcion corta",
+            "Aca esta la descripcion larga jaksdjaksjdkajskdajskdjaksdjaksjdkajsdkajsdkaskdjaksdaksdkasjdkajskdjaksdjaksjdkajsdkajsdkjaskdjaksd")
+        val contenido2 = Contenido("Números del 1 al 10", "1","www.patito.cl","Aca esta la descripcion corta","Aca esta la descripcion larga jaksdjaksjdkajskdajskdjaksdjaksjdkajsdkajsdkaskdjaksdaksdkasjdkajskdjaksdjaksjdkajsdkajsdkjaskdjaksd")
+        val contenido3 = Contenido("Números del 2 al 10", "2","www.patito.cl","Aca esta la descripcion corta","Aca esta la descripcion larga jaksdjaksjdkajskdajskdjaksdjaksjdkajsdkajsdkaskdjaksdaksdkasjdkajskdjaksdjaksjdkajsdkajsdkjaskdjaksd")
+        val contenido4 = Contenido("Números del 1 al 10", "3","www.patito.cl","Aca esta la descripcion corta","Aca esta la descripcion larga jaksdjaksjdkajskdajskdjaksdjaksjdkajsdkajsdkaskdjaksdaksdkasjdkajskdjaksdjaksjdkajsdkajsdkjaskdjaksd")
+        val contenido5 = Contenido("Números del 2 al 10", "1","www.patito.cl","Aca esta la descripcion corta","Aca esta la descripcion larga jaksdjaksjdkajskdajskdjaksdjaksjdkajsdkajsdkaskdjaksdaksdkasjdkajskdjaksdjaksjdkajsdkajsdkjaskdjaksd")
+        val contenido6 = Contenido("Números del 1 al 10", "2","www.patito.cl","Aca esta la descripcion corta","Aca esta la descripcion larga jaksdjaksjdkajskdajskdjaksdjaksjdkajsdkajsdkaskdjaksdaksdkasjdkajskdjaksdjaksjdkajsdkajsdkjaskdjaksd")
+        val contenido7 = Contenido("Números del 2 al 10", "3","www.patito.cl","Aca esta la descripcion corta","Aca esta la descripcion larga jaksdjaksjdkajskdajskdjaksdjaksjdkajsdkajsdkaskdjaksdaksdkasjdkajskdjaksdjaksjdkajsdkajsdkjaskdjaksd")
+        val contenido8 = Contenido("Números del 1 al 10", "1","www.patito.cl","Aca esta la descripcion corta","Aca esta la descripcion larga jaksdjaksjdkajskdajskdjaksdjaksjdkajsdkajsdkaskdjaksdaksdkasjdkajskdjaksdjaksjdkajsdkajsdkjaskdjaksd")
 
-        val listaContent = listOf(contenido)
+        val listaContent = listOf(contenido1 , contenido3,contenido5,contenido7, contenido2,contenido4,contenido6,contenido8)
+        //Prueba de filtro
+        val bundle = intent.extras
+        val idSeleccionado = bundle?.getString("num")
+        Toast.makeText(this, idSeleccionado, Toast.LENGTH_SHORT).show()
 
-        val adapter = ContentAdapter(this, listaContent)
+        var listaContent2 = listaContent.filter{ it.idContenido.equals(idSeleccionado) }
 
+        //-------------------------------------------------------
+        val adapter = ContentAdapter(this, listaContent2)
         lcontenido.adapter = adapter
 
 
+
     }
-
-
-
-
 
 
     /*override fun onOptionsItemSelected(item: MenuItem): Boolean {

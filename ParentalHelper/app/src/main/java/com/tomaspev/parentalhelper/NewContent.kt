@@ -3,6 +3,7 @@ package com.tomaspev.parentalhelper
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_new_content.*
 import kotlinx.android.synthetic.main.elemento_newcontent.view.*
 
@@ -29,8 +30,11 @@ class NewContent : AppCompatActivity() {
 
 
 
+
         val listaNContent = listOf(contenido1 , contenido3,contenido5,contenido7)
         val listaNContent2 = listOf(contenido2 , contenido4,contenido6,contenido8)
+
+
 
         val adapter1 = NewContentAdapter(this, listaNContent)
         val adapter2 = NewContentAdapter(this, listaNContent2)
@@ -43,6 +47,12 @@ class NewContent : AppCompatActivity() {
         listado1.setOnItemClickListener{ parent, view, position, id->
             val intent = Intent(this, DetalleContenido::class.java)
             intent.putExtra("id", listaNContent[position].idContenido)
+            //filtro
+            val num = listaNContent[position].idContenido
+            intent.putExtra("num",num)
+
+            //----------------------------
+
             startActivity(intent)
         }
         listado2.setOnItemClickListener{ parent, view, position, id->
@@ -54,3 +64,4 @@ class NewContent : AppCompatActivity() {
 
     }
 }
+
