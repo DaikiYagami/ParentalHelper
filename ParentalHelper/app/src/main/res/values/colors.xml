@@ -12,5 +12,6 @@
     <color name="text">#454545</color>
     <color name="error">#D53B3B</color>
     <color name="bg">#FAFAFA</color>
+    <color name="bg2">#430B0B</color>
     <color name="mtrl_textinput_default_box_stroke_color">@color/secondary</color>
 </resources>
