@@ -1,6 +1,7 @@
 package com.tomaspev.parentalhelper
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -28,16 +29,15 @@ class RegistroAdapter(var context: Context): RecyclerView.Adapter<RegistroAdapte
         val genero: TextView = itemView.findViewById(R.id.tv_genero)
         //val cumple: TextView = itemView.findViewById(R.id.tv_cumple)
         val capacidad: ImageButton = itemView.findViewById(R.id.btn_capacidad)
-
-        val cardView: CardView = itemView.findViewById(R.id.registro_cardView) // para hacer click
+        val cardView: CardView = itemView.findViewById(R.id.registro_cardView)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RegistroAdapter.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.registros_recyclerview_layout, parent, false)
         return ViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: RegistroAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val data = dataList[position]
 
         holder.nombre.text = data.nombre
@@ -47,7 +47,10 @@ class RegistroAdapter(var context: Context): RecyclerView.Adapter<RegistroAdapte
         //holder.capacidad.setImageResource()
 
         holder.cardView.setOnClickListener {
-            Toast.makeText(context, "Registro", Toast.LENGTH_SHORT).show()
+            context = holder.itemView.context
+            val intent = Intent(context, DetalleRegistro::class.java)
+            intent.putExtra("registro", data)
+            context.startActivity(intent)
         }
     }
 

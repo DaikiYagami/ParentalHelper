@@ -23,12 +23,8 @@ class NewContent : AppCompatActivity() {
         val contenido7 = Contenido("Números del 2 al 10", "3","www.patito.cl","Aca esta la descripcion corta","Aca esta la descripcion larga jaksdjaksjdkajskdajskdjaksdjaksjdkajsdkajsdkaskdjaksdaksdkasjdkajskdjaksdjaksjdkajsdkajsdkjaskdjaksd", "Destacado")
         val contenido8 = Contenido("Números del 1 al 10", "1","www.patito.cl","Aca esta la descripcion corta","Aca esta la descripcion larga jaksdjaksjdkajskdajskdjaksdjaksjdkajsdkajsdkaskdjaksdaksdkasjdkajskdjaksdjaksjdkajsdkajsdkjaskdjaksd", "Destacado")
 
-
-
         val listaNContent = listOf(contenido1 , contenido3,contenido5,contenido7)
         val listaNContent2 = listOf(contenido2 , contenido4,contenido6,contenido8)
-
-
 
         val adapter1 = NewContentAdapter(this, listaNContent)
         val adapter2 = NewContentAdapter(this, listaNContent2)

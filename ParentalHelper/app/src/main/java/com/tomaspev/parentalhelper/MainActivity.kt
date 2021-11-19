@@ -87,6 +87,10 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, ListadoRegistros::class.java)
             startActivity(intent)
         }
+        tv_todos_nuevos.setOnClickListener {
+            val intent = Intent(this, NewContent::class.java)
+            startActivity(intent)
+        }
 
         // Parte tomas - verificación y mantener sesión iniciada
         val bundle = intent.extras                               // Variable que rescata los extras que trae el Intent

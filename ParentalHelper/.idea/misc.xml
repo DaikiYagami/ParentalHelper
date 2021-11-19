@@ -3,19 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/golia/OneDrive - BiblioRedes CL/Documentos/GitHub/ParentalHelper/ParentalHelper/app/src/main/res/layout-h400dp/elemento_contenido.xml" value="0.3292572463768116" />
-        <entry key="..\:/Users/golia/OneDrive - BiblioRedes CL/Documentos/GitHub/ParentalHelper/ParentalHelper/app/src/main/res/layout/activity_detalle_contenido.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/golia/OneDrive - BiblioRedes CL/Documentos/GitHub/ParentalHelper/ParentalHelper/app/src/main/res/layout/activity_detalle_registro.xml" value="0.2869791666666667" />
-        <entry key="..\:/Users/golia/OneDrive - BiblioRedes CL/Documentos/GitHub/ParentalHelper/ParentalHelper/app/src/main/res/layout/activity_fag.xml" value="0.2869791666666667" />
-        <entry key="..\:/Users/golia/OneDrive - BiblioRedes CL/Documentos/GitHub/ParentalHelper/ParentalHelper/app/src/main/res/layout/activity_listado_registros.xml" value="0.2869791666666667" />
-        <entry key="..\:/Users/golia/OneDrive - BiblioRedes CL/Documentos/GitHub/ParentalHelper/ParentalHelper/app/src/main/res/layout/activity_login.xml" value="0.24728260869565216" />
-        <entry key="..\:/Users/golia/OneDrive - BiblioRedes CL/Documentos/GitHub/ParentalHelper/ParentalHelper/app/src/main/res/layout/activity_main.xml" value="0.2869791666666667" />
-        <entry key="..\:/Users/golia/OneDrive - BiblioRedes CL/Documentos/GitHub/ParentalHelper/ParentalHelper/app/src/main/res/layout/activity_new_content.xml" value="0.2869791666666667" />
-        <entry key="..\:/Users/golia/OneDrive - BiblioRedes CL/Documentos/GitHub/ParentalHelper/ParentalHelper/app/src/main/res/layout/destacados_recyclerview_layout.xml" value="0.2869791666666667" />
-        <entry key="..\:/Users/golia/OneDrive - BiblioRedes CL/Documentos/GitHub/ParentalHelper/ParentalHelper/app/src/main/res/layout/elemento_contenido.xml" value="0.17" />
-        <entry key="..\:/Users/golia/OneDrive - BiblioRedes CL/Documentos/GitHub/ParentalHelper/ParentalHelper/app/src/main/res/layout/elemento_newcontent.xml" value="0.5" />
-        <entry key="..\:/Users/golia/OneDrive - BiblioRedes CL/Documentos/GitHub/ParentalHelper/ParentalHelper/app/src/main/res/layout/listado_registros_recyclerview_layout.xml" value="0.2869791666666667" />
-        <entry key="..\:/Users/golia/OneDrive - BiblioRedes CL/Documentos/GitHub/ParentalHelper/ParentalHelper/app/src/main/res/layout/registros_recyclerview_layout.xml" value="0.2869791666666667" />
+        <entry key="..\:/Users/acer/Desktop/ParentalHelper/ParentalHelper/app/src/main/res/layout/activity_detalle_registro.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/acer/Desktop/ParentalHelper/ParentalHelper/app/src/main/res/layout/activity_fag.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/acer/Desktop/ParentalHelper/ParentalHelper/app/src/main/res/layout/activity_listado_registros.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/acer/Desktop/ParentalHelper/ParentalHelper/app/src/main/res/layout/activity_login.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/acer/Desktop/ParentalHelper/ParentalHelper/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/acer/Desktop/ParentalHelper/ParentalHelper/app/src/main/res/layout/activity_registro_usuario.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/regin/Documents/GitHub/ParentalHelper/ParentalHelper/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2890625" />
         <entry key="..\:/Users/regin/Documents/GitHub/ParentalHelper/ParentalHelper/app/src/main/res/drawable/a.xml" value="0.27870370370370373" />
         <entry key="..\:/Users/regin/Documents/GitHub/ParentalHelper/ParentalHelper/app/src/main/res/drawable/boton.xml" value="0.20572916666666666" />
@@ -24,23 +17,9 @@
         <entry key="..\:/Users/regin/Documents/GitHub/ParentalHelper/ParentalHelper/app/src/main/res/drawable/custom_state_button_red.xml" value="0.16979166666666667" />
         <entry key="..\:/Users/regin/Documents/GitHub/ParentalHelper/ParentalHelper/app/src/main/res/drawable/ic_launcher_background.xml" value="0.16979166666666667" />
         <entry key="..\:/Users/regin/Documents/GitHub/ParentalHelper/ParentalHelper/app/src/main/res/drawable/rnd_boton.xml" value="0.16979166666666667" />
-        <entry key="..\:/Users/regin/Documents/GitHub/ParentalHelper/ParentalHelper/app/src/main/res/drawable/rnd_sombra.xml" value="0.2890625" />
         <entry key="..\:/Users/regin/Documents/GitHub/ParentalHelper/ParentalHelper/app/src/main/res/drawable/round_progress_bar.xml" value="0.16979166666666667" />
         <entry key="..\:/Users/regin/Documents/GitHub/ParentalHelper/ParentalHelper/app/src/main/res/drawable/sombra.xml" value="0.27870370370370373" />
         <entry key="..\:/Users/regin/Documents/GitHub/ParentalHelper/ParentalHelper/app/src/main/res/layout/activity_detalle_registro.xml" value="0.1" />
-        <entry key="..\:/Users/acer/Desktop/ParentalHelper/ParentalHelper/app/src/main/res/drawable/custom_background_registro.xml" value="0.3828125" />
-        <entry key="..\:/Users/acer/Desktop/ParentalHelper/ParentalHelper/app/src/main/res/drawable/custom_state_button_red.xml" value="0.3828125" />
-        <entry key="..\:/Users/acer/Desktop/ParentalHelper/ParentalHelper/app/src/main/res/drawable/round_progress_bar.xml" value="0.3828125" />
-        <entry key="..\:/Users/acer/Desktop/ParentalHelper/ParentalHelper/app/src/main/res/layout/activity_detalle_registro.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/acer/Desktop/ParentalHelper/ParentalHelper/app/src/main/res/layout/activity_listado_registros.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/acer/Desktop/ParentalHelper/ParentalHelper/app/src/main/res/layout/activity_login.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/acer/Desktop/ParentalHelper/ParentalHelper/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/acer/Desktop/ParentalHelper/ParentalHelper/app/src/main/res/layout/activity_splashscreen.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/acer/Desktop/ParentalHelper/ParentalHelper/app/src/main/res/layout/contenido_nuevo_recyclerview_layout.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/acer/Desktop/ParentalHelper/ParentalHelper/app/src/main/res/layout/destacados_recyclerview_layout.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/acer/Desktop/ParentalHelper/ParentalHelper/app/src/main/res/layout/listado_registros_recyclerview_layout.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/acer/Desktop/ParentalHelper/ParentalHelper/app/src/main/res/layout/progreso_contenido_recyclerview_layout.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/acer/Desktop/ParentalHelper/ParentalHelper/app/src/main/res/layout/registros_recyclerview_layout.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/regin/Documents/GitHub/ParentalHelper/ParentalHelper/app/src/main/res/layout/activity_fag.xml" value="0.13697916666666668" />
         <entry key="..\:/Users/regin/Documents/GitHub/ParentalHelper/ParentalHelper/app/src/main/res/layout/activity_listado_registros.xml" value="0.15364583333333334" />
         <entry key="..\:/Users/regin/Documents/GitHub/ParentalHelper/ParentalHelper/app/src/main/res/layout/activity_login.xml" value="0.33" />

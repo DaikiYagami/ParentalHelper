@@ -31,7 +31,7 @@ class ListadoRegistrosAdapter(var context: Context): RecyclerView.Adapter<Listad
         val cardView: CardView = itemView.findViewById(R.id.listado_registros_cardView)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListadoRegistrosAdapter.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.listado_registros_recyclerview_layout, parent, false)
         return ViewHolder(view)
     }
@@ -48,6 +48,7 @@ class ListadoRegistrosAdapter(var context: Context): RecyclerView.Adapter<Listad
         holder.cardView.setOnClickListener {
             context = holder.itemView.context
             val intent = Intent(context, DetalleRegistro::class.java)
+            intent.putExtra("registro", data)
             context.startActivity(intent)
         }
     }
