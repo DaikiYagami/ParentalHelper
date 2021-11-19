@@ -42,7 +42,7 @@ class DetalleContenido : AppCompatActivity() {
 
         //----------------
         var bundle = intent.extras
-        textView.text=bundle.getString("dt")
+        /*textView.text=bundle.getString("dt")*/
 
 
         //-----------------------
