@@ -13,6 +13,9 @@
             android:name=".RecuperarPass"
             android:exported="true" />
         <activity
+            android:name=".DetalleContenido"
+            android:exported="true" />
+        <activity
             android:name=".RegistroUsuario"
             android:exported="true" />
         <activity
