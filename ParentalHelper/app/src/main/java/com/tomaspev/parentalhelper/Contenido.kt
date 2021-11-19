@@ -12,8 +12,8 @@ class Contenido(
     val enlaceWeb:String,
     val descripcionShort:String,
     val descripcionLong:String,
+    val tipo: String,
     @PrimaryKey(autoGenerate = true)
-    var idContenido: Int = 0,
-    val tipo: String
+    var idContenido: Int = 0
 
-    ) : Serializable
+) : Serializable

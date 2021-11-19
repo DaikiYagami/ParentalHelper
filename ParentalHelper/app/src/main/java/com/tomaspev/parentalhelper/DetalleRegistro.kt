@@ -20,14 +20,14 @@ class DetalleRegistro : AppCompatActivity() {
         recyclerView.adapter = progresoContenidoAdapter
 
         dataList = listOf(
-            ProgresoContenido(Contenido("Contenido 1", "Destacado"), 60),
-            ProgresoContenido(Contenido("Contenido 2", "Nuevo"), 20),
-            ProgresoContenido(Contenido("Contenido 3", "Destacado"), 40),
-            ProgresoContenido(Contenido("Contenido 4", "Nuevo"), 60),
-            ProgresoContenido(Contenido("Contenido 5", "Destacado"), 80),
-            ProgresoContenido(Contenido("Contenido 6", "Nuevo"), 10),
-            ProgresoContenido(Contenido("Contenido 7", "Destacado"), 90),
-            ProgresoContenido(Contenido("Contenido 8", "Nuevo"), 50)
+            ProgresoContenido(Contenido("Contenido de evaluacion 1","2","www.patito.cl","","", "Destacado"), 60),
+            ProgresoContenido(Contenido("Contenido de evaluacion 1","2","www.patito.cl","","", "Destacado"), 20),
+            ProgresoContenido(Contenido("Contenido de evaluacion 1","2","www.patito.cl","","", "Destacado"), 40),
+            ProgresoContenido(Contenido("Contenido de evaluacion 1","2","www.patito.cl","","", "Destacado"), 60),
+            ProgresoContenido(Contenido("Contenido de evaluacion 1","2","www.patito.cl","","", "Destacado"), 80),
+            ProgresoContenido(Contenido("Contenido de evaluacion 1","2","www.patito.cl","","", "Destacado"), 10),
+            ProgresoContenido(Contenido("Contenido de evaluacion 1","2","www.patito.cl","","", "Destacado"), 90),
+            ProgresoContenido(Contenido("Contenido de evaluacion 1","2","www.patito.cl","","", "Destacado"), 50)
         )
 
         progresoContenidoAdapter.setDataList(dataList)

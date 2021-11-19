@@ -63,20 +63,22 @@ class MainActivity : AppCompatActivity() {
 
         // Lista de Contenidos
         dataListC = listOf(
-            Contenido("Contenido 1", "Destacado"),
-            Contenido("Contenido 2", "Nuevo"),
-            Contenido("Contenido 3", "Destacado"),
-            Contenido("Contenido 4", "Nuevo"),
-            Contenido("Contenido 5", "Destacado"),
-            Contenido("Contenido 6", "Nuevo")
+            Contenido("Contenido de evaluacion 1","2","www.patito.cl","Aca esta la descripcion corta","Aca esta la descripcion larga jaksdjaksjdkajskdajskdjaksdjaksjdkajsdkajsdkaskdjaksdaksdkasjdkajskdjaksdjaksjdkajsdkajsdkjaskdjaksd", "Destacado"),
+            Contenido("Contenido de evaluacion 2", "1","www.patito.cl","Aca esta la descripcion corta","Aca esta la descripcion larga jaksdjaksjdkajskdajskdjaksdjaksjdkajsdkajsdkaskdjaksdaksdkasjdkajskdjaksdjaksjdkajsdkajsdkjaskdjaksd", "Nuevo"),
+            Contenido("Números del 2 al 10", "2","www.patito.cl","Aca esta la descripcion corta","Aca esta la descripcion larga jaksdjaksjdkajskdajskdjaksdjaksjdkajsdkajsdkaskdjaksdaksdkasjdkajskdjaksdjaksjdkajsdkajsdkjaskdjaksd", "Destacado"),
+            Contenido("Números del 1 al 10", "3","www.patito.cl","Aca esta la descripcion corta","Aca esta la descripcion larga jaksdjaksjdkajskdajskdjaksdjaksjdkajsdkajsdkaskdjaksdaksdkasjdkajskdjaksdjaksjdkajsdkajsdkjaskdjaksd", "Nuevo"),
+            Contenido("Números del 2 al 10", "1","www.patito.cl","Aca esta la descripcion corta","Aca esta la descripcion larga jaksdjaksjdkajskdajskdjaksdjaksjdkajsdkajsdkaskdjaksdaksdkasjdkajskdjaksdjaksjdkajsdkajsdkjaskdjaksd", "Destacado"),
+            Contenido("Números del 1 al 10", "2","www.patito.cl","Aca esta la descripcion corta","Aca esta la descripcion larga jaksdjaksjdkajskdajskdjaksdjaksjdkajsdkajsdkaskdjaksdaksdkasjdkajskdjaksdjaksjdkajsdkajsdkjaskdjaksd", "Nuevo"),
+            Contenido("Números del 2 al 10", "3","www.patito.cl","Aca esta la descripcion corta","Aca esta la descripcion larga jaksdjaksjdkajskdajskdjaksdjaksjdkajsdkajsdkaskdjaksdaksdkasjdkajskdjaksdjaksjdkajsdkajsdkjaskdjaksd", "Destacado"),
+            Contenido("Números del 1 al 10", "1","www.patito.cl","Aca esta la descripcion corta","Aca esta la descripcion larga jaksdjaksjdkajskdajskdjaksdjaksjdkajsdkajsdkaskdjaksdaksdkasjdkajskdjaksdjaksjdkajsdkajsdkjaskdjaksd", "Nuevo")
         )
 
         // Lista Contenidos Destacados
-        val dataListD = dataListC.filter { it.tipo == "Nuevo" }
+        val dataListD = dataListC.filter { it.tipo == "Destacado" }
         destacadoAdapter.setDataList(dataListD)
 
         // Lista Contenidos Nuevos
-        val dataListNC = dataListC.filter { it.tipo == "Destacado" }
+        val dataListNC = dataListC.filter { it.tipo == "Nuevo" }
         contenidoNuevoAdapter.setDataList(dataListNC)
 
         // Resto del código =====================================================================================================
@@ -87,6 +89,9 @@ class MainActivity : AppCompatActivity() {
         }
 
         // Parte tomas - verificación y mantener sesión iniciada
+        val bundle = intent.extras                               // Variable que rescata los extras que trae el Intent
+        val email = bundle?.getString("email")              // Variable que rescata el correo
+        val provider = bundle?.getString("provider")        // Variable que rescata el provider
 
         setup(email ?: "", provider ?: "")         // Carga la funcion y sus datos provenientes de otros activity
 
@@ -99,7 +104,7 @@ class MainActivity : AppCompatActivity() {
 
     // FUNCION QUE PERMITE CERRAR LA SESION EN FIREBASE Y VACIAR PREFS
     private fun setup(email: String, provider: String) {
-        LogOutButton.setOnClickListener {
+        /*LogOutButton.setOnClickListener {
 
             val prefs = getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE).edit()
             prefs.clear()
@@ -112,6 +117,6 @@ class MainActivity : AppCompatActivity() {
             FirebaseAuth.getInstance().signOut()
             val home = Intent(this, Login::class.java)
             startActivity(home)
-        }
+        }*/
     }
 }
