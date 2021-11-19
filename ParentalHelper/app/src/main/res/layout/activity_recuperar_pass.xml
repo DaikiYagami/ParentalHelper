@@ -5,13 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".RecuperarPass"
-    android:background="@color/white">
+    android:background="@color/bg">
 
     <LinearLayout
         android:id="@+id/linearLayout3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="32dp"
         android:gravity="center"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
@@ -21,8 +21,9 @@
 
         <ImageView
             android:id="@+id/imageView2"
-            android:layout_width="125dp"
-            android:layout_height="125dp"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:contentDescription="Logo"
             app:srcCompat="@drawable/logotemporal"
             tools:ignore="VectorDrawableCompat" />
 
@@ -33,13 +34,14 @@
             android:gravity="center"
             android:text="Recuperación de Contraseña"
             android:textColor="@color/black"
-            android:textSize="24sp" />
+            android:textSize="34sp" />
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/authLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
         android:layout_marginBottom="32dp"
         android:gravity="center"
         android:orientation="vertical"
@@ -48,40 +50,47 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
-        app:layout_constraintVertical_bias="0.386">
+        app:layout_constraintVertical_bias="0.0">
 
         <TextView
             android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Por favor, introduzca su correo electronico."
-            android:textColor="@color/teal_700"
+            android:text="Introduzca su correo electronico"
+            android:textColor="@color/secondary"
             android:textSize="20sp" />
 
-        <EditText
-            android:id="@+id/emailResetTxT"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="24dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginRight="24dp"
-            android:autofillHints="Email"
-            android:backgroundTint="@color/black"
-            android:drawablePadding="16dp"
-            android:ems="10"
-            android:hint="Email"
-            android:inputType="textEmailAddress"
-            android:padding="16dp"
-            android:textColor="@color/black"
-            android:textColorHint="@color/teal_700" />
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/EmailResetTxT"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="320dp"
+            android:layout_height="90dp"
+            android:layout_marginTop="8dp"
+            android:textColorHint="@color/text"
+            app:boxStrokeColor="@color/accent"
+            app:boxStrokeWidth="2sp"
+            app:helperTextEnabled="true"
+            app:helperTextTextColor="@color/error"
+            app:passwordToggleTint="@color/secondary"
+            app:placeholderText="ejemplo@gmail.com"
+            app:placeholderTextColor="@color/text"
+            app:startIconDrawable="@drawable/user"
+            app:startIconTint="@color/secondary">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Correo electrónico"
+                android:textColor="@color/black" />
+        </com.google.android.material.textfield.TextInputLayout>
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/submitBtn"
-            android:layout_width="355dp"
+            android:layout_width="325dp"
             android:layout_height="48dp"
-            android:layout_marginTop="32dp"
-            android:background="@color/purple_500"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/rnd_boton"
             android:paddingLeft="64dp"
             android:paddingRight="64dp"
             android:text="enviar"
@@ -89,4 +98,5 @@
             android:textSize="20sp" />
 
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
