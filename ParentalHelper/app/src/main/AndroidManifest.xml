@@ -18,6 +18,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ParentalHelper">
         <activity
+            android:name=".ListadoRegistros"
+            android:exported="true" />
+        <activity
+            android:name=".DetalleRegistro"
+            android:exported="true" />
+        <activity
             android:name=".RecuperarPass"
             android:exported="true" />
         <activity

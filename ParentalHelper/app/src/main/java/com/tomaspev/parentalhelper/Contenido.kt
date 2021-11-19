@@ -14,5 +14,6 @@ class Contenido(
     val descripcionLong:String,
     @PrimaryKey(autoGenerate = true)
     var idContenido: Int = 0,
+    val tipo: String
 
     ) : Serializable
