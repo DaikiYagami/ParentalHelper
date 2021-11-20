@@ -9,6 +9,7 @@ import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_main.*
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 // Clase que permite la diferenciacion de los tipos de proveedor para iniciar sesión
 enum class  ProviderType {
@@ -31,6 +32,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
 
         // Registros ============================================================================================================
 
@@ -108,7 +110,7 @@ class MainActivity : AppCompatActivity() {
 
     // FUNCION QUE PERMITE CERRAR LA SESION EN FIREBASE Y VACIAR PREFS
     private fun setup(email: String, provider: String) {
-        /*LogOutButton.setOnClickListener {
+        fabCerrar.setOnClickListener {
 
             val prefs = getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE).edit()
             prefs.clear()
@@ -121,6 +123,6 @@ class MainActivity : AppCompatActivity() {
             FirebaseAuth.getInstance().signOut()
             val home = Intent(this, Login::class.java)
             startActivity(home)
-        }*/
+        }
     }
 }
