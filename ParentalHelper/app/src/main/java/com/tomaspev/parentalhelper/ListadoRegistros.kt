@@ -1,9 +1,11 @@
 package com.tomaspev.parentalhelper
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.android.synthetic.main.activity_listado_registros.*
 
 class ListadoRegistros : AppCompatActivity() {
     private lateinit var registroAdapter: ListadoRegistrosAdapter
@@ -24,5 +26,12 @@ class ListadoRegistros : AppCompatActivity() {
             Registro("Martina", "23/09/2017", "M", false, 80)
         )
         registroAdapter.setDataList(dataList)
+
+        // Resto del código =======================================================================
+
+        fab.setOnClickListener {
+            val intent = Intent(this, IngresoRegistro::class.java)
+            startActivity(intent)
+        }
     }
 }
