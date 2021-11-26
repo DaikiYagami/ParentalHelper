@@ -22,19 +22,15 @@ class ListadoRegistros : AppCompatActivity() {
         recyclerView = findViewById<RecyclerView>(R.id.rv_lista_registros)
         recyclerView.layoutManager = GridLayoutManager(applicationContext, 1)
 
-
         /*
         dataList = arrayListOf(
             Registro("Manuel", "12/04/2019", false),
             Registro("Jose", "15/07/2018", true),
             Registro("Martina", "23/09/2017", false)
         )*/
-        dataList = arrayListOf<Registro>()
+        dataList = arrayListOf()
+        dataList.clear()
         getData()
-
-
-        //registroAdapter.setDataList(dataList)
-
         // Resto del código =======================================================================
 
         fab.setOnClickListener {
@@ -55,9 +51,7 @@ class ListadoRegistros : AppCompatActivity() {
                     }
                     recyclerView.adapter = ListadoRegistrosAdapter(applicationContext, dataList)
                 }
-
             }
-
             override fun onCancelled(error: DatabaseError) {
                 TODO("Not yet implemented")
             }
