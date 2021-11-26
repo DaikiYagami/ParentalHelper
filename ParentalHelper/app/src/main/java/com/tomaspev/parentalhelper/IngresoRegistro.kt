@@ -20,6 +20,13 @@ class IngresoRegistro : AppCompatActivity(), DatePickerDialog.OnDateSetListener 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_ingreso_registro)
 
+
+
+
+
+
+
+
         btn_registro_cumple.setOnClickListener {
             pickDate()
         }

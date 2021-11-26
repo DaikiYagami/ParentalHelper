@@ -42,7 +42,8 @@ fun fechaHoy():String {
     return "$dd/$mm/$yy"
 }
 // Devuelve la cantidad de dias entre dos fechas
-fun edad(fecha1: String, fecha2: String): Int {
+fun edad(f1: String?, fecha2: String): Int {
+    val fecha1 = f1.toString()
     val dd1 = formatoFecha(fecha1, "dd")
     val dd2 = formatoFecha(fecha2, "dd")
     val mm1 = formatoFecha(fecha1, "MM")

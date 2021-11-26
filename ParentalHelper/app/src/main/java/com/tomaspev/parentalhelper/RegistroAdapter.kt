@@ -42,7 +42,6 @@ class RegistroAdapter(var context: Context): RecyclerView.Adapter<RegistroAdapte
 
         holder.nombre.text = data.nombre
         holder.edad.text = edad(data.cumple, fechaHoy()).toString()
-        holder.genero.text = data.genero
         //holder.cumple.text = formatoFecha(data.cumple, "dd/MM")
         //holder.capacidad.setImageResource()
 

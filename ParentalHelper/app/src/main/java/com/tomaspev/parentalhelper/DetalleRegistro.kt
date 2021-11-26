@@ -30,7 +30,6 @@ class DetalleRegistro : AppCompatActivity() {
         nombre.text = registro.nombre
         edad.text = edad(registro.cumple, fechaHoy()).toString()
         cumple.text = registro.cumple
-        genero.text = registro.genero
 
         // Esto muestra el progreso en los contenidos asociados a este registro =================================================>>>
         val recyclerView = findViewById<RecyclerView>(R.id.rv_detalle_registro_contenidos)

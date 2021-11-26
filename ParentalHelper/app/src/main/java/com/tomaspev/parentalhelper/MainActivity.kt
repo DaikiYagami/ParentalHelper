@@ -40,9 +40,9 @@ class MainActivity : AppCompatActivity() {
         recyclerViewR.adapter = registroAdapter
 
         dataListR = listOf(
-            Registro("Manuel", "12/04/2019", "H", false, 20),
-            Registro("Jose", "15/07/2018", "H", true, 40),
-            Registro("Martina", "23/09/2017", "M", false, 80)
+            Registro("Manuel", "12/04/2019", false),
+            Registro("Jose", "15/07/2018", true),
+            Registro("Martina", "23/09/2017", false)
         )
 
         registroAdapter.setDataList(dataListR)
