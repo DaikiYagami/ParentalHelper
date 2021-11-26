@@ -11,8 +11,7 @@ import com.google.android.youtube.player.YouTubePlayer
 import com.google.android.youtube.player.YouTubePlayerView
 import com.google.android.youtube.player.internal.t
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_main.*
 
 // Clase que permite la diferenciacion de los tipos de proveedor para iniciar sesión
@@ -59,15 +58,43 @@ class MainActivity : YouTubeBaseActivity(), YouTubePlayer.OnInitializedListener 
             uid = user.uid
         }
         readData(uid)
+        btnIngresarRegistro.setOnClickListener {
+            /*val map: MutableMap<String, Any> = HashMap()
+            val nombre = "Martin"
+            map.put("cumple", "24/11/2021")
+            map.put("capacidad", false)
+
+            database.child(uid).child("registros").child(nombre).setValue(map)*/
+
+            val map: MutableMap<String, Any> = HashMap()
+            val list = mutableListOf("Javiera", "Martin")
+            var i = 0
+            for (name in list) {
+                i++
+                map.put("nombre$i", name)
+            }
+
+            database.child(uid).child("nombresReg").setValue(map)
+        }
+        btnIngresarProgreso.setOnClickListener {
+            val idContenido = 2
+            val progreso = 50
+
+            database.child(uid).child("registros").child("Martin").child("progreso contenido").child(idContenido.toString()).setValue(progreso.toString())
+        }
     }
 
     private fun readData(uid: String) {
         database = FirebaseDatabase.getInstance().getReference("Usuario")
-        database.child(uid).get().addOnSuccessListener {
+        database.child(uid).child("nombresReg").get().addOnSuccessListener {
             if (it.exists()) {
-                val correo = it.child("email").value
-                val contra = it.child("password").value
-                tv_uid.text = contra.toString()
+                val registros = it.value
+                /*for (name in list) {
+
+                }*/
+                //val correo = it.child("email").value
+                //val contra = it.child("password").value
+                //tv_uid.text = registros.toString()
             }
             else {
                 Toast.makeText(this, "User doesn't exists", Toast.LENGTH_SHORT).show()
