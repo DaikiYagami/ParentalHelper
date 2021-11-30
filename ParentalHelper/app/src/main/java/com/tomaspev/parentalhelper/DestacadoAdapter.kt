@@ -1,6 +1,7 @@
 package com.tomaspev.parentalhelper
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -34,6 +35,10 @@ class DestacadoAdapter(var context: Context): RecyclerView.Adapter<DestacadoAdap
 
         holder.cardView.setOnClickListener {
             Toast.makeText(context, "Destacado", Toast.LENGTH_SHORT).show()
+            context = holder.itemView.context
+            val intent = Intent(context, DetalleContenido::class.java)
+            intent.putExtra("registro", data)
+            context.startActivity(intent)
         }
     }
 

@@ -5,17 +5,38 @@ import android.os.Bundle
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_detalle_contenido.*
 import android.content.Intent
+import android.widget.TextView
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.activity_main.*
 
 
 class DetalleContenido : AppCompatActivity() {
-
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detalle_contenido)
+        // Código para mostrar los datos del contenido seleccionado ==============================================================>>>
 
+
+
+        // Se recibe el objeto contenido pasado por el intent
+        val contenido = intent.getSerializableExtra("contenido") as Contenido
+
+        // Se identifican los campos mostrados en el layout
+        val titulo: TextView = findViewById(R.id.tv_detalle_contenido_titulo)
+        val ambito: TextView = findViewById(R.id.tv_detalle_contenido_ambito)
+        val descripcionShort: TextView = findViewById(R.id.tv_detalle_contenido_descripcionShort)
+
+
+        // Se le asignan los valores guardados en el objeto registro a los campos del layout
+        titulo.text = contenido.titulo
+        ambito.text = contenido.ambito
+        descripcionShort.text = contenido.descripcionShort
+
+
+
+
+/*
         //crear listado de item seleccionado con solo un elemento
 
         val contenido1 = Contenido(
@@ -52,7 +73,7 @@ class DetalleContenido : AppCompatActivity() {
         val adapter = ContentAdapter(this, listaContent2)
         lcontenido.adapter = adapter
 
-
+*/
 
     }
 

@@ -1,6 +1,7 @@
 package com.tomaspev.parentalhelper
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -19,7 +20,9 @@ class ContenidoNuevoAdapter(var context: Context): RecyclerView.Adapter<Contenid
 
     class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         val titulo: TextView = itemView.findViewById(R.id.tv_titulo)
-        val cardView: CardView = itemView.findViewById(R.id.destacado_cardView)
+        val ambito: TextView = itemView.findViewById(R.id.tv_detalle_contenido_ambito)
+        val descripcionShort: TextView = itemView.findViewById(R.id.tv_detalle_contenido_descripcionShort)
+        val cardView: CardView = itemView.findViewById(R.id.registro_cardView)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ContenidoNuevoAdapter.ViewHolder {
@@ -34,6 +37,10 @@ class ContenidoNuevoAdapter(var context: Context): RecyclerView.Adapter<Contenid
 
         holder.cardView.setOnClickListener {
             Toast.makeText(context, "Contenido Nuevo", Toast.LENGTH_SHORT).show()
+            context = holder.itemView.context
+            val intent = Intent(context, DetalleContenido::class.java)
+            intent.putExtra("registro", data)
+            context.startActivity(intent)
         }
     }
 
