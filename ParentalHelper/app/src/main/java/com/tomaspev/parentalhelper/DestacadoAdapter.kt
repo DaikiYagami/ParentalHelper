@@ -37,7 +37,7 @@ class DestacadoAdapter(var context: Context): RecyclerView.Adapter<DestacadoAdap
             Toast.makeText(context, "Destacado", Toast.LENGTH_SHORT).show()
             context = holder.itemView.context
             val intent = Intent(context, DetalleContenido::class.java)
-            intent.putExtra("registro", data)
+            intent.putExtra("contenido", data)
             context.startActivity(intent)
         }
     }

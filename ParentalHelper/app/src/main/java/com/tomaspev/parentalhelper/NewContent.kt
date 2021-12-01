@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_new_content.*
-import kotlinx.android.synthetic.main.elemento_newcontent.view.*
+
 
 class NewContent : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
