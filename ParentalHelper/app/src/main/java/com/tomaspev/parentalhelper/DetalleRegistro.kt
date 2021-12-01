@@ -38,16 +38,16 @@ class DetalleRegistro : AppCompatActivity() {
         recyclerView.adapter = progresoContenidoAdapter
 
         dataList = listOf(
-            ProgresoContenido(Contenido("Contenido de evaluacion 1","2","www.patito.cl","","", "Destacado"), 60),
-            ProgresoContenido(Contenido("Contenido de evaluacion 1","2","www.patito.cl","","", "Destacado"), 20),
-            ProgresoContenido(Contenido("Contenido de evaluacion 1","2","www.patito.cl","","", "Destacado"), 40),
-            ProgresoContenido(Contenido("Contenido de evaluacion 1","2","www.patito.cl","","", "Destacado"), 60),
-            ProgresoContenido(Contenido("Contenido de evaluacion 1","2","www.patito.cl","","", "Destacado"), 80),
-            ProgresoContenido(Contenido("Contenido de evaluacion 1","2","www.patito.cl","","", "Destacado"), 10),
-            ProgresoContenido(Contenido("Contenido de evaluacion 1","2","www.patito.cl","","", "Destacado"), 90),
-            ProgresoContenido(Contenido("Contenido de evaluacion 1","2","www.patito.cl","","", "Destacado"), 50)
+            ProgresoContenido(0, 60),
+            ProgresoContenido(0, 20),
+            ProgresoContenido(0, 40),
+            ProgresoContenido(0, 60),
+            ProgresoContenido(0, 80),
+            ProgresoContenido(0, 10),
+            ProgresoContenido(0, 90),
+            ProgresoContenido(0, 50)
         )
 
-        progresoContenidoAdapter.setDataList(dataList)
+        progresoContenidoAdapter.setDataList(dataList, registro)
     }
 }

@@ -6,6 +6,17 @@
     android:layout_height="match_parent"
     tools:context=".IngresoRegistro">
 
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Capacidad Difente"
+        android:fontFamily="@font/montserrat_semibold"
+        app:layout_constraintBottom_toTopOf="@+id/switch_capacidad"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <ImageView
         android:id="@+id/iv_nuevo_registro"
         android:layout_width="125dp"
@@ -16,47 +27,41 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/babyb" />
 
-    <TextView
-        android:id="@+id/tv_registro_cumple"
-        android:layout_width="230dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:hint=""
-        android:paddingLeft="3dp"
-        android:paddingTop="20dp"
-        android:paddingRight="3dp"
-        android:paddingBottom="2dp"
-        android:textAlignment="center"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/il_capacidad" />
-
     <Button
         android:id="@+id/btn_ingresar_registro"
         android:layout_width="120dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/montserrat_semibold"
         android:text="Listo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_registro_cumple" />
+        app:layout_constraintTop_toBottomOf="@+id/switch_capacidad" />
 
     <Button
-        android:id="@+id/btn_registro_cumple"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:text="F"
-        app:layout_constraintEnd_toEndOf="@+id/tv_registro_cumple"
-        app:layout_constraintTop_toTopOf="@+id/tv_registro_cumple" />
+        android:id="@+id/btn_date_picker"
+        style="?android:spinnerStyle"
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/montserrat_regular"
+        android:text="01/01/2021"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/il_nombre" />
 
     <TextView
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Cumpleaños"
-        app:layout_constraintEnd_toEndOf="@+id/tv_registro_cumple"
-        app:layout_constraintStart_toStartOf="@+id/tv_registro_cumple"
-        app:layout_constraintTop_toTopOf="@+id/tv_registro_cumple" />
+        android:text="Fecha Nacimiento"
+        android:fontFamily="@font/montserrat_semibold"
+        app:layout_constraintBottom_toTopOf="@+id/btn_date_picker"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/il_nombre"
@@ -76,38 +81,19 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/iet_nombre"
+            android:fontFamily="@font/montserrat_regular"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:maxLength="20" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/il_capacidad"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="80dp"
-        android:layout_marginEnd="80dp"
-        android:hint="Capacidad"
-        app:endIconMode="clear_text"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/il_nombre">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/iet_capacidad"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="number" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Switch
         android:id="@+id/switch_capacidad"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toEndOf="@+id/btn_ingresar_registro"
-        app:layout_constraintStart_toStartOf="@+id/btn_ingresar_registro"
-        app:layout_constraintTop_toBottomOf="@+id/btn_ingresar_registro" />
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_date_picker" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
