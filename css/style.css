@@ -1,0 +1,275 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+@import url('https://www.fontzip.com/storage/2019/02/16/adelia/webfonts/ADELIA.css');
+
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Poppins', sans-serif;
+}
+.portada{
+	position: relative;
+	width: 100%;
+	height: 100vh;
+	background: #1f3044;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.portada img{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	opacity: 0.35;
+}
+.portada .contenido{
+	position: relative;
+	max-width: 750px;
+	text-align: center;
+}
+.portada .contenido h2{
+	color: #fff;
+	font-size: 60px;
+}
+.portada .contenido p{
+	color: #fff;
+	font-size: 18px;
+}
+.portada .contenido .botones{
+	margin-top: 30px;
+	display: inline-block;
+	height: 100px;
+	width: 100%;
+	align-items: center;
+}
+.portada .contenido .google{
+  	background: url(../img/google.png);
+  	background-size: contain;
+  	background-position: center;
+  	background-repeat: no-repeat;
+  	border: none;
+  	width: 310px;
+  	height: 105px;
+  	cursor: pointer;
+}
+.portada .contenido .btn{
+  	background: url(../img/btn.png);
+  	background-size: contain;
+  	background-position: center;
+  	background-repeat: no-repeat;
+  	border: none;
+  	margin-left: 10px;
+  	width: 300px;
+  	height: 100px;
+  	cursor: pointer;
+}
+.portada header{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	padding: 30px 50px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 10000;
+}
+.portada header .logo{
+	position: relative;
+	width: 800px;
+	height: 90px;
+	background: url(../img/logo-nombre.png);
+	background-size: contain;
+	background-repeat: no-repeat;
+	cursor: pointer;
+}
+.info{
+	position: relative;
+	width: 100%;
+	display: flex;
+	-webkit-box-shadow: 0px -20px 15px -2px rgba(0,0,0,0.6); 
+	box-shadow: 0px -20px 15px -2px rgba(0,0,0,0.6);
+}
+.info .contenido{
+	background: #1f3044;
+	padding: 100px;
+	width: 50%;
+}
+.info .titulo{
+	color: #fff;
+	font-size: 35px;
+	font-weight: 600;
+	letter-spacing: 1px;
+	margin-bottom: 10px;
+}
+.info p{
+	color: #fff;
+	font-size: 16px;
+	font-weight: 300;
+	letter-spacing: 1px;
+}
+.info li{
+	color: #fff;
+	font-size: 16px;
+	font-weight: 300;
+	letter-spacing: 1px;
+}
+.texto{
+	color: #fff;
+	font-size: 16px;
+	font-weight: 300;
+	letter-spacing: 1px;
+}
+.info .img-info{
+	background: url(../img/imagen1.jpg);
+	width: 50%;
+	background-size: cover;
+	background-position: center;
+}
+.caracteristicas{
+	background: #13202e;
+	padding: 50px;
+	text-align: center;
+}
+.caracteristicas .contenido{
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap;
+	padding: 50px;
+}
+.caracteristicas .titulo{
+	font-size: 60px;
+	font-weight: 600;
+	color: #fff;
+	letter-spacing: 1px;
+}
+.caracteristicas .contenido .imagenes{
+	position: relative;
+	background: #ffff;
+	width: 350px;
+	height: 350px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 50px;
+}
+.caracteristicas .contenido .imagenes img{
+	max-width: 100px;
+}
+.caracteristicas .contenido .imagenes h2{
+	font-size: 30px;
+	font-weight: 500;
+}
+.caracteristicas .contenido .imagenes p{
+	text-align: justify-all;
+	font-size: 16px;
+	padding: 15px;
+}
+.footer{
+	position: relative;
+	width: 100%;
+	height: 200px;
+	background: #1f3044;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.footer footer{
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	padding: 25px 50px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	z-index: 10000;
+}
+.footer footer img{
+	max-width: 150px;
+}
+.footer footer h1{
+	font-family: 'ADELIA';
+	font-size: 45px;
+	color: #ffff;
+}
+.footer footer .contacto{
+	text-align: center;
+	background: #ffff;
+	height: 150px;
+	width: 350px;
+	border-radius: 10px;
+}
+.footer footer .contacto h2{
+	font-size: 30px;
+	font-weight: 500;
+}
+svg{
+	margin-top: -10%;
+	background: #13202e;
+	margin-bottom: -5%;
+}
+
+@media (max-width: 991px)
+{	
+	.portada{
+		padding: 50px;
+	}
+	.portada header .logo{
+		width: 550px;
+		height: 75px;
+	}
+	.portada .contenido h2{
+		font-size: 40px;
+	}
+	.portada .contenido p{
+		font-size: 16px;
+	}
+	.portada .contenido .google{
+		width: 225px;
+	}
+	.info{
+		flex-direction: column;
+	}
+	.info .contenido,
+	.info .img-info{
+		width: 100%;
+		padding: 50px;
+		min-height: 400px;
+		text-align: center;
+	}
+	.caracteristicas{
+		padding: 25px;
+	}
+	.caracteristicas .titulo{
+		font-size: 40px;
+	}
+	.caracteristicas .contenido{
+		padding: 25px;
+		justify-content: center;
+	}
+	.caracteristicas .contenido .imagenes{
+		margin-top: 30px;
+		width: 350px;
+	}
+	.footer{
+		height: 500px;
+	}
+	.footer h1{
+		margin-top: 25px;
+		margin-bottom: 25px;
+	}
+	svg{
+		margin-top: -5px;
+	}
+	.footer footer{
+		flex-direction: column;
+		justify-content: center;
+		text-align: center;
+	}
+}
