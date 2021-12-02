@@ -8,12 +8,13 @@
 
     <ImageView
         android:id="@+id/imageView5"
-        android:layout_width="417dp"
-        android:layout_height="159dp"
-        android:layout_marginBottom="11dp"
+        android:layout_width="413dp"
+        android:layout_height="109dp"
+        android:layout_marginBottom="2dp"
         android:scaleType="centerCrop"
-        app:layout_constraintBottom_toTopOf="@+id/textView12"
+        app:layout_constraintBottom_toTopOf="@+id/scrollView2"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/bg15_opt" />
@@ -22,81 +23,81 @@
         android:id="@+id/tv_detalle_contenido_titulo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="-100dp"
-        android:layout_marginBottom="-50dp"
+        android:layout_marginTop="-28dp"
+        android:layout_marginBottom="80dp"
         android:text="Nombre Contenido"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/imageView5"
+        app:layout_constraintBottom_toTopOf="@+id/scrollView2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView5" />
 
-    <TextView
-        android:id="@+id/textView12"
-        android:layout_width="wrap_content"
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="11dp"
-        android:layout_marginEnd="309dp"
-        android:text="Ficha Técnica"
-        app:layout_constraintBottom_toTopOf="@+id/textView13"
+        app:layout_constraintBottom_toBottomOf="@id/imageView5"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView5" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView5">
 
-    <TextView
-        android:id="@+id/textView13"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginBottom="14dp"
-        android:text="Ambito de Experiencia:"
-        app:layout_constraintBottom_toTopOf="@+id/textView15"
-        app:layout_constraintEnd_toStartOf="@+id/tv_detalle_contenido_ambito"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView12" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/tv_detalle_contenido_ambito"
-        android:layout_width="244dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="56dp"
-        android:layout_marginEnd="6dp"
-        android:layout_marginBottom="45dp"
-        android:text="Ambito"
-        app:layout_constraintBottom_toTopOf="@+id/tv_detalle_contenido_descripcionShort"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView13"
-        app:layout_constraintTop_toBottomOf="@+id/imageView5"
-        app:layout_constraintVertical_bias="0.058" />
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="11dp"
+                android:layout_marginEnd="309dp"
+                android:text="Ficha Técnica"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/textView15"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="9dp"
-        android:layout_marginEnd="337dp"
-        android:text="Actividad"
-        app:layout_constraintBottom_toTopOf="@+id/tv_detalle_contenido_descripcionShort"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView13" />
+            <TextView
+                android:id="@+id/textView13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="14dp"
+                android:text="Ambito de Experiencia:" />
 
-    <TextView
-        android:id="@+id/tv_detalle_contenido_descripcionShort"
-        android:layout_width="380dp"
-        android:layout_height="234dp"
-        android:layout_marginTop="21dp"
-        android:layout_marginBottom="221dp"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.516"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView15" />
+            <TextView
+                android:id="@+id/tv_detalle_contenido_ambito"
+                android:layout_width="356dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="6dp"
+                android:layout_marginBottom="10dp"
+                android:text="Ambito" />
+
+            <TextView
+                android:id="@+id/textView15"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:text="Actividad" />
+
+            <TextView
+                android:id="@+id/tv_detalle_contenido_descripcionShort"
+                android:layout_width="350sp"
+                android:layout_height="232dp"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="221dp"
+                android:text="TextView" />
+
+        </LinearLayout>
+    </ScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
