@@ -2,12 +2,8 @@ package com.tomaspev.parentalhelper
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_detalle_contenido.*
-import android.content.Intent
 import android.widget.TextView
-import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.activity_main.*
 
 
@@ -25,13 +21,20 @@ class DetalleContenido : AppCompatActivity() {
         // Se identifican los campos mostrados en el layout
         val titulo: TextView = findViewById(R.id.tv_detalle_contenido_titulo)
         val ambito: TextView = findViewById(R.id.tv_detalle_contenido_ambito)
-        val descripcionShort: TextView = findViewById(R.id.tv_detalle_contenido_descripcionShort)
+        val tramo: TextView = findViewById(R.id.tv_detalle_contenido_tramo)
+        val objetivo: TextView = findViewById(R.id.tv_detalle_contenido_objetivo)
+
+        /*val descripcionShort: TextView = findViewById(R.id.tv_detalle_contenido_descripcionShort)*/
+        val descripcionLong: TextView = findViewById(R.id.tv_detalle_contenido_descripcionLong)
 
 
         // Se le asignan los valores guardados en el objeto registro a los campos del layout
         titulo.text = contenido.titulo
         ambito.text = contenido.ambito
-        descripcionShort.text = contenido.descripcionShort
+        tramo.text = contenido.tramo
+        objetivo.text = contenido.objetivo
+
+        descripcionLong.text = contenido.descripcionLong
 
 
 

@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 class Destacados : AppCompatActivity() {
-    private lateinit var destacadoAdapter: DestacadoAdapter
+    private lateinit var destacadoAdapter: ListadoDestacadoAdapter
     private lateinit var dataList: List<Contenido>
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -16,7 +16,7 @@ class Destacados : AppCompatActivity() {
 
         val recyclerView = findViewById<RecyclerView>(R.id.rv_destacados)
         recyclerView.layoutManager = GridLayoutManager(applicationContext, 1)
-        destacadoAdapter = DestacadoAdapter(applicationContext)
+        destacadoAdapter = ListadoDestacadoAdapter(applicationContext)
         recyclerView.adapter = destacadoAdapter
 
         dataList = listOf(
@@ -92,12 +92,7 @@ class Destacados : AppCompatActivity() {
 
         )
         destacadoAdapter.setDataList(dataList)
-        // Adapter Contenidos Destacados
-        val recyclerViewD = findViewById<RecyclerView>(R.id.rv_destacados)
-        recyclerViewD.layoutManager = LinearLayoutManager(applicationContext, LinearLayoutManager.HORIZONTAL, false)
-        destacadoAdapter = DestacadoAdapter(applicationContext)
-        recyclerViewD.adapter = destacadoAdapter
-        destacadoAdapter.setDataList(dataList)
+
 
     }
 }
