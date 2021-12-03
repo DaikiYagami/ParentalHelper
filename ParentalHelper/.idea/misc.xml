@@ -3,7 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/acer/Desktop/ParentalHelper/ParentalHelper/app/src/main/res/drawable/custom_state_button_green.xml" value="0.3828125" />
+        <entry key="..\:/Users/acer/Desktop/ParentalHelper/ParentalHelper/app/src/main/res/drawable/custom_white_bg.xml" value="0.3828125" />
         <entry key="..\:/Users/acer/Desktop/ParentalHelper/ParentalHelper/app/src/main/res/drawable/ic_baseline_add.xml" value="0.3828125" />
+        <entry key="..\:/Users/acer/Desktop/ParentalHelper/ParentalHelper/app/src/main/res/layout-v28/registros_recyclerview_layout.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/acer/Desktop/ParentalHelper/ParentalHelper/app/src/main/res/layout/activity_detalle_contenido.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/acer/Desktop/ParentalHelper/ParentalHelper/app/src/main/res/layout/activity_detalle_registro.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/acer/Desktop/ParentalHelper/ParentalHelper/app/src/main/res/layout/activity_fag.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/acer/Desktop/ParentalHelper/ParentalHelper/app/src/main/res/layout/activity_ingreso_registro.xml" value="0.36666666666666664" />
@@ -11,6 +15,9 @@
         <entry key="..\:/Users/acer/Desktop/ParentalHelper/ParentalHelper/app/src/main/res/layout/activity_login.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/acer/Desktop/ParentalHelper/ParentalHelper/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/acer/Desktop/ParentalHelper/ParentalHelper/app/src/main/res/layout/activity_registro_usuario.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/acer/Desktop/ParentalHelper/ParentalHelper/app/src/main/res/layout/contenido_nuevo_recyclerview_layout.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/acer/Desktop/ParentalHelper/ParentalHelper/app/src/main/res/layout/destacados_recyclerview_layout.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/acer/Desktop/ParentalHelper/ParentalHelper/app/src/main/res/layout/listado_registros_recyclerview_layout.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/acer/Desktop/ParentalHelper/ParentalHelper/app/src/main/res/layout/progreso_contenido_recyclerview_layout.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/acer/Desktop/ParentalHelper/ParentalHelper/app/src/main/res/layout/registros_recyclerview_layout.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/regin/Documents/GitHub/ParentalHelper/ParentalHelper/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2890625" />

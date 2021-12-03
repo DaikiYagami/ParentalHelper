@@ -5,8 +5,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="360dp"
     android:layout_height="140dp"
-    app:cardBackgroundColor="#00FFFFFF"
-    android:outlineSpotShadowColor="#00FFFFFF"
+    android:outlineSpotShadowColor="@android:color/transparent"
+    android:outlineAmbientShadowColor="@android:color/transparent"
+    app:cardBackgroundColor="@android:color/transparent"
     app:cardCornerRadius="0dp">
 
     <androidx.cardview.widget.CardView

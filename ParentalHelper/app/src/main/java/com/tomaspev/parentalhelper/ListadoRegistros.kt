@@ -40,10 +40,10 @@ class ListadoRegistros : AppCompatActivity() {
             database = FirebaseDatabase.getInstance().getReference("Usuario")
 
             val map: MutableMap<String, Any> = HashMap()
-            map.put("id", 2)
-            map.put("progreso", 30)
+            map.put("id", 1)
+            map.put("progreso", 70)
 
-            database.child(uid).child("registros").child("Javiera").child("progreso contenido").child("2").setValue(map)*/
+            database.child(uid).child("registros").child("Javiera").child("progreso").child("1").setValue(map)*/
 
             val intent = Intent(this, IngresoRegistro::class.java)
             startActivity(intent)
@@ -58,9 +58,6 @@ class ListadoRegistros : AppCompatActivity() {
                 if (snapshot.exists()) {
                     for (reg in snapshot.children) {
                         val registro = reg.getValue(Registro::class.java)
-                        for (pc in reg.child("progreso").children) {
-                            registro!!.progreso.add(pc.getValue(ProgresoContenido::class.java))
-                        }
                         dataList.add(registro!!)
                     }
                     recyclerView.adapter = ListadoRegistrosAdapter(applicationContext, dataList)
@@ -71,23 +68,5 @@ class ListadoRegistros : AppCompatActivity() {
             }
 
         })
-    }
-    // Temporal, solo para tener algunas cosas de referencia
-    private fun readData(uid: String) {
-        database = FirebaseDatabase.getInstance().getReference("Usuario")
-        database.child(uid).child("nombresReg").get().addOnSuccessListener {
-            if (it.exists()) {
-                val registros = it.value
-                /*for (name in list) {
-
-                }*/
-                //val correo = it.child("email").value
-                //val contra = it.child("password").value
-                //tv_uid.text = registros.toString()
-            }
-            else {
-                Toast.makeText(this, "User doesn't exists", Toast.LENGTH_SHORT).show()
-            }
-        }
     }
 }

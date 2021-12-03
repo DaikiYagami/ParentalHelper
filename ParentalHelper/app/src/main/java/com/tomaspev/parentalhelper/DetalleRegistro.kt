@@ -3,13 +3,14 @@ package com.tomaspev.parentalhelper
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 class DetalleRegistro : AppCompatActivity() {
     private lateinit var progresoContenidoAdapter: ProgresoContenidoAdapter
-    private lateinit var dataList: List<ProgresoContenido>
+    private lateinit var dataList: ArrayList<ProgresoContenido?>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,7 +25,6 @@ class DetalleRegistro : AppCompatActivity() {
         val nombre: TextView = findViewById(R.id.tv_detalle_registro_nombre)
         val edad: TextView = findViewById(R.id.tv_detalle_registro_edad)
         val cumple: TextView = findViewById(R.id.tv_detalle_registro_cumple)
-        val genero: TextView = findViewById(R.id.tv_detalle_registro_genero)
 
         // Se le asignan los valores guardados en el objeto registro a los campos del layout
         nombre.text = registro.nombre
@@ -36,7 +36,7 @@ class DetalleRegistro : AppCompatActivity() {
         recyclerView.layoutManager = GridLayoutManager(applicationContext, 1, GridLayoutManager.VERTICAL, false)
         progresoContenidoAdapter = ProgresoContenidoAdapter(applicationContext)
         recyclerView.adapter = progresoContenidoAdapter
-
+        /*
         dataList = listOf(
             ProgresoContenido(0, 60),
             ProgresoContenido(0, 20),
@@ -46,8 +46,10 @@ class DetalleRegistro : AppCompatActivity() {
             ProgresoContenido(0, 10),
             ProgresoContenido(0, 90),
             ProgresoContenido(0, 50)
-        )
+        )*/
 
-        progresoContenidoAdapter.setDataList(dataList, registro)
+        dataList = registro.progreso
+
+        progresoContenidoAdapter.setDataList(dataList)
     }
 }
