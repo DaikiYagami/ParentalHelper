@@ -3,7 +3,7 @@ package com.tomaspev.parentalhelper
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
+
 import androidx.recyclerview.widget.RecyclerView
 
 class Destacados : AppCompatActivity() {
@@ -14,8 +14,8 @@ class Destacados : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_destacados)
 
-        val recyclerView = findViewById<RecyclerView>(R.id.rv_destacados)
-        recyclerView.layoutManager = GridLayoutManager(applicationContext, 1)
+        val recyclerView = findViewById<RecyclerView>(R.id.rv_lista_destacado)
+        recyclerView.layoutManager = GridLayoutManager(applicationContext, 2)
         destacadoAdapter = ListadoDestacadoAdapter(applicationContext)
         recyclerView.adapter = destacadoAdapter
 

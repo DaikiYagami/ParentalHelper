@@ -38,7 +38,7 @@ class ListadoDestacadoAdapter(var context: Context): RecyclerView.Adapter<Listad
         holder.cardView.setOnClickListener {
             context = holder.itemView.context
             val intent = Intent(context, DetalleContenido::class.java)
-            intent.putExtra("registro", data)
+            intent.putExtra("contenido", data)
             context.startActivity(intent)
         }
     }
