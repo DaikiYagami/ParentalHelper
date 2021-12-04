@@ -150,20 +150,6 @@
                 app:layout_constraintEnd_toEndOf="@id/tv_detalle_contenido_descripcionLong"
                 app:layout_constraintStart_toStartOf="parent" />
 
-            <TextView
-                android:id="@+id/textView18"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="25dp"
-                android:layout_marginTop="30dp"
-                android:layout_marginBottom="13dp"
-                android:text="Nombre Contenido"
-                android:textAlignment="center"
-
-                android:textColor="#100F0F"
-                android:textSize="20sp"
-                tools:layout_marginTop="20dp" />
-
         </LinearLayout>
     </ScrollView>
 
