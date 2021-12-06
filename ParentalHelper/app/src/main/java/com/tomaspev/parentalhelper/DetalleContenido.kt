@@ -5,10 +5,12 @@ import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_detalle_contenido.*
 import android.widget.TextView
 import android.widget.Toast
+import android.widget.VideoView
 import com.google.android.youtube.player.YouTubeBaseActivity
 import com.google.android.youtube.player.YouTubeInitializationResult
 import com.google.android.youtube.player.YouTubePlayer
 import com.google.android.youtube.player.YouTubePlayerView
+import kotlinx.android.synthetic.main.activity_detalle_contenido.view.*
 import kotlinx.android.synthetic.main.activity_main.*
 
 
@@ -36,6 +38,8 @@ class DetalleContenido : YouTubeBaseActivity() {
         /*val descripcionShort: TextView = findViewById(R.id.tv_detalle_contenido_descripcionShort)*/
         val descripcionLong: TextView = findViewById(R.id.tv_detalle_contenido_descripcionLong)
 
+
+
         // Se le asignan los valores guardados en el objeto registro a los campos del layout
         titulo.text = contenido.titulo
         ambito.text = contenido.ambito
@@ -43,6 +47,7 @@ class DetalleContenido : YouTubeBaseActivity() {
         objetivo.text = contenido.objetivo
 
         descripcionLong.text = contenido.descripcionLong
+
 
         // yutu
         youTubePlayer = findViewById(R.id.videoView)

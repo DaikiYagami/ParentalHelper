@@ -147,6 +147,7 @@
                 android:layout_height="200dp"
                 android:layout_marginStart="25dp"
                 android:layout_marginTop="10dp"
+                android:layout_marginBottom="25dp"
                 app:layout_constraintEnd_toEndOf="@id/tv_detalle_contenido_descripcionLong"
                 app:layout_constraintStart_toStartOf="parent" />
 

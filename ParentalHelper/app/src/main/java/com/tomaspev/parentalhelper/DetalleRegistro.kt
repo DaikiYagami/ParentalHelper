@@ -69,6 +69,12 @@ class DetalleRegistro : AppCompatActivity() {
                     "El adulto junto al niño /a puede evaluar el trabajo con preguntas tales como: ¿Por qué ocurre eso?, buscando posibles respuestas. Luego hablaran si les gusto la experiencia si le gustaría hacer nuevos experimentos otro día. ","Nuevo"), 40),
 
 
+
+
+
+
+
+
             ProgresoContenido(Contenido("Experimento Vaso de Agua y Carta de Naipe","3","Interacción y Comprensión del Entorno","Exploración del Entorno Natural","Medio", "Experimentar con materiales cotidianos tales como: agua y aire describiendo lo observado.","-.-","En esta actividad los niños podrán aprender como funcionan las fuerzas de gravedad y tensión superficial del agua","¿Qué materiales usar? \n" +
                     " Una carta de naipe. Un vaso de vidrio lleno de agua hasta el borde y un recipiente para contener el agua (por si el experimento falle) \n" +
                     " ¿Qué hace el adulto? \n" +
