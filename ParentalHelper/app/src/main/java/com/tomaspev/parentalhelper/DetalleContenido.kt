@@ -11,11 +11,12 @@ import com.google.android.youtube.player.YouTubeInitializationResult
 import com.google.android.youtube.player.YouTubePlayer
 import com.google.android.youtube.player.YouTubePlayerView
 import kotlinx.android.synthetic.main.activity_detalle_contenido.view.*
+import kotlinx.android.synthetic.main.activity_detalle_registro.*
 import kotlinx.android.synthetic.main.activity_main.*
 
 
 class DetalleContenido : YouTubeBaseActivity() {
-    val video_id = "B9YMaeehOmk"
+
     val youtube_api_key = "AIzaSyAe6EYTOQxMjflvEdNOCTHBlYVXvfOobAI"
 
     private lateinit var youTubePlayer: YouTubePlayerView
@@ -39,6 +40,7 @@ class DetalleContenido : YouTubeBaseActivity() {
         val descripcionLong: TextView = findViewById(R.id.tv_detalle_contenido_descripcionLong)
 
 
+        val video_id = contenido.enlaceWeb
 
         // Se le asignan los valores guardados en el objeto registro a los campos del layout
         titulo.text = contenido.titulo
