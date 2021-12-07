@@ -5,12 +5,12 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ProgressBar
 import android.widget.TextView
-import android.widget.Toast
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 
-class ContenidoNuevoAdapter(var context: Context): RecyclerView.Adapter<ContenidoNuevoAdapter.ViewHolder>() {
+class ListadoDestacadoAdapter(var context: Context): RecyclerView.Adapter<ListadoDestacadoAdapter.ViewHolder>() {
 
     private var dataList = emptyList<Contenido>()
 
@@ -20,11 +20,12 @@ class ContenidoNuevoAdapter(var context: Context): RecyclerView.Adapter<Contenid
 
     class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         val titulo: TextView = itemView.findViewById(R.id.tv_titulo)
-        val cardView: CardView = itemView.findViewById(R.id.contenidon_cardView)
+        val descripcionShort: TextView = itemView.findViewById(R.id.tv_descripcionShort)
+        val cardView: CardView = itemView.findViewById(R.id.destacado_cardView)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.contenido_nuevo_recyclerview_layout, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.destacados2_recyclerview_layout, parent, false)
         return ViewHolder(view)
     }
 
@@ -32,10 +33,9 @@ class ContenidoNuevoAdapter(var context: Context): RecyclerView.Adapter<Contenid
         val data = dataList[position]
 
         holder.titulo.text = data.titulo
-
+        holder.descripcionShort.text = data.descripcionShort
 
         holder.cardView.setOnClickListener {
-            Toast.makeText(context, "Contenido Nuevo", Toast.LENGTH_SHORT).show()
             context = holder.itemView.context
             val intent = Intent(context, DetalleContenido::class.java)
             intent.putExtra("contenido", data)

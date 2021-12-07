@@ -4,15 +4,154 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#EDEBD5"
     tools:context=".DetalleContenido">
 
-    <ListView
-        android:id="@+id/lcontenido"
-        android:layout_width="409dp"
-        android:layout_height="729dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="match_parent"
+        android:layout_height="164dp"
+        android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        android:background="@drawable/bg15_opt" />
+
+    <TextView
+        android:id="@+id/tv_detalle_contenido_titulo"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="60dp"
+        android:text="Nombre Contenido"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView5"
+        app:layout_constraintEnd_toEndOf="@id/imageView5"
+        app:layout_constraintStart_toStartOf="@id/imageView5" />
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/imageView5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imageView5"
+        tools:descendantFocusability="afterDescendants">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="11dp"
+                android:layout_marginEnd="309dp"
+                android:background="#FFC107"
+                android:text="Ficha Técnica"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView13"
+                android:layout_width="356dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="14dp"
+                android:background="#F1E795"
+                android:text="Ambito de Experiencia:"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tv_detalle_contenido_ambito"
+                android:layout_width="356dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="6dp"
+                android:layout_marginBottom="10dp"
+                android:background="#E1BBBB"
+                android:text="Ambito" />
+
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="356dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="10dp"
+                android:width="356dp"
+                android:background="#F1E795"
+                android:text="Tramo Curricular"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tv_detalle_contenido_tramo"
+                android:layout_width="356dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="20dp"
+                android:background="#E1BBBB"
+                android:text="detalle tramo" />
+
+            <TextView
+                android:id="@+id/textView16"
+                android:layout_width="356dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="20dp"
+                android:background="#F1E795"
+                android:text="Objetivo de Aprendizaje"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tv_detalle_contenido_objetivo"
+                android:layout_width="356dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="20dp"
+                android:background="#E1BBBB"
+                android:text="detalle objetivo" />
+
+            <TextView
+                android:id="@+id/textView15"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="10dp"
+                android:background="#FFC107"
+                android:text="Actividad"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_detalle_contenido_descripcionLong"
+                android:layout_width="356dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="10dp"
+                android:background="#E1BBBB"
+                android:text="TextView"
+                android:textAlignment="center" />
+
+            <com.google.android.youtube.player.YouTubePlayerView
+                android:id="@+id/videoView"
+                android:layout_width="356dp"
+                android:layout_height="200dp"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="25dp"
+                app:layout_constraintEnd_toEndOf="@id/tv_detalle_contenido_descripcionLong"
+                app:layout_constraintStart_toStartOf="parent" />
+
+        </LinearLayout>
+    </ScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,26 +1,23 @@
 package com.tomaspev.parentalhelper
 
-
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-
 import androidx.recyclerview.widget.GridLayoutManager
+
 import androidx.recyclerview.widget.RecyclerView
 
-
-
-class NewContent : AppCompatActivity() {
-    private lateinit var nuevoAdapter: ListadoContenidoNuevoAdapter
+class Destacados : AppCompatActivity() {
+    private lateinit var destacadoAdapter: ListadoDestacadoAdapter
     private lateinit var dataList: List<Contenido>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_new_content)
+        setContentView(R.layout.activity_destacados)
 
-        val recyclerView = findViewById<RecyclerView>(R.id.rv_lista_contenido_nuevo)
+        val recyclerView = findViewById<RecyclerView>(R.id.rv_lista_destacado)
         recyclerView.layoutManager = GridLayoutManager(applicationContext, 2)
-        nuevoAdapter = ListadoContenidoNuevoAdapter(applicationContext)
-        recyclerView.adapter = nuevoAdapter
+        destacadoAdapter = ListadoDestacadoAdapter(applicationContext)
+        recyclerView.adapter = destacadoAdapter
 
         dataList = listOf(
             //contenido nuevo
@@ -268,9 +265,8 @@ class NewContent : AppCompatActivity() {
 
 
         )
-        nuevoAdapter.setDataList(dataList)
+        destacadoAdapter.setDataList(dataList)
 
 
     }
 }
-
