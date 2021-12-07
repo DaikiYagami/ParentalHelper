@@ -21,6 +21,9 @@
             android:name=".Destacados"
             android:exported="true" />
         <activity
+            android:name=".IngresoRegistro"
+            android:exported="true" />
+        <activity
             android:name=".ListadoRegistros"
             android:exported="true" />
         <activity

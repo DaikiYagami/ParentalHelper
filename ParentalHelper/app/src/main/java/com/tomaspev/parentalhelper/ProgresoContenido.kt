@@ -1,6 +1,8 @@
 package com.tomaspev.parentalhelper
 
+import java.io.Serializable
+
 data class ProgresoContenido (
-    val contenido: Contenido,
-    val progreso: Int
-        )
+    val id: Int? = 0,                   // Id del contenido
+    val progreso: Int? = 0
+        ) : Serializable

@@ -11,7 +11,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
+        android:fontFamily="@font/montserrat_bold"
+        android:textSize="13sp"
         android:text="VER TODOS"
+        android:textColor="#7FA4C1"
         app:layout_constraintBottom_toBottomOf="@+id/titulo_nuevos_contenidos"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/titulo_nuevos_contenidos" />
@@ -21,7 +24,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
+        android:fontFamily="@font/montserrat_bold"
+        android:textSize="13sp"
         android:text="VER TODOS"
+        android:textColor="#7FA4C1"
         app:layout_constraintBottom_toBottomOf="@+id/titulo_destacados"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/titulo_destacados" />
@@ -31,8 +37,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
-        android:text="MIS REGISTROS"
+        android:layout_marginTop="24dp"
+        android:text="REGISTROS"
+        android:fontFamily="@font/montserrat_bold"
+        android:textSize="18sp"
+        android:textColor="#1A588A"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -56,6 +65,9 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:text="DESTACADO"
+        android:fontFamily="@font/montserrat_bold"
+        android:textSize="18sp"
+        android:textColor="#1A588A"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/rv_registros" />
 
@@ -80,6 +92,9 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:text="NUEVOS CONTENIDOS"
+        android:fontFamily="@font/montserrat_bold"
+        android:textSize="18sp"
+        android:textColor="#1A588A"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/rv_destacados" />
 
@@ -101,7 +116,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
+        android:fontFamily="@font/montserrat_bold"
+        android:textSize="13sp"
         android:text="VER TODOS"
+        android:textColor="#7FA4C1"
         app:layout_constraintBottom_toBottomOf="@+id/titulo_registros"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/titulo_registros" />

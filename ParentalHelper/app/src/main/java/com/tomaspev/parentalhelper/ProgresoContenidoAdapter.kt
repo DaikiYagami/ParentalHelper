@@ -10,14 +10,13 @@ import androidx.recyclerview.widget.RecyclerView
 
 class ProgresoContenidoAdapter(var context: Context): RecyclerView.Adapter<ProgresoContenidoAdapter.ViewHolder>() {
 
-    private var dataList = emptyList<ProgresoContenido>()
+    private var dataList = arrayListOf<ProgresoContenido?>()
 
-    internal fun setDataList(dataList: List<ProgresoContenido>) {
+    internal fun setDataList(dataList: ArrayList<ProgresoContenido?>) {
         this.dataList = dataList
     }
 
     class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
-        val contenido: TextView = itemView.findViewById(R.id.tv_detalle_registro_contenido)
         val titulo: TextView = itemView.findViewById(R.id.tv_detalle_registro_contenido_titulo)
         val progresoTV: TextView = itemView.findViewById(R.id.tv_detalle_registro_progreso)
         val progresoPB: ProgressBar = itemView.findViewById(R.id.pb_detalle_registro_progreso)
@@ -31,10 +30,9 @@ class ProgresoContenidoAdapter(var context: Context): RecyclerView.Adapter<Progr
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val data = dataList[position]
 
-        holder.contenido.text = data.contenido.titulo
-        holder.titulo.text = data.contenido.titulo
-        holder.progresoTV.text = data.progreso.toString() + "%"
-        holder.progresoPB.progress = data.progreso
+        holder.titulo.text = "Contenido por hacer." //data.contenido.titulo
+        holder.progresoTV.text = data?.progreso!!.toString() + "%"
+        holder.progresoPB.progress = data.progreso.toInt()
     }
 
     override fun getItemCount() = dataList.size
