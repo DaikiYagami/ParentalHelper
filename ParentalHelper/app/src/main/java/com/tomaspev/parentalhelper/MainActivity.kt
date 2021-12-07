@@ -353,7 +353,7 @@ class MainActivity : AppCompatActivity() {
 
     // FUNCION QUE PERMITE CERRAR LA SESION EN FIREBASE Y VACIAR PREFS
     private fun setup(email: String, provider: String) {
-        /*LogOutButton.setOnClickListener {
+        AQUIBOTON.setOnClickListener {
 
             val prefs = getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE).edit()
             prefs.clear()
@@ -366,6 +366,6 @@ class MainActivity : AppCompatActivity() {
             FirebaseAuth.getInstance().signOut()
             val home = Intent(this, Login::class.java)
             startActivity(home)
-        }*/
+        }
     }
 }
