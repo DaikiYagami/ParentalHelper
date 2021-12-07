@@ -185,13 +185,6 @@ class MainActivity : AppCompatActivity() {
 
 
 
-
-
-
-
-
-
-
             //contenido destacado
 
             ,Contenido("Disfrutemos los sonidos","3","Comunicación Integral","Lenguajes artísticos","Sala cuna", "Manifestar interés por los sonidos, colores, luminosidad de su entorno, respondiendo a través de diversas formas, tales como balbuceos, gestos, sonrisas, entre otros","jBN8ZQfb7iM","En esta actividad los niños podrán con sonidos de forma controlada.","¿Qué materiales usar? \n" +
