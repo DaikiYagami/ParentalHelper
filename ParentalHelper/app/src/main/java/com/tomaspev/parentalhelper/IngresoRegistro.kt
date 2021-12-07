@@ -5,6 +5,7 @@ import android.app.DatePickerDialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
 import android.widget.DatePicker
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
@@ -23,6 +24,11 @@ class IngresoRegistro : AppCompatActivity(), DatePickerDialog.OnDateSetListener 
     var smm = 0
     var syy = 0
     var style = 0
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_volver, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

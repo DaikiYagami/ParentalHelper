@@ -3,37 +3,37 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/registro_cardView"
-    android:layout_width="122dp"
-    android:layout_height="127dp"
+    android:layout_width="80dp"
+    android:layout_height="95dp"
     android:layout_margin="5dp"
-    android:outlineSpotShadowColor="@android:color/transparent"
-    android:outlineAmbientShadowColor="@android:color/transparent"
-    app:cardBackgroundColor="@android:color/transparent">
+    app:cardElevation="0dp">
 
     <androidx.cardview.widget.CardView
+        android:layout_marginTop="3dp"
         android:layout_gravity="center|top"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:cardCornerRadius="5000dp">
+        app:cardBackgroundColor="#99AED3E4"
+        app:cardElevation="5dp"
+        app:cardCornerRadius="100dp">
 
         <androidx.cardview.widget.CardView
-            android:layout_margin="10dp"
+            android:layout_margin="3dp"
             android:layout_gravity="center|top"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:cardCornerRadius="5000dp">
+            app:cardCornerRadius="100dp">
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:background="#9903A9F4"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
                 android:orientation="vertical">
 
                 <ImageView
                     android:id="@+id/imageView"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="#2196F3"
+                    android:background="#7BB2CA"
                     android:src="@drawable/babyb"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -55,8 +55,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Titulo"
-            android:textColor="#005F8C"
-            android:textSize="20sp"
+            android:textColor="#3589B1"
+            android:textSize="18sp"
+            android:fontFamily="@font/montserrat_semibold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />

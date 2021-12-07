@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="360dp"
-    android:layout_height="140dp"
+    android:layout_height="135dp"
     android:outlineSpotShadowColor="@android:color/transparent"
     android:outlineAmbientShadowColor="@android:color/transparent"
     app:cardBackgroundColor="@android:color/transparent"
@@ -17,41 +17,54 @@
         android:outlineSpotShadowColor="@color/black"
         android:layout_marginLeft="10dp"
         app:cardCornerRadius="10dp">
+
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="350dp"
-            android:layout_height="130dp"
-            android:background="#9903A9F4"
+            android:layout_width="360dp"
+            android:layout_height="125dp"
+            android:background="#99AED3E4"
             android:orientation="vertical">
 
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:background="#2196F3"
-                android:src="@drawable/babyb"
+                android:layout_marginTop="-2dp"
+                app:cardCornerRadius="10dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_listado_registros_nombre" />
+                app:layout_constraintTop_toBottomOf="@+id/tv_listado_registros_nombre">
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:background="#7BB2CA"
+                    android:src="@drawable/babyb"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_listado_registros_nombre" />
+
+            </androidx.cardview.widget.CardView>
 
             <TextView
                 android:id="@+id/tv_listado_registros_nombre"
                 android:layout_width="160dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="4dp"
                 android:text="Titulo"
                 android:textColor="#005F8C"
                 android:textSize="20sp"
-                app:layout_constraintStart_toStartOf="parent"
+                android:fontFamily="@font/montserrat_semibold"
+                app:layout_constraintStart_toEndOf="@+id/cardView"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
                 android:id="@+id/imageView2"
-                android:layout_width="160dp"
+                android:layout_width="200dp"
                 android:layout_height="63dp"
                 android:layout_marginStart="4dp"
-                android:layout_marginTop="10dp"
-                app:layout_constraintStart_toEndOf="@+id/imageView"
+                android:layout_marginTop="8dp"
+                app:layout_constraintStart_toEndOf="@+id/cardView"
                 app:layout_constraintTop_toBottomOf="@+id/tv_listado_registros_nombre"
                 app:srcCompat="@drawable/custom_background_registro" />
 
@@ -59,21 +72,26 @@
                 android:id="@+id/textView4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/montserrat_regular"
                 android:text="Edad:"
                 android:textColor="#003950"
-                app:layout_constraintStart_toEndOf="@+id/imageView"
+                android:textSize="14sp"
+                app:layout_constraintStart_toEndOf="@+id/cardView"
                 app:layout_constraintTop_toTopOf="@+id/imageView2" />
 
             <TextView
                 android:id="@+id/textView5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:text="Actividad Pendiente"
+                android:layout_marginStart="12dp"
+                android:fontFamily="@font/montserrat_regular"
+                android:text="Actividad Pendiente:"
                 android:textColor="#003950"
-                app:layout_constraintStart_toEndOf="@+id/imageView"
-                app:layout_constraintTop_toBottomOf="@+id/textView" />
+                android:textSize="14sp"
+                app:layout_constraintStart_toEndOf="@+id/cardView"
+                app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
             <TextView
                 android:id="@+id/tv_edad"
@@ -81,69 +99,38 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:text="0"
+                android:textSize="14sp"
                 android:textColor="#003950"
+                android:fontFamily="@font/montserrat_regular"
                 app:layout_constraintBottom_toBottomOf="@+id/textView4"
                 app:layout_constraintStart_toEndOf="@+id/textView4"
                 app:layout_constraintTop_toTopOf="@+id/textView4" />
 
-            <ImageButton
-                android:id="@+id/btn_capacidad"
+            <ImageView
+                android:id="@+id/iv_actividad_pendiente"
                 android:layout_width="10dp"
                 android:layout_height="10dp"
                 android:layout_marginStart="12dp"
-                android:background="@drawable/custom_state_button_green"
+                android:background="@drawable/custom_state_image_grey"
                 app:layout_constraintBottom_toBottomOf="@+id/textView5"
                 app:layout_constraintStart_toEndOf="@+id/textView5"
                 app:layout_constraintTop_toTopOf="@+id/textView5" />
-
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:text="Género:"
-                android:textColor="#003950"
-                app:layout_constraintStart_toEndOf="@+id/imageView"
-                app:layout_constraintTop_toBottomOf="@+id/textView4" />
-
-            <TextView
-                android:id="@+id/tv_listado_registros_genero"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:text="S"
-                android:textColor="#003950"
-                app:layout_constraintBottom_toBottomOf="@+id/textView"
-                app:layout_constraintStart_toEndOf="@+id/textView"
-                app:layout_constraintTop_toTopOf="@+id/textView" />
 
             <com.google.android.material.progressindicator.CircularProgressIndicator
                 android:id="@+id/pb_listado_registros_progreso"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="22dp"
                 android:indeterminateOnly="false"
-                tools:progress="60"
-                android:layout_marginTop="24dp"
-                app:trackThickness="8dp"
-                app:trackCornerRadius="8dp"
                 app:indicatorColor="#196698"
-                app:trackColor="#DDD"
-                app:indicatorSize="60dp"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:indicatorSize="40dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/imageView2"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/tv_listado_registros_progreso"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="60%"
-                android:textColor="@color/black"
-                app:layout_constraintBottom_toBottomOf="@+id/pb_listado_registros_progreso"
-                app:layout_constraintEnd_toEndOf="@+id/pb_listado_registros_progreso"
-                app:layout_constraintStart_toStartOf="@+id/pb_listado_registros_progreso"
-                app:layout_constraintTop_toTopOf="@+id/pb_listado_registros_progreso" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:trackColor="#DADADA"
+                app:trackCornerRadius="8dp"
+                app:trackThickness="8dp"
+                tools:progress="60" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

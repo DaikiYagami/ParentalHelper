@@ -2,6 +2,7 @@ package com.tomaspev.parentalhelper
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
@@ -11,6 +12,11 @@ import androidx.recyclerview.widget.RecyclerView
 class DetalleRegistro : AppCompatActivity() {
     private lateinit var progresoContenidoAdapter: ProgresoContenidoAdapter
     private lateinit var dataList: ArrayList<ProgresoContenido?>
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_volver, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

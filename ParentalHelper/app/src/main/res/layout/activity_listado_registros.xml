@@ -9,29 +9,39 @@
     <ImageView
         android:id="@+id/imageView3"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="150dp"
         android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:src="@drawable/bg14_opt" />
+        android:src="@drawable/lockers_opt" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:background="#234661"
+        android:alpha="0.4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tv_detalle_registro_nombre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
+        android:layout_marginBottom="72dp"
+        android:fontFamily="@font/montserrat_bold"
         android:text="Mis Registros"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:textColor="@color/white"
+        android:textColor="#FFFFFF"
+        android:textSize="32sp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_lista_registros"
-        android:layout_width="350dp"
+        android:layout_width="355dp"
         android:layout_height="0dp"
         android:layout_marginTop="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -42,13 +52,14 @@
         android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="#FF9800"
+        android:backgroundTint="#0A709F"
         android:clickable="true"
+        app:tint="@color/white"
         app:borderWidth="0dp"
         app:fabSize="normal"
         android:layout_marginLeft="8dp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView3"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView3"
-        app:srcCompat="@drawable/add" />
+        app:srcCompat="@drawable/add"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
