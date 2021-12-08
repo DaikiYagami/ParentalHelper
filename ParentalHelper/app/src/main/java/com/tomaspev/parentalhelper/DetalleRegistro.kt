@@ -1,8 +1,12 @@
 package com.tomaspev.parentalhelper
 
+import android.content.Context
+import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
+import android.view.MenuItem
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
@@ -13,8 +17,12 @@ class DetalleRegistro : AppCompatActivity() {
     private lateinit var progresoContenidoAdapter: ProgresoContenidoAdapter
     private lateinit var dataList: ArrayList<ProgresoContenido?>
 
+    private var email: String? = null
+    private var provider: String? = null
+    private lateinit var prefs: SharedPreferences.Editor
+
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.menu_volver, menu)
+        menuInflater.inflate(R.menu.menu_basico, menu)
         return super.onCreateOptionsMenu(menu)
     }
 
@@ -46,5 +54,25 @@ class DetalleRegistro : AppCompatActivity() {
         dataList = registro.progreso // ver -------------------------------
 
         progresoContenidoAdapter.setDataList(dataList)
+
+        val bundle = intent.extras                           // Variable que rescata los extras que trae el Intent
+        email = bundle?.getString("email")              // Variable que rescata el correo
+        provider = bundle?.getString("provider")        // Variable que rescata el provider
+
+        prefs = getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE).edit()
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+        when (item.itemId) {
+
+            R.id.menu_logout -> {
+                cerrarSesion(email, provider, true, prefs)
+                val home = Intent(this, Login::class.java)
+                startActivity(home)
+            }
+
+        }
+        return super.onOptionsItemSelected(item)
     }
 }

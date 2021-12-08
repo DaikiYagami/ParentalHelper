@@ -2,9 +2,11 @@ package com.tomaspev.parentalhelper
 
 import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
+import android.view.MenuItem
 import com.facebook.login.LoginManager
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_main.*
@@ -28,6 +30,9 @@ class MainActivity : AppCompatActivity() {
     private lateinit var destacadoAdapter: DestacadoAdapter
     // Nuevos Contenidos
     private lateinit var contenidoNuevoAdapter: ContenidoNuevoAdapter
+
+    private var email: String? = null
+    private var provider: String? = null
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_basico, menu)
@@ -321,28 +326,27 @@ class MainActivity : AppCompatActivity() {
 
         // Resto del código =====================================================================================================
 
+        val bundle = intent.extras                               // Variable que rescata los extras que trae el Intent
+        email = bundle?.getString("email")              // Variable que rescata el correo
+        provider = bundle?.getString("provider")        // Variable que rescata el provider
+
         tv_todos_registros.setOnClickListener {
             val intent = Intent(this, ListadoRegistros::class.java)
+            intent.putExtras(bundle!!)
             startActivity(intent)
         }
-
         tv_todos_destacados.setOnClickListener {
             val intent = Intent(this, Destacados::class.java)
+            intent.putExtras(bundle!!)
             startActivity(intent)
         }
         tv_todos_nuevos.setOnClickListener {
             val intent = Intent(this, NewContent::class.java)
+            intent.putExtras(bundle!!)
             startActivity(intent)
         }
 
-
-
-        // Parte tomas - verificación y mantener sesión iniciada
-        val bundle = intent.extras                               // Variable que rescata los extras que trae el Intent
-        val email = bundle?.getString("email")              // Variable que rescata el correo
-        val provider = bundle?.getString("provider")        // Variable que rescata el provider
-
-        setup(email ?: "", provider ?: "")         // Carga la funcion y sus datos provenientes de otros activity
+        setup(email ?: "", provider ?: "", false)         // Carga la funcion y sus datos provenientes de otros activity
 
         // VARIABLE QUE PERMITE MANTENER LA SESION INICIADA AL UTILIZAR PREFERENCIAS
         val prefs = getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE).edit()
@@ -351,10 +355,23 @@ class MainActivity : AppCompatActivity() {
         prefs.apply()
     }
 
-    // FUNCION QUE PERMITE CERRAR LA SESION EN FIREBASE Y VACIAR PREFS
-    private fun setup(email: String, provider: String) {
-        AQUIBOTON.setOnClickListener {
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
+        when (item.itemId) {
+
+            R.id.menu_logout -> {
+                setup(email, provider, true)
+            }
+            R.id.menu_config -> {
+                // na de na
+            }
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+    // FUNCION QUE PERMITE CERRAR LA SESION EN FIREBASE Y VACIAR PREFS
+    private fun setup(email: String?, provider: String?, act: Boolean) {
+        if (act) {
             val prefs = getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE).edit()
             prefs.clear()
             prefs.apply()

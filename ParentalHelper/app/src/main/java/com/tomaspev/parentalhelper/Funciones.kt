@@ -1,6 +1,10 @@
 package com.tomaspev.parentalhelper
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
+import com.facebook.login.LoginManager
+import com.google.firebase.auth.FirebaseAuth
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -58,4 +62,17 @@ fun edad(f1: String?, fecha2: String): Int {
         diff--
     }
     return diff
+}
+// Cerrar sesion =====
+fun cerrarSesion(email: String?, provider: String?, act: Boolean, prefs: SharedPreferences.Editor) {
+    if (act) {
+        prefs.clear()
+        prefs.apply()
+
+        if (provider == ProviderType.FACEBOOK.name) {
+            LoginManager.getInstance().logOut()
+        }
+
+        FirebaseAuth.getInstance().signOut()
+    }
 }
