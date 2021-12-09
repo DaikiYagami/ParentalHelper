@@ -1,5 +1,6 @@
 package com.tomaspev.parentalhelper
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -37,7 +38,7 @@ class ListadoRegistros : AppCompatActivity() {
         )*/
         dataList = arrayListOf()
         dataList.clear()
-        getData()
+        getData(applicationContext)
         // Resto del código =======================================================================
 
         fab.setOnClickListener {
@@ -56,7 +57,7 @@ class ListadoRegistros : AppCompatActivity() {
         }
     }
     // Toma los datos solicitados de la DB
-    private fun getData() {
+    private fun getData(context: Context) {
         val uid = FirebaseAuth.getInstance().currentUser?.uid.toString()
         database = FirebaseDatabase.getInstance().getReference("Usuario").child(uid).child("registros")
         database.addValueEventListener(object : ValueEventListener {
@@ -70,7 +71,7 @@ class ListadoRegistros : AppCompatActivity() {
                 }
             }
             override fun onCancelled(error: DatabaseError) {
-                TODO("Not yet implemented")
+                Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show()
             }
 
         })
