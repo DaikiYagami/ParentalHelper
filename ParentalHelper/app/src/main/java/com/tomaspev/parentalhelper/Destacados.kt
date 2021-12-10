@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 
 class Destacados : AppCompatActivity() {
     private lateinit var destacadoAdapter: ListadoDestacadoAdapter
-    private lateinit var dataList: List<Contenido>
+    private lateinit var dataListC: List<Contenido>
 
     private lateinit var prefs: SharedPreferences.Editor
     private var email: String? = null
@@ -33,7 +33,7 @@ class Destacados : AppCompatActivity() {
         destacadoAdapter = ListadoDestacadoAdapter(applicationContext)
         recyclerView.adapter = destacadoAdapter
 
-        dataList = listOf(
+        dataListC = listOf(
             //contenido nuevo
 
             Contenido("Experimento Vaso de Agua y Carta de Naipe","3","Interacción y Comprensión \n" + " del Entorno","Exploración del Entorno Natural","Medio", "Experimentar con materiales cotidianos tales como: agua y aire describiendo lo observado.","g615EoOIlug","En esta actividad los niños podrán aprender como funcionan las fuerzas de gravedad y tensión superficial del agua","¿Qué materiales usar? \n" +
@@ -148,19 +148,106 @@ class Destacados : AppCompatActivity() {
                     " ¿Qué debo observar?\n" +
                     "  Ver las formas en que el niño/a responde a sus exploraciones y sonidos que produce con los elementos. Balbuceos, gestos, sonrisas, tiempo que destina a la exploración, movimientos corporales, entre otros.","Nuevo")
 
+            ,Contenido("Jugando a la actuación","3","Comunicación Integral","Lenguajes artísticos","Medio", "Expresar corporalmente sensaciones y emociones experimentando con mímica y juegos teatrales.","NnCYZc7huC4","En esta actividad los niños podrán teatralizar situaciones.","¿Qué materiales usar? \n" +
+                    "Ropa, Artículos: sombreros, corbatas, collares, lentes, instrumentos musicales, entre otros materiales que tengan en casa.\n" +
+                    "¿Qué hace el adulto? \n" +
+                    "El tutor fomentará un juego de actuación con el niño/a, buscarán ropa y otros elementos para disfrazarse. El tutor con el niño/a podrán disfrutar del placer de hacer este juego.\n" +
+                    " ¿Qué hace el niño/a? \n" +
+                    "El niño/a podrá elegir un personaje para representar: amigos, familiares, artistas, entre otros. Podrá utilizar elementos para la caracterización del personaje. El niño/a podrá expresar sentimientos, pensamientos, integrando el movimiento y la palabra.\n" +
+                    " ¿Qué debo observar?\n" +
+                    "El adulto junto al niño /a puede evaluar el trabajo con preguntas tales como: ¿A quienes imitaste?, ¿Te gusto el juego de imitación?, ¿Quiénes participaron del juego?, entre otras.","Nuevo")
 
+            ,Contenido("Clasificar objetos de la casa, según USO","3","Interacción y Comprensión del Entorno","Pensamiento Matemático","Medio", "Experimentar con diversos objetos, estableciendo relaciones al clasificar por dos atributos a la vez (uso y color).","8I29hSt5QCs","En esta actividad los niños podrán clasificar objetos","¿Qué materiales usar? \n" +
+                    "Objetos tecnológicos: celulares, cámaras, computador, televisores, entre otros. Objetos para cocinar: ollas, sartenes, tostador, entre otros., Objetos decorativos: chiches, cuadros, fotos, entre otros.\n" +
+                    "¿Qué hace el adulto? \n" +
+                    "El tutor invitará al niño/a a agrupar objetos tecnológicos, decorativos, de cocina y otros que el desee integrar. Luego se le explicara al niño/a que jugarán a clasificar este material, según su uso en la casa y color. \n" +
+                    "¿Qué hace el niño/a? \n" +
+                    "El niño/a deberá agrupar objetos de la casa. El niño/a podrá clasificar los objetos según uso y color, además puede clasificar utilizando otras cualidades de los objetos, por ejemplo, según tamaño, forma, peso, entre otros.\n" +
+                    " ¿Qué debo observar?\n" +
+                    "  El adulto junto al niño /a puede evaluar el trabajo con preguntas tales como: ¿Te gusto el juego de clasificación?, ¿Con que materiales de la casa trabajaste?, ¿Qué cualidades de los objetos usaste para clasificar?, entre otras.","Nuevo")
 
+            ,Contenido("Jugando con mi cuerpo y juguetes","3","Interacción y Comprensión del Entorno","Pensamiento Matemático","Medio", "Describir la posición de objetos y personas, respecto de un punto u objetos de referencia, empleando conceptos de ubicación y distancia tales como: dentro-fuera, encima-debajo, cerca-lejos.","BN_LWZko2Ps","En esta actividad los niños podrán interactuar y aprender los significados de cerca y lejos.","¿Qué materiales usar? \n" +
+                    "Cajas de cartón o plásticas (dentro de lo posible grandes). Frazadas. Juguetes de los niños/as\n" +
+                    "¿Qué hace el adulto? \n" +
+                    "El tutor invitará al niño/a a elegir un espacio de la casa para jugar, luego ubicarán las cajas y frazadas. El tutor invitara al niño a jugar con su cuerpo, solicitándoles que se ubique dentro-fuera de la caja, encima-debajo de la frazada, cerca-lejos de ambos elementos. Luego las mismas acciones el tutor las solicitará con sus juguetes.\n" +
+                    " ¿Qué hace el niño/a? \n" +
+                    "El niño/a podrá jugar con su cuerpo a las relaciones espaciales con los objetos: dentro-fuera, encima-debajo, cerca-lejos. El niño/a podrá jugar a estas relaciones (dentro-fuera, encima-debajo, cerca-lejos) con sus juguetes. \n" +
+                    "¿Qué debo observar?\n" +
+                    "El adulto junto al niño /a puede evaluar el trabajo con preguntas tales como: ¿Fue entretenido el juego?, ¿Quiénes jugaron contigo?, ¿Qué acciones fueron más difíciles de hacer?, entre otras.","Nuevo")
 
+            ,Contenido("Cuidados que debemos tener con algunos objetos en la casa","3","Desarrollo Personal y Social","Convivencia y ciudadanía","Medio", "Identificar objetos, comportamientos y situaciones de riesgo que pueden atentar contra su seguridad, bienestar y el de los demás.","I1ynPyE0Osw","En esta actividad los niños podrán aprender respecto de los peligros en los hogares.","¿Qué materiales usar? \n" +
+                    "Objetos de riesgo de la casa. Papel: pliego de cartulina, kraf, hojas de block. Lápices, plumones, entre otros.\n" +
+                    "¿Qué hace el adulto? \n" +
+                    "El tutor invitará al niño/a a conversar sobre algunos objetos que hay en la casa y con los cuales deben tener cuidado (se realizará una lista de estos objetos).\n" +
+                    " ¿Qué hace el niño/a? \n" +
+                    "El tutor invitará al niño/a a identificar estos objetos, por ejemplo, cuchillos, fósforos, plancha, tijeras, agua caliente, enchufes, botones, útiles de aseo, cocina, entre otros. Junto al tutor podrán crear un afiche identificando los objetos de riesgo, uso correcto, cuidados y precauciones que se deben tener en cuenta para evitar algún accidente. Este afiche lo pueden compartir vía WhatsApp u otro medio de comunicación con sus amigos, compañeros, familiares. compañeros, familiares.\n" +
+                    " ¿Qué debo observar?\n" +
+                    "El adulto junto al niño /a puede evaluar el trabajo con preguntas tales como: ¿Cuáles son los objetos de la casa, con los cuales debemos tener cuidado?, ¿Qué medidas preventivas acordaron con el tutor?, ¿Por qué es importante compartir el afiche con sus amigos?, entre otras.","Nuevo")
 
-
-
-
-
+            ,Contenido("Mi identidad","3","Desarrollo Personal y Social","Identidad y Autonomía","Medio", "Comunicar algunos rasgos de su identidad, como nombre, características corporales, género y otros.","srmiSiJHCxQ","En esta actividad los niños podrán complementar su sentir consigo mismos.","¿Qué materiales usar? \n" +
+                    "Espejo (ideal a la altura del niño). 1 trozo de cartón, block, cartulina, etc. Lana, pitilla, \uF0B7 Botones grandes, tapitas. Lápices, plumones. Colafria u otro pegamento. Otros materiales que tengan para la representación del niño\n" +
+                    "¿Qué hace el adulto? \n" +
+                    "El tutor invitará al niño/a observarse en un espejo, luego conversarán sobre rasgos de su identidad: nombre, género, rasgos físicos y lo que le gusta hacer. El tutor le debe expresar al niño/a su afecto, valoración y aceptación.\n" +
+                    " ¿Qué hace el niño/a? \n" +
+                    "El niño/a podrá decir su nombre, sexo, intereses y características corporales. El niño/a podrá representarse a sí mismo por medio de una obra plástica, utilizando los materiales que sean de su interés.\n" +
+                    " ¿Qué debo observar?\n" +
+                    "  El adulto junto al niño /a puede evaluar el trabajo con preguntas tales como: ¿Cuál es tu nombre?, ¿Tú género?, ¿Nos puedes contar de tus características físicas?, ¿Qué te gusta hacer?, entre otras.","Nuevo")
 
 
 
 
             //contenido destacado
+
+            ,Contenido("Mi identidad","3","Desarrollo Personal y Social","Identidad y Autonomía","Medio", "Comunicar algunos rasgos de su identidad, como nombre, características corporales, género y otros.","srmiSiJHCxQ","En esta actividad los niños podrán complementar su sentir consigo mismos.","¿Qué materiales usar? \n" +
+                    "Espejo (ideal a la altura del niño). 1 trozo de cartón, block, cartulina, etc. Lana, pitilla, \uF0B7 Botones grandes, tapitas. Lápices, plumones. Colafria u otro pegamento. Otros materiales que tengan para la representación del niño\n" +
+                    "¿Qué hace el adulto? \n" +
+                    "El tutor invitará al niño/a observarse en un espejo, luego conversarán sobre rasgos de su identidad: nombre, género, rasgos físicos y lo que le gusta hacer. El tutor le debe expresar al niño/a su afecto, valoración y aceptación.\n" +
+                    " ¿Qué hace el niño/a? \n" +
+                    "El niño/a podrá decir su nombre, sexo, intereses y características corporales. El niño/a podrá representarse a sí mismo por medio de una obra plástica, utilizando los materiales que sean de su interés.\n" +
+                    " ¿Qué debo observar?\n" +
+                    "  El adulto junto al niño /a puede evaluar el trabajo con preguntas tales como: ¿Cuál es tu nombre?, ¿Tú género?, ¿Nos puedes contar de tus características físicas?, ¿Qué te gusta hacer?, entre otras.","Destacado")
+
+
+            ,Contenido("Cuidados que debemos tener con algunos objetos en la casa","3","Desarrollo Personal y Social","Convivencia y ciudadanía","Medio", "Identificar objetos, comportamientos y situaciones de riesgo que pueden atentar contra su seguridad, bienestar y el de los demás.","I1ynPyE0Osw","En esta actividad los niños podrán aprender respecto de los peligros en los hogares.","¿Qué materiales usar? \n" +
+                    "Objetos de riesgo de la casa. Papel: pliego de cartulina, kraf, hojas de block. Lápices, plumones, entre otros.\n" +
+                    "¿Qué hace el adulto? \n" +
+                    "El tutor invitará al niño/a a conversar sobre algunos objetos que hay en la casa y con los cuales deben tener cuidado (se realizará una lista de estos objetos).\n" +
+                    " ¿Qué hace el niño/a? \n" +
+                    "El tutor invitará al niño/a a identificar estos objetos, por ejemplo, cuchillos, fósforos, plancha, tijeras, agua caliente, enchufes, botones, útiles de aseo, cocina, entre otros. Junto al tutor podrán crear un afiche identificando los objetos de riesgo, uso correcto, cuidados y precauciones que se deben tener en cuenta para evitar algún accidente. Este afiche lo pueden compartir vía WhatsApp u otro medio de comunicación con sus amigos, compañeros, familiares. compañeros, familiares.\n" +
+                    " ¿Qué debo observar?\n" +
+                    "El adulto junto al niño /a puede evaluar el trabajo con preguntas tales como: ¿Cuáles son los objetos de la casa, con los cuales debemos tener cuidado?, ¿Qué medidas preventivas acordaron con el tutor?, ¿Por qué es importante compartir el afiche con sus amigos?, entre otras.","Destacado")
+
+
+            ,Contenido("Jugando con mi cuerpo y juguetes","3","Interacción y Comprensión del Entorno","Pensamiento Matemático","Medio", "Describir la posición de objetos y personas, respecto de un punto u objetos de referencia, empleando conceptos de ubicación y distancia tales como: dentro-fuera, encima-debajo, cerca-lejos.","BN_LWZko2Ps","En esta actividad los niños podrán interactuar y aprender los significados de cerca y lejos.","¿Qué materiales usar? \n" +
+                    "Cajas de cartón o plásticas (dentro de lo posible grandes). Frazadas. Juguetes de los niños/as\n" +
+                    "¿Qué hace el adulto? \n" +
+                    "El tutor invitará al niño/a a elegir un espacio de la casa para jugar, luego ubicarán las cajas y frazadas. El tutor invitara al niño a jugar con su cuerpo, solicitándoles que se ubique dentro-fuera de la caja, encima-debajo de la frazada, cerca-lejos de ambos elementos. Luego las mismas acciones el tutor las solicitará con sus juguetes.\n" +
+                    " ¿Qué hace el niño/a? \n" +
+                    "El niño/a podrá jugar con su cuerpo a las relaciones espaciales con los objetos: dentro-fuera, encima-debajo, cerca-lejos. El niño/a podrá jugar a estas relaciones (dentro-fuera, encima-debajo, cerca-lejos) con sus juguetes. \n" +
+                    "¿Qué debo observar?\n" +
+                    "El adulto junto al niño /a puede evaluar el trabajo con preguntas tales como: ¿Fue entretenido el juego?, ¿Quiénes jugaron contigo?, ¿Qué acciones fueron más difíciles de hacer?, entre otras.","Destacado")
+
+
+            ,Contenido("Clasificar objetos de la casa, según USO","3","Interacción y Comprensión del Entorno","Pensamiento Matemático","Medio", "Experimentar con diversos objetos, estableciendo relaciones al clasificar por dos atributos a la vez (uso y color).","8I29hSt5QCs","En esta actividad los niños podrán clasificar objetos","¿Qué materiales usar? \n" +
+                    "Objetos tecnológicos: celulares, cámaras, computador, televisores, entre otros. Objetos para cocinar: ollas, sartenes, tostador, entre otros., Objetos decorativos: chiches, cuadros, fotos, entre otros.\n" +
+                    "¿Qué hace el adulto? \n" +
+                    "El tutor invitará al niño/a a agrupar objetos tecnológicos, decorativos, de cocina y otros que el desee integrar. Luego se le explicara al niño/a que jugarán a clasificar este material, según su uso en la casa y color. \n" +
+                    "¿Qué hace el niño/a? \n" +
+                    "El niño/a deberá agrupar objetos de la casa. El niño/a podrá clasificar los objetos según uso y color, además puede clasificar utilizando otras cualidades de los objetos, por ejemplo, según tamaño, forma, peso, entre otros.\n" +
+                    " ¿Qué debo observar?\n" +
+                    "  El adulto junto al niño /a puede evaluar el trabajo con preguntas tales como: ¿Te gusto el juego de clasificación?, ¿Con que materiales de la casa trabajaste?, ¿Qué cualidades de los objetos usaste para clasificar?, entre otras.","Destacado")
+
+
+            ,Contenido("Jugando a la actuación","3","Comunicación Integral","Lenguajes artísticos","Medio", "Expresar corporalmente sensaciones y emociones experimentando con mímica y juegos teatrales.","NnCYZc7huC4","En esta actividad los niños podrán teatralizar situaciones.","¿Qué materiales usar? \n" +
+                    "Ropa, Artículos: sombreros, corbatas, collares, lentes, instrumentos musicales, entre otros materiales que tengan en casa.\n" +
+                    "¿Qué hace el adulto? \n" +
+                    "El tutor fomentará un juego de actuación con el niño/a, buscarán ropa y otros elementos para disfrazarse. El tutor con el niño/a podrán disfrutar del placer de hacer este juego.\n" +
+                    " ¿Qué hace el niño/a? \n" +
+                    "El niño/a podrá elegir un personaje para representar: amigos, familiares, artistas, entre otros. Podrá utilizar elementos para la caracterización del personaje. El niño/a podrá expresar sentimientos, pensamientos, integrando el movimiento y la palabra.\n" +
+                    " ¿Qué debo observar?\n" +
+                    "El adulto junto al niño /a puede evaluar el trabajo con preguntas tales como: ¿A quienes imitaste?, ¿Te gusto el juego de imitación?, ¿Quiénes participaron del juego?, entre otras.","Destacado")
+
+
 
             ,Contenido("Disfrutemos los sonidos","3","Comunicación Integral","Lenguajes artísticos","Sala cuna", "Manifestar interés por los sonidos, colores, luminosidad de su entorno, respondiendo a través de diversas formas, tales como balbuceos, gestos, sonrisas, entre otros","jBN8ZQfb7iM","En esta actividad los niños podrán con sonidos de forma controlada.","¿Qué materiales usar? \n" +
                     "FABRICAR CAJA DE SONIDOS: será una caja con distintos sonajeros: Botella pequeña con agua. Botella pequeña rellena con pequeñas piedras sellada. Botella con distintos rellenos livianos y coloridos, según lo que disponga en el hogar, asegurarse que estén selladas ante la manipulación del niño/a. Un paño o género para tapar la caja\n" +
@@ -279,8 +366,9 @@ class Destacados : AppCompatActivity() {
 
 
         )
-        destacadoAdapter.setDataList(dataList)
-
+        // Lista Contenidos Destacados
+        val dataListD = dataListC.filter { it.tipo == "Destacado" }
+        destacadoAdapter.setDataList(dataListD)
 
         val bundle = intent.extras                           // Variable que rescata los extras que trae el Intent
         email = bundle?.getString("email")              // Variable que rescata el correo
