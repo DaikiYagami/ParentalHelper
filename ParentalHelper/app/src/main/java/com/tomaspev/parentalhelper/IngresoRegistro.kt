@@ -42,6 +42,8 @@ class IngresoRegistro : AppCompatActivity(), DatePickerDialog.OnDateSetListener 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_ingreso_registro)
 
+        setSupportActionBar(toolbar_ingreso_registro)
+
         // ID del usuario logueado
         val uid = FirebaseAuth.getInstance().currentUser?.uid.toString()
         database = FirebaseDatabase.getInstance().getReference("Usuario")

@@ -33,6 +33,8 @@ class ListadoRegistros : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_listado_registros)
 
+        setSupportActionBar(toolbar_listado_registros)
+
         recyclerView = findViewById(R.id.rv_lista_registros)
         recyclerView.layoutManager = GridLayoutManager(applicationContext, 1)
 
@@ -78,7 +80,7 @@ class ListadoRegistros : AppCompatActivity() {
                 }
             }
             override fun onCancelled(error: DatabaseError) {
-                TODO("Not yet implemented")
+                Toast.makeText(applicationContext, "Error", Toast.LENGTH_SHORT).show()
             }
 
         })

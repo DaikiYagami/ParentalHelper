@@ -11,7 +11,7 @@ import android.view.MenuItem
 
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-
+import kotlinx.android.synthetic.main.activity_new_content.*
 
 
 class NewContent : AppCompatActivity() {
@@ -30,6 +30,8 @@ class NewContent : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_new_content)
+
+        setSupportActionBar(toolbar_contenido_nuevo)
 
         val recyclerView = findViewById<RecyclerView>(R.id.rv_lista_contenido_nuevo)
         recyclerView.layoutManager = GridLayoutManager(applicationContext, 2)

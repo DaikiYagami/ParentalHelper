@@ -12,6 +12,7 @@ import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_main.*
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.database.FirebaseDatabase
 
 // Clase que permite la diferenciacion de los tipos de proveedor para iniciar sesión
 enum class  ProviderType {
@@ -43,6 +44,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        setSupportActionBar(toolbar_main)
+
         // Registros ============================================================================================================
 
         val recyclerViewR = findViewById<RecyclerView>(R.id.rv_registros)
@@ -50,11 +53,7 @@ class MainActivity : AppCompatActivity() {
         registroAdapter = RegistroAdapter(applicationContext)
         recyclerViewR.adapter = registroAdapter
 
-        dataListR = listOf(
-            Registro("Manuel", "12/04/2019", false),
-            Registro("Jose", "15/07/2018", true),
-            Registro("Martina", "23/09/2017", false)
-        )
+        dataListR = listOf()
 
         registroAdapter.setDataList(dataListR)
 

@@ -12,6 +12,7 @@ import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.android.synthetic.main.activity_detalle_registro.*
 
 class DetalleRegistro : AppCompatActivity() {
     private lateinit var progresoContenidoAdapter: ProgresoContenidoAdapter
@@ -29,6 +30,8 @@ class DetalleRegistro : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detalle_registro)
+
+        setSupportActionBar(toolbar_detalle_registro)
 
         // Código para mostrar los datos del registro seleccionado ==============================================================>>>
 

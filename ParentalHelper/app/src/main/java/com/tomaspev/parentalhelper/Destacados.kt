@@ -10,6 +10,7 @@ import android.view.MenuItem
 import androidx.recyclerview.widget.GridLayoutManager
 
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.android.synthetic.main.activity_destacados.*
 
 class Destacados : AppCompatActivity() {
     private lateinit var destacadoAdapter: ListadoDestacadoAdapter
@@ -27,6 +28,8 @@ class Destacados : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_destacados)
+
+        setSupportActionBar(toolbar_contenido_destacado)
 
         val recyclerView = findViewById<RecyclerView>(R.id.rv_lista_destacado)
         recyclerView.layoutManager = GridLayoutManager(applicationContext, 2)
