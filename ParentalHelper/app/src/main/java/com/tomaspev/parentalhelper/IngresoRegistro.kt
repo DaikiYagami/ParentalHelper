@@ -2,10 +2,13 @@ package com.tomaspev.parentalhelper
 
 import android.app.AlertDialog
 import android.app.DatePickerDialog
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
+import android.view.MenuItem
 import android.widget.DatePicker
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
@@ -16,6 +19,11 @@ import kotlin.time.seconds
 
 class IngresoRegistro : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
     private lateinit var database: DatabaseReference
+
+    private lateinit var prefs: SharedPreferences.Editor
+    private var email: String? = null
+    private var provider: String? = null
+
     var dd = 0
     var mm = 0
     var yy = 0
@@ -26,13 +34,15 @@ class IngresoRegistro : AppCompatActivity(), DatePickerDialog.OnDateSetListener 
     var style = 0
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.menu_volver, menu)
+        menuInflater.inflate(R.menu.menu_basico, menu)
         return super.onCreateOptionsMenu(menu)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_ingreso_registro)
+
+        setSupportActionBar(toolbar_ingreso_registro)
 
         // ID del usuario logueado
         val uid = FirebaseAuth.getInstance().currentUser?.uid.toString()
@@ -59,7 +69,14 @@ class IngresoRegistro : AppCompatActivity(), DatePickerDialog.OnDateSetListener 
         btn_date_picker.setOnClickListener {
             pickDate()
         }
+
+        val bundle = intent.extras                           // Variable que rescata los extras que trae el Intent
+        email = bundle?.getString("email")              // Variable que rescata el correo
+        provider = bundle?.getString("provider")        // Variable que rescata el provider
+
+        prefs = getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE).edit()
     }
+
     // Date Picker ================================================================================
     private fun getDateTimeCalendar() {
         val cal = Calendar.getInstance()
@@ -82,5 +99,20 @@ class IngresoRegistro : AppCompatActivity(), DatePickerDialog.OnDateSetListener 
         syy = year
         getDateTimeCalendar()
         btn_date_picker.text = "$sdd/$smm/$syy"
+    }
+
+    // Barra de Acciones
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+        when (item.itemId) {
+
+            R.id.menu_logout -> {
+                cerrarSesion(email, provider, true, prefs)
+                val home = Intent(this, Login::class.java)
+                startActivity(home)
+            }
+
+        }
+        return super.onOptionsItemSelected(item)
     }
 }

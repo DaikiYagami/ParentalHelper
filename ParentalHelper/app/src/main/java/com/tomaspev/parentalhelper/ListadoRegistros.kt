@@ -2,9 +2,11 @@ package com.tomaspev.parentalhelper
 
 import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
+import android.view.MenuItem
 import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -18,8 +20,12 @@ class ListadoRegistros : AppCompatActivity() {
     private lateinit var dataList: ArrayList<Registro>
     private lateinit var recyclerView: RecyclerView
 
+    private lateinit var prefs: SharedPreferences.Editor
+    private var email: String? = null
+    private var provider: String? = null
+
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.menu_volver, menu)
+        menuInflater.inflate(R.menu.menu_basico, menu)
         return super.onCreateOptionsMenu(menu)
     }
 
@@ -27,18 +33,14 @@ class ListadoRegistros : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_listado_registros)
 
+        setSupportActionBar(toolbar_listado_registros)
+
         recyclerView = findViewById(R.id.rv_lista_registros)
         recyclerView.layoutManager = GridLayoutManager(applicationContext, 1)
 
-        /*
-        dataList = arrayListOf(
-            Registro("Manuel", "12/04/2019", false),
-            Registro("Jose", "15/07/2018", true),
-            Registro("Martina", "23/09/2017", false)
-        )*/
         dataList = arrayListOf()
         dataList.clear()
-        getData(applicationContext)
+        getData()
         // Resto del código =======================================================================
 
         fab.setOnClickListener {
@@ -55,9 +57,16 @@ class ListadoRegistros : AppCompatActivity() {
             val intent = Intent(this, IngresoRegistro::class.java)
             startActivity(intent)
         }
+
+        val bundle = intent.extras                           // Variable que rescata los extras que trae el Intent
+        email = bundle?.getString("email")              // Variable que rescata el correo
+        provider = bundle?.getString("provider")        // Variable que rescata el provider
+
+        prefs = getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE).edit()
+
     }
     // Toma los datos solicitados de la DB
-    private fun getData(context: Context) {
+    private fun getData() {
         val uid = FirebaseAuth.getInstance().currentUser?.uid.toString()
         database = FirebaseDatabase.getInstance().getReference("Usuario").child(uid).child("registros")
         database.addValueEventListener(object : ValueEventListener {
@@ -71,9 +80,22 @@ class ListadoRegistros : AppCompatActivity() {
                 }
             }
             override fun onCancelled(error: DatabaseError) {
-                Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show()
+                Toast.makeText(applicationContext, "Error", Toast.LENGTH_SHORT).show()
             }
 
         })
+    }
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+        when (item.itemId) {
+
+            R.id.menu_logout -> {
+                cerrarSesion(email, provider, true, prefs)
+                val home = Intent(this, Login::class.java)
+                startActivity(home)
+            }
+
+        }
+        return super.onOptionsItemSelected(item)
     }
 }

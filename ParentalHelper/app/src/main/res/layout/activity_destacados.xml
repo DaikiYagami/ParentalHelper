@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".NewContent">
+    tools:context=".Destacados">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar_contenido_nuevo"
+        android:id="@+id/toolbar_contenido_destacado"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:elevation="4dp"
@@ -19,38 +19,38 @@
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/imageView6"
         android:layout_width="match_parent"
         android:layout_height="150dp"
+        android:adjustViewBounds="false"
+        android:cropToPadding="false"
         android:scaleType="centerCrop"
+        app:layout_constraintBottom_toTopOf="@+id/rv_lista_destacado"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/bg14_opt" />
 
     <TextView
-        android:id="@+id/textView2"
-        android:layout_width="300dp"
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Contenido Nuevo"
+        android:text="Contenido Destacado"
         android:textAlignment="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display3"
         android:textColor="#FFFFFF"
         android:textSize="40sp"
         android:fontFamily="@font/montserrat_bold"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView4"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView6"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/toolbar_contenido_nuevo" />
+        app:layout_constraintStart_toStartOf="@+id/imageView6"
+        app:layout_constraintTop_toTopOf="@+id/imageView6" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_lista_contenido_nuevo"
+        android:id="@+id/rv_lista_destacado"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
-
+        app:layout_constraintTop_toBottomOf="@+id/imageView6" />
 </androidx.constraintlayout.widget.ConstraintLayout>

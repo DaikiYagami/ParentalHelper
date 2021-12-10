@@ -9,10 +9,14 @@ import java.io.Serializable
 class Contenido(
     val titulo:String,
     val clase:String,
+    val ambito:String,
+    val nucleo:String,
+    val tramo:String,
+    val objetivo:String,
     val enlaceWeb:String,
     val descripcionShort:String,
     val descripcionLong:String,
-    val tipo: String,
+    val tipo: String, //contenido nuevo o destacado
     @PrimaryKey(autoGenerate = true)
     var idContenido: Int = 0
 

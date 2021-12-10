@@ -1,6 +1,5 @@
 package com.tomaspev.parentalhelper
 
-
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
@@ -8,14 +7,13 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-
 import androidx.recyclerview.widget.GridLayoutManager
+
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.android.synthetic.main.activity_new_content.*
+import kotlinx.android.synthetic.main.activity_destacados.*
 
-
-class NewContent : AppCompatActivity() {
-    private lateinit var contenidoNuevoAdapter: ListadoContenidoNuevoAdapter
+class Destacados : AppCompatActivity() {
+    private lateinit var destacadoAdapter: ListadoDestacadoAdapter
     private lateinit var dataListC: List<Contenido>
 
     private lateinit var prefs: SharedPreferences.Editor
@@ -29,14 +27,14 @@ class NewContent : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_new_content)
+        setContentView(R.layout.activity_destacados)
 
-        setSupportActionBar(toolbar_contenido_nuevo)
+        setSupportActionBar(toolbar_contenido_destacado)
 
-        val recyclerView = findViewById<RecyclerView>(R.id.rv_lista_contenido_nuevo)
+        val recyclerView = findViewById<RecyclerView>(R.id.rv_lista_destacado)
         recyclerView.layoutManager = GridLayoutManager(applicationContext, 2)
-        contenidoNuevoAdapter = ListadoContenidoNuevoAdapter(applicationContext)
-        recyclerView.adapter = contenidoNuevoAdapter
+        destacadoAdapter = ListadoDestacadoAdapter(applicationContext)
+        recyclerView.adapter = destacadoAdapter
 
         dataListC = listOf(
             //contenido nuevo
@@ -371,9 +369,9 @@ class NewContent : AppCompatActivity() {
 
 
         )
-        // Lista Contenidos Nuevos
-        val dataListNC = dataListC.filter { it.tipo == "Nuevo" }
-        contenidoNuevoAdapter.setDataList(dataListNC)
+        // Lista Contenidos Destacados
+        val dataListD = dataListC.filter { it.tipo == "Destacado" }
+        destacadoAdapter.setDataList(dataListD)
 
         val bundle = intent.extras                           // Variable que rescata los extras que trae el Intent
         email = bundle?.getString("email")              // Variable que rescata el correo
@@ -393,5 +391,5 @@ class NewContent : AppCompatActivity() {
         }
         return super.onOptionsItemSelected(item)
     }
-}
 
+}

@@ -1,26 +1,37 @@
 package com.tomaspev.parentalhelper
 
+import android.content.Context
+import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
+import android.view.MenuItem
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.android.synthetic.main.activity_detalle_registro.*
 
 class DetalleRegistro : AppCompatActivity() {
     private lateinit var progresoContenidoAdapter: ProgresoContenidoAdapter
     private lateinit var dataList: ArrayList<ProgresoContenido?>
 
+    private var email: String? = null
+    private var provider: String? = null
+    private lateinit var prefs: SharedPreferences.Editor
+
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.menu_volver, menu)
+        menuInflater.inflate(R.menu.menu_basico, menu)
         return super.onCreateOptionsMenu(menu)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detalle_registro)
+
+        setSupportActionBar(toolbar_detalle_registro)
 
         // Código para mostrar los datos del registro seleccionado ==============================================================>>>
 
@@ -42,20 +53,29 @@ class DetalleRegistro : AppCompatActivity() {
         recyclerView.layoutManager = GridLayoutManager(applicationContext, 1, GridLayoutManager.VERTICAL, false)
         progresoContenidoAdapter = ProgresoContenidoAdapter(applicationContext)
         recyclerView.adapter = progresoContenidoAdapter
-        /*
-        dataList = listOf(
-            ProgresoContenido(0, 60),
-            ProgresoContenido(0, 20),
-            ProgresoContenido(0, 40),
-            ProgresoContenido(0, 60),
-            ProgresoContenido(0, 80),
-            ProgresoContenido(0, 10),
-            ProgresoContenido(0, 90),
-            ProgresoContenido(0, 50)
-        )*/
 
-        dataList = registro.progreso
+        dataList = registro.progreso // ver -------------------------------
 
         progresoContenidoAdapter.setDataList(dataList)
+
+        val bundle = intent.extras                           // Variable que rescata los extras que trae el Intent
+        email = bundle?.getString("email")              // Variable que rescata el correo
+        provider = bundle?.getString("provider")        // Variable que rescata el provider
+
+        prefs = getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE).edit()
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+        when (item.itemId) {
+
+            R.id.menu_logout -> {
+                cerrarSesion(email, provider, true, prefs)
+                val home = Intent(this, Login::class.java)
+                startActivity(home)
+            }
+
+        }
+        return super.onOptionsItemSelected(item)
     }
 }

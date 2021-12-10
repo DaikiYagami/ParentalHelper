@@ -6,6 +6,18 @@
     android:layout_height="match_parent"
     tools:context=".IngresoRegistro">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_ingreso_registro"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:elevation="4dp"
+        app:title=" "
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
     <TextView
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
@@ -13,10 +25,9 @@
         android:fontFamily="@font/montserrat_bold"
         android:text="Nuevo Registro"
         android:textSize="24sp"
-        android:layout_marginTop="34dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_ingreso_registro" />
 
     <TextView
         android:id="@+id/textView11"

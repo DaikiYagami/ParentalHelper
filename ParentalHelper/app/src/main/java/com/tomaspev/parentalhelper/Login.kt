@@ -178,6 +178,7 @@ class Login : AppCompatActivity() {
                             showHome(account.email ?: "", ProviderType.GOOGLE)
                         } else {
                             showAlert()
+
                         }
                     }
                 }

@@ -2,87 +2,78 @@ package com.tomaspev.parentalhelper
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_detalle_contenido.*
-import android.content.Intent
+import android.widget.TextView
+import android.widget.Toast
+import android.widget.VideoView
+import com.google.android.youtube.player.YouTubeBaseActivity
+import com.google.android.youtube.player.YouTubeInitializationResult
+import com.google.android.youtube.player.YouTubePlayer
+import com.google.android.youtube.player.YouTubePlayerView
+import kotlinx.android.synthetic.main.activity_detalle_contenido.view.*
+import kotlinx.android.synthetic.main.activity_detalle_registro.*
 import kotlinx.android.synthetic.main.activity_main.*
 
 
-class DetalleContenido : AppCompatActivity() {
+class DetalleContenido : YouTubeBaseActivity() {
 
+    val youtube_api_key = "AIzaSyAe6EYTOQxMjflvEdNOCTHBlYVXvfOobAI"
 
+    private lateinit var youTubePlayer: YouTubePlayerView
+    private lateinit var youtubePlayerInit: YouTubePlayer.OnInitializedListener
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detalle_contenido)
+        // Código para mostrar los datos del contenido seleccionado ==============================================================>>>
 
-        //crear listado de item seleccionado con solo un elemento
+        // Se recibe el objeto contenido pasado por el intent
+        val contenido = intent.getSerializableExtra("contenido") as Contenido
 
-        val contenido1 = Contenido(
-            "Contenido de evaluacion 1",
-            "Nucleo Logico Matematico",
-            "www.patito.cl",
-            "Aca esta la descripcion corta",
-            "Aca esta la descripcion larga jaksdjaksjdkajskdajskdjaksdjaksjdkajsdkajsdkaskdjaksdaksdkasjdkajskdjaksdjaksjdkajsdkajsdkjaskdjaksd", "Destacado")
-        val contenido2 = Contenido("Contenido de evaluacion 2", "1","www.patito.cl","Aca esta la descripcion corta","Aca esta la descripcion larga jaksdjaksjdkajskdajskdjaksdjaksjdkajsdkajsdkaskdjaksdaksdkasjdkajskdjaksdjaksjdkajsdkajsdkjaskdjaksd", "Destacado")
-        val contenido3 = Contenido("Números del 2 al 10", "2","www.patito.cl","Aca esta la descripcion corta","Aca esta la descripcion larga jaksdjaksjdkajskdajskdjaksdjaksjdkajsdkajsdkaskdjaksdaksdkasjdkajskdjaksdjaksjdkajsdkajsdkjaskdjaksd", "Destacado")
-        val contenido4 = Contenido("Números del 1 al 10", "3","www.patito.cl","Aca esta la descripcion corta","Aca esta la descripcion larga jaksdjaksjdkajskdajskdjaksdjaksjdkajsdkajsdkaskdjaksdaksdkasjdkajskdjaksdjaksjdkajsdkajsdkjaskdjaksd", "Destacado")
-        val contenido5 = Contenido("Números del 2 al 10", "1","www.patito.cl","Aca esta la descripcion corta","Aca esta la descripcion larga jaksdjaksjdkajskdajskdjaksdjaksjdkajsdkajsdkaskdjaksdaksdkasjdkajskdjaksdjaksjdkajsdkajsdkjaskdjaksd", "Destacado")
-        val contenido6 = Contenido("Números del 1 al 10", "2","www.patito.cl","Aca esta la descripcion corta","Aca esta la descripcion larga jaksdjaksjdkajskdajskdjaksdjaksjdkajsdkajsdkaskdjaksdaksdkasjdkajskdjaksdjaksjdkajsdkajsdkjaskdjaksd", "Destacado")
-        val contenido7 = Contenido("Números del 2 al 10", "3","www.patito.cl","Aca esta la descripcion corta","Aca esta la descripcion larga jaksdjaksjdkajskdajskdjaksdjaksjdkajsdkajsdkaskdjaksdaksdkasjdkajskdjaksdjaksjdkajsdkajsdkjaskdjaksd", "Destacado")
-        val contenido8 = Contenido("Números del 1 al 10", "1","www.patito.cl","Aca esta la descripcion corta","Aca esta la descripcion larga jaksdjaksjdkajskdajskdjaksdjaksjdkajsdkajsdkaskdjaksdaksdkasjdkajskdjaksdjaksjdkajsdkajsdkjaskdjaksd", "Destacado")
+        // Se identifican los campos mostrados en el layout
+        val titulo: TextView = findViewById(R.id.tv_detalle_contenido_titulo)
+        val ambito: TextView = findViewById(R.id.tv_detalle_contenido_ambito)
+        val tramo: TextView = findViewById(R.id.tv_detalle_contenido_tramo)
+        val objetivo: TextView = findViewById(R.id.tv_detalle_contenido_objetivo)
 
-        val listaContent = listOf(contenido1 , contenido3,contenido5,contenido7, contenido2,contenido4,contenido6,contenido8)
-
-        //Prueba de filtro
-
-        /*val objetoIntent: Intent= intent
-        var numero = objetoIntent.getStringExtra("num")
-        var con = "contenido"*/
-
-        //----------------
-        var bundle = intent.extras
-        /*textView.text=bundle.getString("dt")*/
+        /*val descripcionShort: TextView = findViewById(R.id.tv_detalle_contenido_descripcionShort)*/
+        val descripcionLong: TextView = findViewById(R.id.tv_detalle_contenido_descripcionLong)
 
 
-        //-----------------------
-        var listaContent2 = listaContent.filter{ it ==contenido2}//aparece solo el que acompaña al it   it == contenido2
+        val video_id = contenido.enlaceWeb
 
-        //-------------------------------------------------------
-        val adapter = ContentAdapter(this, listaContent2)
-        lcontenido.adapter = adapter
+        // Se le asignan los valores guardados en el objeto registro a los campos del layout
+        titulo.text = contenido.titulo
+        ambito.text = contenido.ambito
+        tramo.text = contenido.tramo
+        objetivo.text = contenido.objetivo
+
+        descripcionLong.text = contenido.descripcionLong
 
 
+        // yutu
+        youTubePlayer = findViewById(R.id.videoView)
 
+        youtubePlayerInit = object : YouTubePlayer.OnInitializedListener{
+            override fun onInitializationSuccess(
+                p0: YouTubePlayer.Provider?,
+                p1: YouTubePlayer?,
+                p2: Boolean
+            ) {
+                p1?.loadVideo(video_id)
+            }
+
+            override fun onInitializationFailure(
+                p0: YouTubePlayer.Provider?,
+                p1: YouTubeInitializationResult?
+            ) {
+                Toast.makeText(applicationContext, "Error", Toast.LENGTH_SHORT).show()
+            }
+
+        }
+        youTubePlayer.initialize(youtube_api_key, youtubePlayerInit)
     }
 
-
-    /*override fun onOptionsItemSelected(item: MenuItem): Boolean {
-
-        when(item.itemId){
-            R.id.editar -> {
-                val intent = Intent(this, ingresar_cafe::class.java)
-                intent.putExtra("cafe", cafe)
-                startActivity(intent)
-            }
-            R.id.eliminar -> {
-                cafeLiveData.removeObservers(this)
-                CoroutineScope(Dispatchers.IO).launch {
-                    database.cafes().delete(cafe)
-                    this@CafeDescripcion.finish()
-                }
-            }
-        }
-
-        return super.onOptionsItemSelected(item)
-    }*/
-/*
-    fun volverListado(view: View){
-        Toast.makeText(this, "Volviendo a Main", Toast.LENGTH_SHORT).show()
-        val intent = Intent(this, ListadoCafes::class.java)
-        startActivity(intent)
-        finish()
-    }*/
 }
 
 
