@@ -19,7 +19,6 @@ class RegistroUsuario : AppCompatActivity() {
             ".{8,20}" + //at least 8 characters
             "$"
     )
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registro_usuario)
