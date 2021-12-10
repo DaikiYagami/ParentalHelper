@@ -51,6 +51,7 @@ class DetalleContenido : YouTubeBaseActivity() {
         descripcionLong.text = contenido.descripcionLong
 
 
+
         // yutu
         youTubePlayer = findViewById(R.id.videoView)
 
