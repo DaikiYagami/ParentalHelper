@@ -5,52 +5,41 @@
     android:id="@+id/destacado_cardView"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_margin="5dp"
-    app:cardCornerRadius="5dp">
+    android:layout_marginTop="1dp"
+    android:layout_marginBottom="9dp"
+    android:layout_marginStart="1dp"
+    android:layout_marginEnd="9dp"
+    app:cardCornerRadius="20dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="185dp"
-        android:background="#F44336"
-        android:orientation="vertical">
+        android:layout_width="wrap_content"
+        android:layout_height="180dp"
+        android:background="#F44336">
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="190dp"
-            android:layout_height="wrap_content"
+            android:layout_width="200dp"
+            android:layout_height="match_parent"
             android:scaleType="centerCrop"
-            android:src="@drawable/bg15_opt"
+            android:src="@drawable/plane_opt"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/tv_titulo"
-            android:layout_width="192dp"
-            android:layout_height="93dp"
-            android:layout_marginBottom="3dp"
-            android:background="#80E39797"
+            android:layout_width="0dp"
+            android:layout_height="90dp"
+            android:fontFamily="@font/montserrat_semibold"
             android:gravity="center"
             android:padding="5dp"
             android:text="Titulo"
-            android:textColor="@color/bg"
-            android:textSize="12sp"
-            app:layout_constraintBottom_toTopOf="@+id/tv_descripcionShort"
+            android:background="#80FFFFFF"
+            android:textColor="#203F59"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent" />
-
-        <TextView
-            android:id="@+id/tv_descripcionShort"
-            android:layout_width="190dp"
-            android:layout_height="90dp"
-            android:background="#80E39797"
-            android:text="TextView"
-            android:textColor="#F3F0F0"
-            android:textSize="10sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_titulo" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

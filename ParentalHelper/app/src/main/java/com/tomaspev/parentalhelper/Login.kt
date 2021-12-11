@@ -158,6 +158,7 @@ class Login : AppCompatActivity() {
             putExtra("provider", provider.name)
         }
         startActivity(home)
+        finish()
     }
 
     // INICIO DE SESION CON GOOGLE Y FACEBOOK REQUIERE DE ESTA FUNCION OVERRIDE PARA VALIDAR LA CUENTA DE GOOGLE

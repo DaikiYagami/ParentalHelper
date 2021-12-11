@@ -36,6 +36,7 @@ class DetalleContenido : YouTubeBaseActivity() {
         val tramo: TextView = findViewById(R.id.tv_detalle_contenido_tramo)
         val objetivo: TextView = findViewById(R.id.tv_detalle_contenido_objetivo)
 
+        val descripcion: TextView = findViewById(R.id.tv_detalle_contenido_descripcionShort)
         /*val descripcionShort: TextView = findViewById(R.id.tv_detalle_contenido_descripcionShort)*/
         val descripcionLong: TextView = findViewById(R.id.tv_detalle_contenido_descripcionLong)
 
@@ -48,6 +49,7 @@ class DetalleContenido : YouTubeBaseActivity() {
         tramo.text = contenido.tramo
         objetivo.text = contenido.objetivo
 
+        descripcion.text = contenido.descripcionShort
         descripcionLong.text = contenido.descripcionLong
 
 

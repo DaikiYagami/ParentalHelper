@@ -64,6 +64,7 @@ class IngresoRegistro : AppCompatActivity(), DatePickerDialog.OnDateSetListener 
             // Volver al activity anterior
             val intent = Intent(this, ListadoRegistros::class.java)
             startActivity(intent)
+            finish()
         }
         btn_date_picker.text = fechaHoy()
         btn_date_picker.setOnClickListener {

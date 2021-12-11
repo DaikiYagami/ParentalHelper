@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.cardview.widget.CardView
+import androidx.core.view.marginRight
 import androidx.recyclerview.widget.RecyclerView
 
 class ListadoDestacadoAdapter(var context: Context): RecyclerView.Adapter<ListadoDestacadoAdapter.ViewHolder>() {
@@ -20,7 +21,7 @@ class ListadoDestacadoAdapter(var context: Context): RecyclerView.Adapter<Listad
 
     class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         val titulo: TextView = itemView.findViewById(R.id.tv_titulo)
-        val descripcionShort: TextView = itemView.findViewById(R.id.tv_descripcionShort)
+        //val descripcionShort: TextView = itemView.findViewById(R.id.tv_descripcionShort)
         val cardView: CardView = itemView.findViewById(R.id.destacado_cardView)
     }
 
@@ -33,7 +34,7 @@ class ListadoDestacadoAdapter(var context: Context): RecyclerView.Adapter<Listad
         val data = dataList[position]
 
         holder.titulo.text = data.titulo
-        holder.descripcionShort.text = data.descripcionShort
+        //holder.descripcionShort.text = data.descripcionShort
 
         holder.cardView.setOnClickListener {
             context = holder.itemView.context

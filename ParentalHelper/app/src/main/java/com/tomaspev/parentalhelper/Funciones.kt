@@ -3,11 +3,50 @@ package com.tomaspev.parentalhelper
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
+import android.widget.ImageView
+import android.widget.Toast
+import androidx.recyclerview.widget.RecyclerView
 import com.facebook.login.LoginManager
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.*
 import java.text.SimpleDateFormat
 import java.util.*
 
+// Toma los datos solicitados de la DB
+fun getData(recyclerView: RecyclerView, dataList: ArrayList<Registro>, context: Context, img: ImageView?, adapter: String, ref: String) {
+    val uid = FirebaseAuth.getInstance().currentUser?.uid.toString()
+    val database = FirebaseDatabase.getInstance().getReference("Usuario").child(uid).child(ref)
+    database.addValueEventListener(object : ValueEventListener {
+        override fun onDataChange(snapshot: DataSnapshot) {
+            if (snapshot.exists()) {
+                for (reg in snapshot.children) {
+                    val registro = reg.getValue(Registro::class.java)
+                    dataList.add(registro!!)
+                }
+
+                if (adapter == "ListadoRegistro") {
+                    recyclerView.adapter = ListadoRegistrosAdapter(context, dataList)
+                }
+                else if (adapter == "Main") {
+                    dataList.add(Registro())
+                    recyclerView.adapter = RegistroAdapter(context, dataList)
+                }
+                // Imagen de fondo en caso de no haber registros
+                if (img != null) {
+                    if (dataList.size != 0 ) {
+                        img.setImageResource(0)
+                    }
+                    else {
+                        img.setImageResource(R.drawable.puzzle)
+                    }
+                }
+            }
+        }
+        override fun onCancelled(error: DatabaseError) {
+            Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show()
+        }
+    })
+}
 // Para el formato de fecha que se necesita
 fun formatoFecha(fecha: String, output: String): String {
     val formattedDate: String
