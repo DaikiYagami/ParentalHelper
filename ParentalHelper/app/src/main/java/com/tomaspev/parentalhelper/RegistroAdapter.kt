@@ -13,15 +13,10 @@ import androidx.recyclerview.widget.RecyclerView
 import java.text.SimpleDateFormat
 import java.time.Year
 import java.util.*
+import kotlin.collections.ArrayList
 import kotlin.math.absoluteValue
 
-class RegistroAdapter(var context: Context): RecyclerView.Adapter<RegistroAdapter.ViewHolder>() {
-
-    var dataList = emptyList<Registro>()
-
-    internal fun setDataList(dataList: List<Registro>) {
-        this.dataList = dataList
-    }
+class RegistroAdapter(var context: Context, var dataList: ArrayList<Registro>): RecyclerView.Adapter<RegistroAdapter.ViewHolder>() {
 
     class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         val nombre: TextView = itemView.findViewById(R.id.tv_nombre)

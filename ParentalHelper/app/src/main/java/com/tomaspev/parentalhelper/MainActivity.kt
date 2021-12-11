@@ -7,12 +7,13 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
 import com.facebook.login.LoginManager
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_main.*
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.*
 
 // Clase que permite la diferenciacion de los tipos de proveedor para iniciar sesión
 enum class  ProviderType {
@@ -23,14 +24,16 @@ enum class  ProviderType {
 
 class MainActivity : AppCompatActivity() {
     // Registros
-    private lateinit var registroAdapter: RegistroAdapter
-    private lateinit var dataListR: List<Registro>
+    private lateinit var dataListR: ArrayList<Registro>
+    private lateinit var recyclerViewR: RecyclerView
     // Contenidos
     private lateinit var dataListC: List<Contenido>
     // Destacados
     private lateinit var destacadoAdapter: DestacadoAdapter
     // Nuevos Contenidos
     private lateinit var contenidoNuevoAdapter: ContenidoNuevoAdapter
+    // Base de datos
+    private lateinit var database: DatabaseReference
 
     private var email: String? = null
     private var provider: String? = null
@@ -48,14 +51,12 @@ class MainActivity : AppCompatActivity() {
 
         // Registros ============================================================================================================
 
-        val recyclerViewR = findViewById<RecyclerView>(R.id.rv_registros)
+        recyclerViewR = findViewById<RecyclerView>(R.id.rv_registros)
         recyclerViewR.layoutManager = LinearLayoutManager(applicationContext, LinearLayoutManager.HORIZONTAL, false)
-        registroAdapter = RegistroAdapter(applicationContext)
-        recyclerViewR.adapter = registroAdapter
 
-        dataListR = listOf()
-
-        registroAdapter.setDataList(dataListR)
+        dataListR = arrayListOf()
+        dataListR.clear()
+        getData()
 
         // Contenidos ===========================================================================================================
 
@@ -65,15 +66,12 @@ class MainActivity : AppCompatActivity() {
         destacadoAdapter = DestacadoAdapter(applicationContext)
         recyclerViewD.adapter = destacadoAdapter
 
-        registroAdapter.setDataList(dataListR)
-
         // Adapter Contenidos Nuevos
         val recyclerViewC = findViewById<RecyclerView>(R.id.rv_nuevos_contenidos)
         recyclerViewC.layoutManager = LinearLayoutManager(applicationContext, LinearLayoutManager.HORIZONTAL, false)
         contenidoNuevoAdapter = ContenidoNuevoAdapter(applicationContext)
         recyclerViewC.adapter = contenidoNuevoAdapter
 
-        registroAdapter.setDataList(dataListR)
         // Lista de Contenidos
         dataListC = listOf(
             //contenido nuevo
@@ -476,5 +474,25 @@ class MainActivity : AppCompatActivity() {
             val home = Intent(this, Login::class.java)
             startActivity(home)
         }
+    }
+    // Toma los datos solicitados de la DB
+    private fun getData() {
+        val uid = FirebaseAuth.getInstance().currentUser?.uid.toString()
+        database = FirebaseDatabase.getInstance().getReference("Usuario").child(uid).child("registros")
+        database.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                if (snapshot.exists()) {
+                    for (reg in snapshot.children) {
+                        val registro = reg.getValue(Registro::class.java)
+                        dataListR.add(registro!!)
+                    }
+                    recyclerViewR.adapter = RegistroAdapter(applicationContext, dataListR)
+                }
+            }
+            override fun onCancelled(error: DatabaseError) {
+                Toast.makeText(applicationContext, "Error", Toast.LENGTH_SHORT).show()
+            }
+
+        })
     }
 }
