@@ -308,11 +308,8 @@ svg{
 	}
 	.info .contenido{
 		width: 100%;
+		padding: 10px;
 		text-align: center;
-	}
-	.info .texto{
-		padding-left: 50px;
-		padding-right: 50px;
 	}
 	.info .img-info{
 		width: 100%;
