@@ -291,10 +291,11 @@ svg{
 @media (max-width: 991px)
 {	
 	.portada{
+		min-width: 100%;
 		padding: 50px;
 	}
 	.portada .contenido h2{
-		font-size: 26px;
+		font-size: 100%;
 	}
 	.portada .contenido p{
 		font-size: 16px;
@@ -303,64 +304,77 @@ svg{
 		width: 225px;
 	}
 	.info{
-		padding: 0px;
-		text-align: center;
+		min-width: 100%;
 		flex-direction: column;
 	}
 	.info .contenido{
-		width: 100%;
 		padding: 0px;
+		width: 100%;
 		text-align: center;
 	}
-	.info .contenido .titulo{
+	.info .titulo{
+		font-size: 100%;
+	}
+	.info .texto{
 		text-align: center;
-		font-size: 26px;
+		font-size: 16px;
+		padding-left: 15px;
+		padding-right: 15px;
 	}
 	.info li{
 		text-align: center;
-		font-size: 15px;
+		font-size: 16px;
+		padding-left: 15px;
+		padding-right: 15px;
 	}
 	.info .img-info{
 		width: 100%;
-		min-height: 450px;
+		min-height: 425px;
 	}
 	.caracteristicas{
-		padding: 0px;
+		min-width: 100%;
+		padding: 10px;
 	}
 	.caracteristicas .titulo{
-		font-size: 26px;
+		font-size: 100%;
 	}
 	.caracteristicas .contenido{
-		padding: 5px;
+		padding: 20px;
 		justify-content: space-evenly;
 		flex-direction: column;
 	}
 	.caracteristicas .contenido .imagenes{
 		margin-top: 25px;
-		width: 225px;
-		height: 225px;
+		width: 200px;
+		min-width: 175px;
+		height: 350px;
 	}
 	.caracteristicas .contenido .imagenes img{
 		width: 50px;
 	}
 	.caracteristicas .contenido .imagenes h2{
-		font-size: 20px;
+		font-size: 100%;
 		font-weight: 500;
 	}
 	.caracteristicas .contenido .imagenes p{
 		text-align: justify-all;
-		font-size: 15px;
-		padding: 10px;
+		font-size: 14px;
+		padding: 15px;
+	}
+	.manual{
+		min-width: 100%;
+		padding: 0px;
+	}
+	.manual .titulo{
+			font-size: 100%;
+	}
+	.manual .contenido h2{
+				font-size: 90%;
+
 	}
 	.manual img{
-		width: 75%;
-	}
-	.manual .contenido{
-		width: 100%;
-	}
-	.manual .contenido .texto{
-		padding-left: 10px;
-		padding-right: 10px;
+		width: 225px;
+		height: 225px;
 	}
 	.manual .manual-1{
 		flex-direction: column;
@@ -371,11 +385,10 @@ svg{
 	.manual .manual-3{
 		flex-direction: column;
 	}
-	.manual .contenido h2{
-		font-size: 20px;
-	}
 	.footer{
+		min-width: 100%;
 		height: 500px;
+		margin-bottom: -2px;
 	}
 	.footer h1{
 		margin-top: 25px;
@@ -391,5 +404,6 @@ svg{
 		width: 100%;
 	}
 	.copyright{
+		min-width: 100%;
 		margin-bottom: 0;
 }
