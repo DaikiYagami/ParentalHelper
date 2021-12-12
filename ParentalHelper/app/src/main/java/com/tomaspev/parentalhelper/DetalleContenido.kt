@@ -1,5 +1,8 @@
 package com.tomaspev.parentalhelper
 
+import android.content.Context
+import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_detalle_contenido.*
@@ -22,6 +25,13 @@ class DetalleContenido : YouTubeBaseActivity() {
     private lateinit var youTubePlayer: YouTubePlayerView
     private lateinit var youtubePlayerInit: YouTubePlayer.OnInitializedListener
 
+    private var activity: String? = null
+
+    private lateinit var prefs: SharedPreferences.Editor
+    private var bundle: Bundle? = null
+    private var email: String? = null
+    private var provider: String? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detalle_contenido)
@@ -29,6 +39,7 @@ class DetalleContenido : YouTubeBaseActivity() {
 
         // Se recibe el objeto contenido pasado por el intent
         val contenido = intent.getSerializableExtra("contenido") as Contenido
+        activity = intent.getStringExtra("activity")
 
         // Se identifican los campos mostrados en el layout
         val titulo: TextView = findViewById(R.id.tv_detalle_contenido_titulo)
@@ -36,6 +47,7 @@ class DetalleContenido : YouTubeBaseActivity() {
         val tramo: TextView = findViewById(R.id.tv_detalle_contenido_tramo)
         val objetivo: TextView = findViewById(R.id.tv_detalle_contenido_objetivo)
 
+        val descripcion: TextView = findViewById(R.id.tv_detalle_contenido_descripcionShort)
         /*val descripcionShort: TextView = findViewById(R.id.tv_detalle_contenido_descripcionShort)*/
         val descripcionLong: TextView = findViewById(R.id.tv_detalle_contenido_descripcionLong)
 
@@ -48,6 +60,7 @@ class DetalleContenido : YouTubeBaseActivity() {
         tramo.text = contenido.tramo
         objetivo.text = contenido.objetivo
 
+        descripcion.text = contenido.descripcionShort
         descripcionLong.text = contenido.descripcionLong
 
 
@@ -72,8 +85,32 @@ class DetalleContenido : YouTubeBaseActivity() {
 
         }
         youTubePlayer.initialize(youtube_api_key, youtubePlayerInit)
+
+        bundle = intent.extras                               // Variable que rescata los extras que trae el Intent
+        email = bundle?.getString("email")              // Variable que rescata el correo
+        provider = bundle?.getString("provider")        // Variable que rescata el provider
+
+        prefs = getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE).edit()
     }
 
+    override fun onBackPressed() {
+        if (activity == "NewContent") {
+            intent = Intent(this, NewContent::class.java)
+            intent.putExtras(bundle!!)
+        }
+        else if (activity == "Destacados") {
+            intent = Intent(this, Destacados::class.java)
+            intent.putExtras(bundle!!)
+        }
+        else {
+            intent = Intent(this, MainActivity::class.java)
+            intent.putExtras(bundle!!)
+        }
+        if (intent != null) {
+            startActivity(intent)
+            finish()
+        }
+    }
 }
 
 

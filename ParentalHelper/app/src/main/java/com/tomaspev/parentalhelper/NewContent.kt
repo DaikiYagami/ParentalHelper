@@ -19,6 +19,7 @@ class NewContent : AppCompatActivity() {
     private lateinit var dataListC: List<Contenido>
 
     private lateinit var prefs: SharedPreferences.Editor
+    private var bundle: Bundle? = null
     private var email: String? = null
     private var provider: String? = null
 
@@ -375,11 +376,18 @@ class NewContent : AppCompatActivity() {
         val dataListNC = dataListC.filter { it.tipo == "Nuevo" }
         contenidoNuevoAdapter.setDataList(dataListNC)
 
-        val bundle = intent.extras                           // Variable que rescata los extras que trae el Intent
+        bundle = intent.extras                               // Variable que rescata los extras que trae el Intent
         email = bundle?.getString("email")              // Variable que rescata el correo
         provider = bundle?.getString("provider")        // Variable que rescata el provider
 
         prefs = getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE).edit()
+    }
+
+    override fun onBackPressed() {
+        intent = Intent(this, MainActivity::class.java)
+        intent.putExtras(bundle!!)
+        startActivity(intent)
+        finish()
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -389,6 +397,7 @@ class NewContent : AppCompatActivity() {
                 cerrarSesion(email, provider, true, prefs)
                 val home = Intent(this, Login::class.java)
                 startActivity(home)
+                finish()
             }
         }
         return super.onOptionsItemSelected(item)

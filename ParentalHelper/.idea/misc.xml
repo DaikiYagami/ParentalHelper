@@ -3,6 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/acer/Desktop/ParentalHelper/ParentalHelper/app/src/main/res/drawable/custom_gradient_bg.xml" value="0.3828125" />
+        <entry key="..\:/Users/acer/Desktop/ParentalHelper/ParentalHelper/app/src/main/res/drawable/custom_gradient_bg_2_corners.xml" value="0.3828125" />
+        <entry key="..\:/Users/acer/Desktop/ParentalHelper/ParentalHelper/app/src/main/res/drawable/custom_gradient_bg_4_corners.xml" value="0.3828125" />
+        <entry key="..\:/Users/acer/Desktop/ParentalHelper/ParentalHelper/app/src/main/res/drawable/custom_gradient_bg_blue_white.xml" value="0.3828125" />
+        <entry key="..\:/Users/acer/Desktop/ParentalHelper/ParentalHelper/app/src/main/res/drawable/custom_gradient_bg_white_blue.xml" value="0.3828125" />
+        <entry key="..\:/Users/acer/Desktop/ParentalHelper/ParentalHelper/app/src/main/res/drawable/custom_transparent_blue_bg.xml" value="0.3828125" />
         <entry key="..\:/Users/acer/Desktop/ParentalHelper/ParentalHelper/app/src/main/res/layout/activity_destacados.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/acer/Desktop/ParentalHelper/ParentalHelper/app/src/main/res/layout/activity_detalle_contenido.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/acer/Desktop/ParentalHelper/ParentalHelper/app/src/main/res/layout/activity_detalle_registro.xml" value="0.36666666666666664" />
@@ -11,16 +17,20 @@
         <entry key="..\:/Users/acer/Desktop/ParentalHelper/ParentalHelper/app/src/main/res/layout/activity_listado_registros.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/acer/Desktop/ParentalHelper/ParentalHelper/app/src/main/res/layout/activity_login.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/acer/Desktop/ParentalHelper/ParentalHelper/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/acer/Desktop/ParentalHelper/ParentalHelper/app/src/main/res/layout/activity_new_content.xml" value="0.33" />
+        <entry key="..\:/Users/acer/Desktop/ParentalHelper/ParentalHelper/app/src/main/res/layout/activity_new_content.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/acer/Desktop/ParentalHelper/ParentalHelper/app/src/main/res/layout/activity_registro_usuario.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/acer/Desktop/ParentalHelper/ParentalHelper/app/src/main/res/layout/registros_recyclerview_layout.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/acer/Desktop/ParentalHelper/ParentalHelper/app/src/main/res/layout/contenido_nuevo2_recyclerview_layout.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/acer/Desktop/ParentalHelper/ParentalHelper/app/src/main/res/layout/contenido_nuevo_recyclerview_layout.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/acer/Desktop/ParentalHelper/ParentalHelper/app/src/main/res/layout/destacados2_recyclerview_layout.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/acer/Desktop/ParentalHelper/ParentalHelper/app/src/main/res/layout/destacados_recyclerview_layout.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/acer/Desktop/ParentalHelper/ParentalHelper/app/src/main/res/layout/registros_recyclerview_layout.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/acer/Desktop/ParentalHelper/ParentalHelper/app/src/main/res/menu/menu_basico.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/golia/OneDrive - BiblioRedes CL/Documentos/GitHub/ParentalHelper/ParentalHelper/app/src/main/res/layout/activity_destacados.xml" value="0.18" />
         <entry key="..\:/Users/golia/OneDrive - BiblioRedes CL/Documentos/GitHub/ParentalHelper/ParentalHelper/app/src/main/res/layout/activity_detalle_contenido.xml" value="0.25" />
         <entry key="..\:/Users/golia/OneDrive - BiblioRedes CL/Documentos/GitHub/ParentalHelper/ParentalHelper/app/src/main/res/layout/activity_detalle_registro.xml" value="0.22" />
         <entry key="..\:/Users/golia/OneDrive - BiblioRedes CL/Documentos/GitHub/ParentalHelper/ParentalHelper/app/src/main/res/layout/activity_listado_registros.xml" value="0.17831813576494426" />
         <entry key="..\:/Users/golia/OneDrive - BiblioRedes CL/Documentos/GitHub/ParentalHelper/ParentalHelper/app/src/main/res/layout/activity_login.xml" value="0.327445652173913" />
-        <entry key="..\:/Users/golia/OneDrive - BiblioRedes CL/Documentos/GitHub/ParentalHelper/ParentalHelper/app/src/main/res/layout/activity_main.xml" value="0.5" />
+        <entry key="..\:/Users/golia/OneDrive - BiblioRedes CL/Documentos/GitHub/ParentalHelper/ParentalHelper/app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="..\:/Users/golia/OneDrive - BiblioRedes CL/Documentos/GitHub/ParentalHelper/ParentalHelper/app/src/main/res/layout/activity_new_content.xml" value="0.33" />
         <entry key="..\:/Users/golia/OneDrive - BiblioRedes CL/Documentos/GitHub/ParentalHelper/ParentalHelper/app/src/main/res/layout/contenido_nuevo2_recyclerview_layout.xml" value="0.17806484295845998" />
         <entry key="..\:/Users/golia/OneDrive - BiblioRedes CL/Documentos/GitHub/ParentalHelper/ParentalHelper/app/src/main/res/layout/contenido_nuevo_recyclerview_layout.xml" value="0.1" />
@@ -55,6 +65,7 @@
         <entry key="..\:/Users/regin/Documents/GitHub/ParentalHelper/ParentalHelper/app/src/main/res/layout/destacados_recyclerview_layout.xml" value="0.15364583333333334" />
         <entry key="..\:/Users/regin/Documents/GitHub/ParentalHelper/ParentalHelper/app/src/main/res/layout/listado_registros_recyclerview_layout.xml" value="0.75" />
         <entry key="..\:/Users/regin/Documents/GitHub/ParentalHelper/ParentalHelper/app/src/main/res/layout/registros_recyclerview_layout.xml" value="0.7271186440677966" />
+        <entry key="..\:/Users/regin/Documents/GitHub/ParentalHelper/ParentalHelper/app/src/main/res/menu/menu_volver.xml" value="0.27291666666666664" />
       </map>
     </option>
   </component>

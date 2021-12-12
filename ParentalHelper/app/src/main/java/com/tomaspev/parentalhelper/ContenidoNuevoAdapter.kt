@@ -33,13 +33,13 @@ class ContenidoNuevoAdapter(var context: Context): RecyclerView.Adapter<Contenid
 
         holder.titulo.text = data.titulo
 
-
         holder.cardView.setOnClickListener {
-            Toast.makeText(context, "Contenido Nuevo", Toast.LENGTH_SHORT).show()
             context = holder.itemView.context
             val intent = Intent(context, DetalleContenido::class.java)
+            intent.putExtra("activity", "Main")
             intent.putExtra("contenido", data)
             context.startActivity(intent)
+            (context as MainActivity).finish()
         }
     }
 

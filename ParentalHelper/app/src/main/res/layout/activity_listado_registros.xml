@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FAFAFA"
     tools:context=".ListadoRegistros">
 
     <androidx.appcompat.widget.Toolbar
@@ -38,8 +39,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ImageView
+        android:id="@+id/empty_listado_registros"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:src="@drawable/puzzle"
+        app:tint="#bab8b5"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_listado_registros_nombre" />
+
     <TextView
-        android:id="@+id/tv_detalle_registro_nombre"
+        android:id="@+id/tv_listado_registros_nombre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="72dp"

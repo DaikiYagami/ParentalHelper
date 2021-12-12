@@ -8,13 +8,7 @@ import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class ProgresoContenidoAdapter(var context: Context): RecyclerView.Adapter<ProgresoContenidoAdapter.ViewHolder>() {
-
-    private var dataList = arrayListOf<ProgresoContenido?>()
-
-    internal fun setDataList(dataList: ArrayList<ProgresoContenido?>) {
-        this.dataList = dataList
-    }
+class ProgresoContenidoAdapter(var context: Context, var dataList: ArrayList<ProgresoContenido?>): RecyclerView.Adapter<ProgresoContenidoAdapter.ViewHolder>() {
 
     class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         val titulo: TextView = itemView.findViewById(R.id.tv_detalle_registro_contenido_titulo)

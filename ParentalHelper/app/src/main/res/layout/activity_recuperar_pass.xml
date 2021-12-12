@@ -31,10 +31,12 @@
             android:id="@+id/textView5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:gravity="center"
-            android:text="Recuperación de Contraseña"
-            android:textColor="@color/black"
-            android:textSize="34sp" />
+            android:text="RECUPERACIÓN DE CONTRASEÑA"
+            android:textColor="@color/text"
+            android:textSize="32sp"
+            android:fontFamily="@font/montserrat_bold"/>
     </LinearLayout>
 
     <LinearLayout
@@ -57,9 +59,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Introduzca su correo electronico"
+            android:text="Introduzca su Correo Electronico"
             android:textColor="@color/secondary"
-            android:textSize="20sp" />
+            android:textSize="18sp"
+            android:fontFamily="@font/montserrat_regular"/>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/EmailResetTxT"
@@ -76,13 +79,16 @@
             app:placeholderText="ejemplo@gmail.com"
             app:placeholderTextColor="@color/text"
             app:startIconDrawable="@drawable/user"
-            app:startIconTint="@color/secondary">
+            app:startIconTint="@color/secondary"
+            android:fontFamily="@font/montserrat_regular">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Correo electrónico"
-                android:textColor="@color/black" />
+                android:hint="Correo Electrónico"
+                android:textColor="@color/black"
+                android:fontFamily="@font/montserrat_regular"
+                />
         </com.google.android.material.textfield.TextInputLayout>
 
         <androidx.appcompat.widget.AppCompatButton
@@ -94,8 +100,9 @@
             android:paddingLeft="64dp"
             android:paddingRight="64dp"
             android:text="enviar"
-            android:textColor="@color/white"
-            android:textSize="20sp" />
+            android:textColor="@color/secondary"
+            android:textSize="20sp"
+            android:fontFamily="@font/montserrat_semibold"/>
 
     </LinearLayout>
 

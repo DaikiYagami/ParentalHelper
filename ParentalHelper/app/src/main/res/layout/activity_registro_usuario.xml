@@ -31,10 +31,12 @@
             android:id="@+id/textView5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:gravity="center"
-            android:text="Registro"
-            android:textColor="@color/black"
-            android:textSize="34sp" />
+            android:text="REGISTRO"
+            android:fontFamily="@font/montserrat_bold"
+            android:textColor="@color/secondary"
+            android:textSize="32sp" />
 
     </LinearLayout>
 
@@ -67,15 +69,17 @@
             app:placeholderText="ejemplo@gmail.com"
             app:placeholderTextColor="@color/text"
             app:startIconDrawable="@drawable/user"
-            app:startIconTint="@color/secondary">
+            app:startIconTint="@color/secondary"
+            android:fontFamily="@font/montserrat_regular">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/iet_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Correo electrónico"
+                android:hint="Correo Electrónico"
                 android:inputType="textEmailAddress"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                android:fontFamily="@font/montserrat_regular"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -95,7 +99,8 @@
             app:helperTextEnabled="true"
             app:helperTextTextColor="@color/error"
             app:startIconDrawable="@drawable/padlock"
-            app:startIconTint="@color/secondary">
+            app:startIconTint="@color/secondary"
+            android:fontFamily="@font/montserrat_regular">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/iet_password"
@@ -104,7 +109,8 @@
                 android:hint="Contraseña"
                 android:inputType="textPassword"
                 android:maxLength="20"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                android:fontFamily="@font/montserrat_regular"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
@@ -116,7 +122,8 @@
             android:elevation="10dp"
             android:padding="10dp"
             android:text="@string/requisitos"
-            android:textColor="@color/black" />
+            android:textColor="@color/black"
+            android:fontFamily="@font/montserrat_regular"/>
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/signUpButton"
@@ -127,8 +134,9 @@
             android:paddingLeft="64dp"
             android:paddingRight="64dp"
             android:text="Registrarse"
-            android:textColor="@color/white"
-            android:textSize="20sp" />
+            android:textColor="@color/text"
+            android:textSize="20sp"
+            android:fontFamily="@font/montserrat_semibold"/>
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

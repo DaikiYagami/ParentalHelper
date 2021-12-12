@@ -40,6 +40,7 @@ class ListadoRegistrosAdapter(var context: Context, private var dataList: ArrayL
             val intent = Intent(context, DetalleRegistro::class.java)
             intent.putExtra("registro", data)
             context.startActivity(intent)
+            (context as ListadoRegistros).finish()
         }
     }
 

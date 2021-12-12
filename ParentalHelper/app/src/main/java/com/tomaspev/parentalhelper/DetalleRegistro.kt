@@ -8,19 +8,17 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.TextView
-import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.activity_detalle_registro.*
 
 class DetalleRegistro : AppCompatActivity() {
-    private lateinit var progresoContenidoAdapter: ProgresoContenidoAdapter
     private lateinit var dataList: ArrayList<ProgresoContenido?>
 
+    private lateinit var prefs: SharedPreferences.Editor
+    private var bundle: Bundle? = null
     private var email: String? = null
     private var provider: String? = null
-    private lateinit var prefs: SharedPreferences.Editor
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_basico, menu)
@@ -51,18 +49,26 @@ class DetalleRegistro : AppCompatActivity() {
         // Esto muestra el progreso en los contenidos asociados a este registro =================================================>>>
         val recyclerView = findViewById<RecyclerView>(R.id.rv_detalle_registro_contenidos)
         recyclerView.layoutManager = GridLayoutManager(applicationContext, 1, GridLayoutManager.VERTICAL, false)
-        progresoContenidoAdapter = ProgresoContenidoAdapter(applicationContext)
-        recyclerView.adapter = progresoContenidoAdapter
 
-        dataList = registro.progreso // ver -------------------------------
+        dataList = registro.progreso
+        if (dataList.size != 0) {
+            empty_detalle_registro.setImageResource(0)
+        }
+        recyclerView.adapter = ProgresoContenidoAdapter(applicationContext, dataList)
 
-        progresoContenidoAdapter.setDataList(dataList)
-
-        val bundle = intent.extras                           // Variable que rescata los extras que trae el Intent
+        // Valores necesarios para cerrar sesion
+        bundle = intent.extras                               // Variable que rescata los extras que trae el Intent
         email = bundle?.getString("email")              // Variable que rescata el correo
         provider = bundle?.getString("provider")        // Variable que rescata el provider
 
         prefs = getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE).edit()
+    }
+
+    override fun onBackPressed() {
+        intent = Intent(this, ListadoRegistros::class.java)
+        intent.putExtras(bundle!!)
+        startActivity(intent)
+        finish()
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -73,6 +79,7 @@ class DetalleRegistro : AppCompatActivity() {
                 cerrarSesion(email, provider, true, prefs)
                 val home = Intent(this, Login::class.java)
                 startActivity(home)
+                finish()
             }
 
         }

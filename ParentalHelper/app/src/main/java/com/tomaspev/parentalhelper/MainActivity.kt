@@ -7,13 +7,12 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.Toast
 import com.facebook.login.LoginManager
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_main.*
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.google.firebase.database.*
+import com.google.firebase.database.FirebaseDatabase
 
 // Clase que permite la diferenciacion de los tipos de proveedor para iniciar sesión
 enum class  ProviderType {
@@ -25,16 +24,14 @@ enum class  ProviderType {
 class MainActivity : AppCompatActivity() {
     // Registros
     private lateinit var dataListR: ArrayList<Registro>
-    private lateinit var recyclerViewR: RecyclerView
     // Contenidos
     private lateinit var dataListC: List<Contenido>
     // Destacados
     private lateinit var destacadoAdapter: DestacadoAdapter
     // Nuevos Contenidos
     private lateinit var contenidoNuevoAdapter: ContenidoNuevoAdapter
-    // Base de datos
-    private lateinit var database: DatabaseReference
 
+    private var bundle: Bundle? = null
     private var email: String? = null
     private var provider: String? = null
 
@@ -49,14 +46,18 @@ class MainActivity : AppCompatActivity() {
 
         setSupportActionBar(toolbar_main)
 
+        bundle = intent.extras                          // Variable que rescata los extras que trae el Intent
+        email = bundle?.getString("email")              // Variable que rescata el correo
+        provider = bundle?.getString("provider")        // Variable que rescata el provider
+
         // Registros ============================================================================================================
 
-        recyclerViewR = findViewById<RecyclerView>(R.id.rv_registros)
+        val recyclerViewR = findViewById<RecyclerView>(R.id.rv_registros)
         recyclerViewR.layoutManager = LinearLayoutManager(applicationContext, LinearLayoutManager.HORIZONTAL, false)
 
         dataListR = arrayListOf()
         dataListR.clear()
-        getData()
+        getData(recyclerViewR, dataListR, applicationContext, null, "Main", "registros", bundle)
 
         // Contenidos ===========================================================================================================
 
@@ -74,10 +75,10 @@ class MainActivity : AppCompatActivity() {
 
         // Lista de Contenidos
         dataListC = listOf(
-            //contenido nuevo
 
+            //Contenido Nuevo
             Contenido("Experimento Vaso de Agua y Carta de Naipe","3","Interacción y Comprensión \n" + " del Entorno","Exploración del Entorno Natural","Medio", "Experimentar con materiales cotidianos tales como: agua y aire describiendo lo observado.","g615EoOIlug","En esta actividad los niños podrán aprender como funcionan las fuerzas de gravedad y tensión superficial del agua","¿Qué materiales usar? \n" +
-        " Una carta de naipe. Un vaso de vidrio lleno de agua hasta el borde y un recipiente para contener el agua (por si el experimento falle) \n" +
+                " Una carta de naipe. Un vaso de vidrio lleno de agua hasta el borde y un recipiente para contener el agua (por si el experimento falle) \n" +
                 " ¿Qué hace el adulto? \n" +
                 " El adulto invita al niño/a a hacer un experimento motivándolo con la siguiente pregunta: ¿Cómo podemos voltear un vaso lleno de agua sin que se caiga el agua? Invitándolo a llenar un vaso de vidrio con agua hasta el borde y depositar el vaso en una fuente que pueda retener el agua por si el experimento falla, luego invitara al niño/a a poner la carta de naipe sobre el vaso y a dar vuelta el vaso viendo que ocurre. Preguntando al niño/a por que ocurre lo que ocurre. \n" +
                 "Explicación científica: sobre la carta actúan dos fuerzas, el peso del agua y la presión atmosférica, la presión atmosférica es mayor y empuja la carta hacia arriba. Aunque por poco si movemos la carta segura se cae. \n" +
@@ -86,7 +87,7 @@ class MainActivity : AppCompatActivity() {
                 " ¿Qué debo observar? \n" +
                 "El adulto junto al niño /a puede evaluar el trabajo con preguntas tales como: ¿Por qué ocurre eso?, buscando posibles respuestas. Luego hablaran si les gusto la experiencia si le gustaría hacer nuevos experimentos otro día. ","Nuevo")
 
-        ,Contenido("Ver video de Cuento Monstruo Triste Monstruo Feliz","2","Desarrollo Personal y Social","Identidad y Autonomía","Medio", "Reconocer en sí mismo, en otras personas y en personajes de cuentos, emociones tales como: tristeza, miedo, alegría, pena y rabia.","IuEYPS9vTak","En esta actividad los niños podrán desarrollar sus habilidades de crecimiento personal e identidad","¿Qué materiales usar? \n" +
+            ,Contenido("Ver video de Cuento Monstruo Triste Monstruo Feliz","2","Desarrollo Personal y Social","Identidad y Autonomía","Medio", "Reconocer en sí mismo, en otras personas y en personajes de cuentos, emociones tales como: tristeza, miedo, alegría, pena y rabia.","IuEYPS9vTak","En esta actividad los niños podrán desarrollar sus habilidades de crecimiento personal e identidad","¿Qué materiales usar? \n" +
                 " Video del cuento monstruo tiste monstruo feliz. https://www.youtube.com/watch?v=B9YMaeehOmk Materiales para el dibujo\n" +
                 " ¿Qué hace el adulto? \n" +
                 "El adulto invita al niño/a a ver un video del cuento “Monstruo Triste Monstruo feliz”, luego de ver el video conversaran en torno a las cosas que lo hacen ponerse triste, las cosas que lo hacen poner enojado, las cosas que lo hacen sentir cariñoso, las cosas que lo hacen sentir triste, las cosas que lo hacen sentir miedo, las cosas que lo hacen sentir furioso, las cosas que lo hacen sentir divertido. \n" +
@@ -97,7 +98,7 @@ class MainActivity : AppCompatActivity() {
                 "El adulto junto al niño/a puede evaluar el trabajo con preguntas tales como: ¿Cómo te sientes hoy ?, ¿Cómo te sientes con mayor frecuencia?,\n" +
                 "¿Por qué te sientes así?\n","Nuevo")
 
-        ,Contenido("Hacer barquitos de papel y jugar en fuente de agua","3","Interacción y Comprensión \n" + " del Entorno","Pensamiento Matemático ","Medio", "Experimentar con materiales cotidianos tales como: agua y aire describiendo lo observado.","Laj6AuGri2w","En esta actividad los niños podrán elavorar un barco de papel y luego descubrir los principios de flotabilidad","¿Qué materiales usar? \n" +
+            ,Contenido("Hacer barquitos de papel y jugar en fuente de agua","3","Interacción y Comprensión \n" + " del Entorno","Pensamiento Matemático ","Medio", "Experimentar con materiales cotidianos tales como: agua y aire describiendo lo observado.","Laj6AuGri2w","En esta actividad los niños podrán elavorar un barco de papel y luego descubrir los principios de flotabilidad","¿Qué materiales usar? \n" +
                 " Una carta de naipe. Un vaso de vidrio lleno de agua hasta el borde y un recipiente para contener el agua (por si el experimento falle) \n" +
                 " ¿Qué hace el adulto? \n" +
                 " El adulto invita al niño/a a hacer un experimento motivándolo con la siguiente pregunta: ¿Cómo podemos voltear un vaso lleno de agua sin que se caiga el agua? Invitándolo a llenar un vaso de vidrio con agua hasta el borde y depositar el vaso en una fuente que pueda retener el agua por si el experimento falla, luego invitara al niño/a a poner la carta de naipe sobre el vaso y a dar vuelta el vaso viendo que ocurre. Preguntando al niño/a por que ocurre lo que ocurre. \n" +
@@ -235,9 +236,7 @@ class MainActivity : AppCompatActivity() {
 
 
 
-
-            //contenido destacado
-
+            //Contenido Destacado
             ,Contenido("Mi identidad","3","Desarrollo Personal y Social","Identidad y Autonomía","Medio", "Comunicar algunos rasgos de su identidad, como nombre, características corporales, género y otros.","srmiSiJHCxQ","En esta actividad los niños podrán complementar su sentir consigo mismos.","¿Qué materiales usar? \n" +
                     "Espejo (ideal a la altura del niño). 1 trozo de cartón, block, cartulina, etc. Lana, pitilla, \uF0B7 Botones grandes, tapitas. Lápices, plumones. Colafria u otro pegamento. Otros materiales que tengan para la representación del niño\n" +
                     "¿Qué hace el adulto? \n" +
@@ -416,24 +415,23 @@ class MainActivity : AppCompatActivity() {
 
         // Resto del código =====================================================================================================
 
-        val bundle = intent.extras                               // Variable que rescata los extras que trae el Intent
-        email = bundle?.getString("email")              // Variable que rescata el correo
-        provider = bundle?.getString("provider")        // Variable que rescata el provider
-
         tv_todos_registros.setOnClickListener {
             val intent = Intent(this, ListadoRegistros::class.java)
             intent.putExtras(bundle!!)
             startActivity(intent)
+            finish()
         }
         tv_todos_destacados.setOnClickListener {
             val intent = Intent(this, Destacados::class.java)
             intent.putExtras(bundle!!)
             startActivity(intent)
+            finish()
         }
         tv_todos_nuevos.setOnClickListener {
             val intent = Intent(this, NewContent::class.java)
             intent.putExtras(bundle!!)
             startActivity(intent)
+            finish()
         }
 
         setup(email ?: "", provider ?: "", false)         // Carga la funcion y sus datos provenientes de otros activity
@@ -443,6 +441,10 @@ class MainActivity : AppCompatActivity() {
         prefs.putString("email", email)
         prefs.putString("provider", provider)
         prefs.apply()
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -473,26 +475,7 @@ class MainActivity : AppCompatActivity() {
             FirebaseAuth.getInstance().signOut()
             val home = Intent(this, Login::class.java)
             startActivity(home)
+            finish()
         }
-    }
-    // Toma los datos solicitados de la DB
-    private fun getData() {
-        val uid = FirebaseAuth.getInstance().currentUser?.uid.toString()
-        database = FirebaseDatabase.getInstance().getReference("Usuario").child(uid).child("registros")
-        database.addValueEventListener(object : ValueEventListener {
-            override fun onDataChange(snapshot: DataSnapshot) {
-                if (snapshot.exists()) {
-                    for (reg in snapshot.children) {
-                        val registro = reg.getValue(Registro::class.java)
-                        dataListR.add(registro!!)
-                    }
-                    recyclerViewR.adapter = RegistroAdapter(applicationContext, dataListR)
-                }
-            }
-            override fun onCancelled(error: DatabaseError) {
-                Toast.makeText(applicationContext, "Error", Toast.LENGTH_SHORT).show()
-            }
-
-        })
     }
 }

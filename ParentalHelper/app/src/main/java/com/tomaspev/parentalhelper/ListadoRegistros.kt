@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -16,11 +17,11 @@ import kotlinx.android.synthetic.main.activity_listado_registros.*
 import java.util.HashMap
 
 class ListadoRegistros : AppCompatActivity() {
-    private lateinit var database: DatabaseReference
     private lateinit var dataList: ArrayList<Registro>
     private lateinit var recyclerView: RecyclerView
 
     private lateinit var prefs: SharedPreferences.Editor
+    private var bundle: Bundle? = null
     private var email: String? = null
     private var provider: String? = null
 
@@ -35,13 +36,22 @@ class ListadoRegistros : AppCompatActivity() {
 
         setSupportActionBar(toolbar_listado_registros)
 
+        val img = empty_listado_registros
+        img.setImageResource(R.drawable.puzzle)
+
         recyclerView = findViewById(R.id.rv_lista_registros)
         recyclerView.layoutManager = GridLayoutManager(applicationContext, 1)
 
         dataList = arrayListOf()
         dataList.clear()
-        getData()
+        getData(recyclerView, dataList, applicationContext, img, "ListadoRegistro", "registros", null)
         // Resto del código =======================================================================
+
+        bundle = intent.extras                               // Variable que rescata los extras que trae el Intent
+        email = bundle?.getString("email")              // Variable que rescata el correo
+        provider = bundle?.getString("provider")        // Variable que rescata el provider
+
+        prefs = getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE).edit()
 
         fab.setOnClickListener {
             /* // Esto es para agregar datos en progreso contenido nomas, solo temporal
@@ -55,36 +65,19 @@ class ListadoRegistros : AppCompatActivity() {
             database.child(uid).child("registros").child("Javiera").child("progreso").child("1").setValue(map)*/
 
             val intent = Intent(this, IngresoRegistro::class.java)
+            intent.putExtras(bundle!!)
             startActivity(intent)
+            finish()
         }
-
-        val bundle = intent.extras                           // Variable que rescata los extras que trae el Intent
-        email = bundle?.getString("email")              // Variable que rescata el correo
-        provider = bundle?.getString("provider")        // Variable que rescata el provider
-
-        prefs = getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE).edit()
-
     }
-    // Toma los datos solicitados de la DB
-    private fun getData() {
-        val uid = FirebaseAuth.getInstance().currentUser?.uid.toString()
-        database = FirebaseDatabase.getInstance().getReference("Usuario").child(uid).child("registros")
-        database.addValueEventListener(object : ValueEventListener {
-            override fun onDataChange(snapshot: DataSnapshot) {
-                if (snapshot.exists()) {
-                    for (reg in snapshot.children) {
-                        val registro = reg.getValue(Registro::class.java)
-                        dataList.add(registro!!)
-                    }
-                    recyclerView.adapter = ListadoRegistrosAdapter(applicationContext, dataList)
-                }
-            }
-            override fun onCancelled(error: DatabaseError) {
-                Toast.makeText(applicationContext, "Error", Toast.LENGTH_SHORT).show()
-            }
 
-        })
+    override fun onBackPressed() {
+        intent = Intent(this, MainActivity::class.java)
+        intent.putExtras(bundle!!)
+        startActivity(intent)
+        finish()
     }
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
         when (item.itemId) {
@@ -93,6 +86,7 @@ class ListadoRegistros : AppCompatActivity() {
                 cerrarSesion(email, provider, true, prefs)
                 val home = Intent(this, Login::class.java)
                 startActivity(home)
+                finish()
             }
 
         }

@@ -1,5 +1,6 @@
 package com.tomaspev.parentalhelper
 
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
@@ -37,8 +38,10 @@ class ListadoContenidoNuevoAdapter(var context: Context): RecyclerView.Adapter<L
         holder.cardView.setOnClickListener {
             context = holder.itemView.context
             val intent = Intent(context, DetalleContenido::class.java)
+            intent.putExtra("activity", "NewContent")
             intent.putExtra("contenido", data)
             context.startActivity(intent)
+            (context as NewContent).finish()
         }
     }
 
