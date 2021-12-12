@@ -34,11 +34,12 @@ class DestacadoAdapter(var context: Context): RecyclerView.Adapter<DestacadoAdap
         holder.titulo.text = data.titulo
 
         holder.cardView.setOnClickListener {
-            Toast.makeText(context, "Destacado", Toast.LENGTH_SHORT).show()
             context = holder.itemView.context
             val intent = Intent(context, DetalleContenido::class.java)
+            intent.putExtra("activity", "Main")
             intent.putExtra("contenido", data)
             context.startActivity(intent)
+            (context as MainActivity).finish()
         }
     }
 

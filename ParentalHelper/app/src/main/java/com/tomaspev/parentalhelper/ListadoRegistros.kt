@@ -21,6 +21,7 @@ class ListadoRegistros : AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
 
     private lateinit var prefs: SharedPreferences.Editor
+    private var bundle: Bundle? = null
     private var email: String? = null
     private var provider: String? = null
 
@@ -43,8 +44,14 @@ class ListadoRegistros : AppCompatActivity() {
 
         dataList = arrayListOf()
         dataList.clear()
-        getData(recyclerView, dataList, applicationContext, img, "ListadoRegistro", "registros")
+        getData(recyclerView, dataList, applicationContext, img, "ListadoRegistro", "registros", null)
         // Resto del código =======================================================================
+
+        bundle = intent.extras                               // Variable que rescata los extras que trae el Intent
+        email = bundle?.getString("email")              // Variable que rescata el correo
+        provider = bundle?.getString("provider")        // Variable que rescata el provider
+
+        prefs = getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE).edit()
 
         fab.setOnClickListener {
             /* // Esto es para agregar datos en progreso contenido nomas, solo temporal
@@ -58,15 +65,17 @@ class ListadoRegistros : AppCompatActivity() {
             database.child(uid).child("registros").child("Javiera").child("progreso").child("1").setValue(map)*/
 
             val intent = Intent(this, IngresoRegistro::class.java)
+            intent.putExtras(bundle!!)
             startActivity(intent)
+            finish()
         }
+    }
 
-        val bundle = intent.extras                           // Variable que rescata los extras que trae el Intent
-        email = bundle?.getString("email")              // Variable que rescata el correo
-        provider = bundle?.getString("provider")        // Variable que rescata el provider
-
-        prefs = getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE).edit()
-
+    override fun onBackPressed() {
+        intent = Intent(this, MainActivity::class.java)
+        intent.putExtras(bundle!!)
+        startActivity(intent)
+        finish()
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -77,6 +86,7 @@ class ListadoRegistros : AppCompatActivity() {
                 cerrarSesion(email, provider, true, prefs)
                 val home = Intent(this, Login::class.java)
                 startActivity(home)
+                finish()
             }
 
         }

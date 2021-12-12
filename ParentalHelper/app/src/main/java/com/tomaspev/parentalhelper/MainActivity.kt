@@ -31,6 +31,7 @@ class MainActivity : AppCompatActivity() {
     // Nuevos Contenidos
     private lateinit var contenidoNuevoAdapter: ContenidoNuevoAdapter
 
+    private var bundle: Bundle? = null
     private var email: String? = null
     private var provider: String? = null
 
@@ -45,6 +46,10 @@ class MainActivity : AppCompatActivity() {
 
         setSupportActionBar(toolbar_main)
 
+        bundle = intent.extras                               // Variable que rescata los extras que trae el Intent
+        email = bundle?.getString("email")              // Variable que rescata el correo
+        provider = bundle?.getString("provider")        // Variable que rescata el provider
+
         // Registros ============================================================================================================
 
         val recyclerViewR = findViewById<RecyclerView>(R.id.rv_registros)
@@ -52,7 +57,7 @@ class MainActivity : AppCompatActivity() {
 
         dataListR = arrayListOf()
         dataListR.clear()
-        getData(recyclerViewR, dataListR, applicationContext, null, "Main", "registros")
+        getData(recyclerViewR, dataListR, applicationContext, null, "Main", "registros", bundle)
 
         // Contenidos ===========================================================================================================
 
@@ -410,24 +415,23 @@ class MainActivity : AppCompatActivity() {
 
         // Resto del código =====================================================================================================
 
-        val bundle = intent.extras                           // Variable que rescata los extras que trae el Intent
-        email = bundle?.getString("email")              // Variable que rescata el correo
-        provider = bundle?.getString("provider")        // Variable que rescata el provider
-
         tv_todos_registros.setOnClickListener {
             val intent = Intent(this, ListadoRegistros::class.java)
             intent.putExtras(bundle!!)
             startActivity(intent)
+            finish()
         }
         tv_todos_destacados.setOnClickListener {
             val intent = Intent(this, Destacados::class.java)
             intent.putExtras(bundle!!)
             startActivity(intent)
+            finish()
         }
         tv_todos_nuevos.setOnClickListener {
             val intent = Intent(this, NewContent::class.java)
             intent.putExtras(bundle!!)
             startActivity(intent)
+            finish()
         }
 
         setup(email ?: "", provider ?: "", false)         // Carga la funcion y sus datos provenientes de otros activity
@@ -437,6 +441,10 @@ class MainActivity : AppCompatActivity() {
         prefs.putString("email", email)
         prefs.putString("provider", provider)
         prefs.apply()
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -467,6 +475,7 @@ class MainActivity : AppCompatActivity() {
             FirebaseAuth.getInstance().signOut()
             val home = Intent(this, Login::class.java)
             startActivity(home)
+            finish()
         }
     }
 }

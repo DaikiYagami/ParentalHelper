@@ -3,6 +3,7 @@ package com.tomaspev.parentalhelper
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
+import android.os.Bundle
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
@@ -13,7 +14,8 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 // Toma los datos solicitados de la DB
-fun getData(recyclerView: RecyclerView, dataList: ArrayList<Registro>, context: Context, img: ImageView?, adapter: String, ref: String) {
+fun getData(recyclerView: RecyclerView, dataList: ArrayList<Registro>, context: Context, img: ImageView?, adapter: String, ref: String, bundle: Bundle?) {
+    dataList.clear()
     val uid = FirebaseAuth.getInstance().currentUser?.uid.toString()
     val database = FirebaseDatabase.getInstance().getReference("Usuario").child(uid).child(ref)
     database.addValueEventListener(object : ValueEventListener {
@@ -29,7 +31,7 @@ fun getData(recyclerView: RecyclerView, dataList: ArrayList<Registro>, context: 
                 }
                 else if (adapter == "Main") {
                     dataList.add(Registro())
-                    recyclerView.adapter = RegistroAdapter(context, dataList)
+                    recyclerView.adapter = RegistroAdapter(context, dataList, bundle)
                 }
                 // Imagen de fondo en caso de no haber registros
                 if (img != null) {

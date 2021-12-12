@@ -2,6 +2,7 @@ package com.tomaspev.parentalhelper
 
 import android.content.Context
 import android.content.Intent
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -18,7 +19,7 @@ import java.util.*
 import kotlin.collections.ArrayList
 import kotlin.math.absoluteValue
 
-class RegistroAdapter(var context: Context, var dataList: ArrayList<Registro>): RecyclerView.Adapter<RegistroAdapter.ViewHolder>() {
+class RegistroAdapter(var context: Context, var dataList: ArrayList<Registro>, var bundle: Bundle?): RecyclerView.Adapter<RegistroAdapter.ViewHolder>() {
 
     class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         val nombre: TextView = itemView.findViewById(R.id.tv_nombre)
@@ -51,7 +52,9 @@ class RegistroAdapter(var context: Context, var dataList: ArrayList<Registro>): 
             holder.cardView.setOnClickListener {
                 context = holder.itemView.context
                 val intent = Intent(context, IngresoRegistro::class.java)
+                intent.putExtras(bundle!!)
                 context.startActivity(intent)
+                (context as MainActivity).finish()
             }
         }
     }

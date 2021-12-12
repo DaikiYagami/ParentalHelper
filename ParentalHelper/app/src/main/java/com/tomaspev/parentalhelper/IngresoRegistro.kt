@@ -10,6 +10,7 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.DatePicker
+import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
@@ -21,6 +22,7 @@ class IngresoRegistro : AppCompatActivity(), DatePickerDialog.OnDateSetListener 
     private lateinit var database: DatabaseReference
 
     private lateinit var prefs: SharedPreferences.Editor
+    private var bundle: Bundle? = null
     private var email: String? = null
     private var provider: String? = null
 
@@ -63,6 +65,7 @@ class IngresoRegistro : AppCompatActivity(), DatePickerDialog.OnDateSetListener 
 
             // Volver al activity anterior
             val intent = Intent(this, ListadoRegistros::class.java)
+            intent.putExtras(bundle!!)
             startActivity(intent)
             finish()
         }
@@ -71,7 +74,7 @@ class IngresoRegistro : AppCompatActivity(), DatePickerDialog.OnDateSetListener 
             pickDate()
         }
 
-        val bundle = intent.extras                           // Variable que rescata los extras que trae el Intent
+        bundle = intent.extras                               // Variable que rescata los extras que trae el Intent
         email = bundle?.getString("email")              // Variable que rescata el correo
         provider = bundle?.getString("provider")        // Variable que rescata el provider
 
@@ -102,6 +105,13 @@ class IngresoRegistro : AppCompatActivity(), DatePickerDialog.OnDateSetListener 
         btn_date_picker.text = "$sdd/$smm/$syy"
     }
 
+    override fun onBackPressed() {
+        intent = Intent(this, ListadoRegistros::class.java)
+        intent.putExtras(bundle!!)
+        startActivity(intent)
+        finish()
+    }
+
     // Barra de Acciones
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
@@ -111,6 +121,7 @@ class IngresoRegistro : AppCompatActivity(), DatePickerDialog.OnDateSetListener 
                 cerrarSesion(email, provider, true, prefs)
                 val home = Intent(this, Login::class.java)
                 startActivity(home)
+                finish()
             }
 
         }
