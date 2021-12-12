@@ -288,14 +288,13 @@ svg{
 	text-align: center;
 	height: 35px;
 }
-
 @media (max-width: 991px)
 {	
 	.portada{
 		padding: 50px;
 	}
 	.portada .contenido h2{
-		font-size: 28px;
+		font-size: 26px;
 	}
 	.portada .contenido p{
 		font-size: 16px;
@@ -304,27 +303,32 @@ svg{
 		width: 225px;
 	}
 	.info{
+		padding: 0px;
 		text-align: center;
 		flex-direction: column;
 	}
 	.info .contenido{
 		width: 100%;
-		padding: 10px;
+		padding: 0px;
 		text-align: center;
 	}
 	.info .contenido .titulo{
 		text-align: center;
-		font-size: 28px;
+		font-size: 26px;
+	}
+	.info li{
+		text-align: center;
+		font-size: 15px;
 	}
 	.info .img-info{
 		width: 100%;
 		min-height: 450px;
 	}
 	.caracteristicas{
-		padding: 10px;
+		padding: 0px;
 	}
 	.caracteristicas .titulo{
-		font-size: 28px;
+		font-size: 26px;
 	}
 	.caracteristicas .contenido{
 		padding: 5px;
@@ -333,11 +337,11 @@ svg{
 	}
 	.caracteristicas .contenido .imagenes{
 		margin-top: 25px;
-		width: 250px;
-		height: 250px;
+		width: 225px;
+		height: 225px;
 	}
 	.caracteristicas .contenido .imagenes img{
-		width: 75px;
+		width: 50px;
 	}
 	.caracteristicas .contenido .imagenes h2{
 		font-size: 20px;
@@ -349,14 +353,14 @@ svg{
 		padding: 10px;
 	}
 	.manual img{
-		width: 65%;
+		width: 75%;
 	}
 	.manual .contenido{
 		width: 100%;
 	}
 	.manual .contenido .texto{
-		padding-left: 100px;
-		padding-right: 100px;
+		padding-left: 10px;
+		padding-right: 10px;
 	}
 	.manual .manual-1{
 		flex-direction: column;
@@ -366,6 +370,9 @@ svg{
 	}
 	.manual .manual-3{
 		flex-direction: column;
+	}
+	.manual .contenido h2{
+		font-size: 20px;
 	}
 	.footer{
 		height: 500px;
