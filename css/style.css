@@ -295,7 +295,7 @@ svg{
 		padding: 50px;
 	}
 	.portada .contenido h2{
-		font-size: 40px;
+		font-size: 28px;
 	}
 	.portada .contenido p{
 		font-size: 16px;
@@ -310,9 +310,6 @@ svg{
 		width: 100%;
 		text-align: center;
 	}
-	.info .titulo{
-		font-size: 40px;
-	}
 	.info .texto{
 		padding-left: 50px;
 		padding-right: 50px;
@@ -324,8 +321,8 @@ svg{
 	.caracteristicas{
 		padding: 15px;
 	}
-	.caracteristicas .titulo{
-		font-size: 40px;
+	.titulo{
+		font-size: 28px;
 	}
 	.caracteristicas .contenido{
 		padding: 25px;
@@ -333,15 +330,15 @@ svg{
 		flex-direction: column;
 	}
 	.caracteristicas .contenido .imagenes{
-		margin-top: 30px;
-		width: 325px;
-		height: 325px;
+		margin-top: 25px;
+		width: 250px;
+		height: 250px;
 	}
 	.caracteristicas .contenido .imagenes img{
 		width: 75px;
 	}
 	.caracteristicas .contenido .imagenes h2{
-		font-size: 26px;
+		font-size: 20px;
 		font-weight: 500;
 	}
 	.caracteristicas .contenido .imagenes p{
