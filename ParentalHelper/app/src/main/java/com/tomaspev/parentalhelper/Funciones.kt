@@ -43,6 +43,13 @@ fun getData(recyclerView: RecyclerView, dataList: ArrayList<Registro>, context: 
                     }
                 }
             }
+            // En caso de que el campo registro no exista en la DB
+            else {
+                if (adapter == "Main") {
+                    dataList.add(Registro())
+                    recyclerView.adapter = RegistroAdapter(context, dataList, bundle)
+                }
+            }
         }
         override fun onCancelled(error: DatabaseError) {
             Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show()
