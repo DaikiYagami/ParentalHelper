@@ -402,7 +402,6 @@ class MainActivity : AppCompatActivity() {
                     "El adulto junto al niño /a puede evaluar el trabajo con preguntas tales como: ¿Por qué ocurre eso?, buscando posibles respuestas. Luego hablaran si les gusto la experiencia si le gustaría hacer nuevos experimentos otro día. ","Destacado")
 
 
-
         )
 
         // Lista Contenidos Destacados
