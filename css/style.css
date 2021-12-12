@@ -304,6 +304,7 @@ svg{
 		width: 225px;
 	}
 	.info{
+		text-align: center;
 		flex-direction: column;
 	}
 	.info .contenido{
@@ -311,18 +312,22 @@ svg{
 		padding: 10px;
 		text-align: center;
 	}
+	.info .contenido .titulo{
+		text-align: center;
+		font-size: 28px;
+	}
 	.info .img-info{
 		width: 100%;
 		min-height: 450px;
 	}
 	.caracteristicas{
-		padding: 15px;
+		padding: 10px;
 	}
-	.titulo{
+	.caracteristicas .titulo{
 		font-size: 28px;
 	}
 	.caracteristicas .contenido{
-		padding: 25px;
+		padding: 5px;
 		justify-content: space-evenly;
 		flex-direction: column;
 	}
