@@ -310,19 +310,16 @@ svg{
 		width: 100%;
 		text-align: center;
 	}
-	.info li{
-		padding-left: 100px;
-		padding-right: 100px;
+	.info .titulo{
+		font-size: 40px;
 	}
 	.info .texto{
-		padding-left: 100px;
-		padding-right: 100px;
+		padding-left: 50px;
+		padding-right: 50px;
 	}
 	.info .img-info{
 		width: 100%;
-		padding: 50px;
-		min-height: 500px;
-		text-align: center;
+		min-height: 450px;
 	}
 	.caracteristicas{
 		padding: 15px;
