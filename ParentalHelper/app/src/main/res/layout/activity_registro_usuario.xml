@@ -76,7 +76,7 @@
                 android:id="@+id/iet_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Correo electrónico"
+                android:hint="Correo Electrónico"
                 android:inputType="textEmailAddress"
                 android:textColor="@color/black"
                 android:fontFamily="@font/montserrat_regular"/>

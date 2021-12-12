@@ -59,7 +59,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Introduzca su correo electronico"
+            android:text="Introduzca su Correo Electronico"
             android:textColor="@color/secondary"
             android:textSize="18sp"
             android:fontFamily="@font/montserrat_regular"/>
@@ -85,7 +85,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Correo electrónico"
+                android:hint="Correo Electrónico"
                 android:textColor="@color/black"
                 android:fontFamily="@font/montserrat_regular"
                 />
