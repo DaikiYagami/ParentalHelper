@@ -56,13 +56,13 @@ class ListadoRegistros : AppCompatActivity() {
         fab.setOnClickListener {
             /* // Esto es para agregar datos en progreso contenido nomas, solo temporal
             val uid = FirebaseAuth.getInstance().currentUser?.uid.toString()
-            database = FirebaseDatabase.getInstance().getReference("Usuario")
+            val database = FirebaseDatabase.getInstance().getReference("Usuario")
 
             val map: MutableMap<String, Any> = HashMap()
-            map.put("id", 1)
-            map.put("progreso", 70)
+            map.put("id", 7)
+            map.put("progreso", 10)
 
-            database.child(uid).child("registros").child("Javiera").child("progreso").child("1").setValue(map)*/
+            database.child(uid).child("registros").child("Javiera").child("progreso").child("7").setValue(map)*/
 
             val intent = Intent(this, IngresoRegistro::class.java)
             intent.putExtras(bundle!!)

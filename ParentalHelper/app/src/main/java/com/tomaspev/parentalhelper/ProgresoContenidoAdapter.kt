@@ -23,8 +23,10 @@ class ProgresoContenidoAdapter(var context: Context, var dataList: ArrayList<Pro
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val data = dataList[position]
+        var nucleosList = arrayListOf<String>("Identidad y Autonomía.", "Convivencia y Ciudadanía.", "Corporalidad y Movimiento.", "Lenguaje Verbal.",
+                "Lenguajes Artísticos.", "Exploracion del Entorno Natural.", "Comprension del Entorno Sociocultural.", "Pensamiento Matemático.")
 
-        holder.titulo.text = "Contenido por hacer." //data.contenido.titulo
+        holder.titulo.text = nucleosList[position]    //"Contenido por hacer." //data.contenido.titulo
         holder.progresoTV.text = data?.progreso!!.toString() + "%"
         holder.progresoPB.progress = data.progreso.toInt()
     }
